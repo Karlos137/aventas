@@ -6,6 +6,7 @@ const AventasLogo = () => {
       height='53'
       fill='none'
       viewBox='0 0 53 53'
+      aria-label='Aventas logo'
     >
       <path
         fill='#BCA696'

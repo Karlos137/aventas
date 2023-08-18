@@ -1,22 +1,23 @@
 // React
-import React from "react"
-import type { Preview } from "@storybook/react"
+import React from 'react'
+import type { Preview } from '@storybook/react'
 
 // Styles
-import "tailwindcss/tailwind.css"
-import "../app/globals.css"
+import 'tailwindcss/tailwind.css'
+import '../app/globals.css'
 
 // Next Font
-import { Inter } from "next/font/google"
+import { Inter } from 'next/font/google'
 
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
 })
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -28,8 +29,8 @@ const preview: Preview = {
     },
     backgrounds: {
       values: [
-        { name: "light", value: "#FFFFFF" },
-        { name: "dark", value: "#000000" },
+        { name: 'light', value: '#FFFFFF' },
+        { name: 'dark', value: '#000000' },
       ],
     },
   },

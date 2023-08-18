@@ -1,4 +1,10 @@
+import Navbar from '@/components/Navbar'
+
 const Home = () => {
-  return <>Aventas</>
+  return (
+    <>
+      <Navbar />
+    </>
+  )
 }
 export default Home
