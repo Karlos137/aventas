@@ -105,5 +105,9 @@
 
   /* CUSTOM START */
 
+  html {
+    @apply scroll-smooth;
+  }
+
   /* CUSTOM END */
 }

@@ -41,7 +41,15 @@ const Navbar = () => {
               setMenuOpen(nextOpen)
             }}
           />
-          <AnimatePresence>{menuOpen && <HamburgerMenu />}</AnimatePresence>
+          <AnimatePresence>
+            {menuOpen && (
+              <HamburgerMenu
+                onLinkClick={() => {
+                  setMenuOpen(false)
+                }}
+              />
+            )}
+          </AnimatePresence>
         </div>
         <div className='hidden lg:block'>
           <nav>

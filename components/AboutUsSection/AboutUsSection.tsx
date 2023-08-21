@@ -21,6 +21,7 @@ const AboutUsSection = ({ className }: AboutUsSectionProps) => {
         'mx-auto flex max-w-[1296px] flex-col gap-8 lg:flex-row lg:justify-between lg:gap-16 lg:px-12',
         className,
       )}
+      id='o-nas'
     >
       <div className='px-12 lg:max-w-[460px] lg:px-0'>
         <SectionTitle>O nás</SectionTitle>

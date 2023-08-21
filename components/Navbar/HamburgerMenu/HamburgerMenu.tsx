@@ -10,11 +10,15 @@ import { RemoveScroll } from 'react-remove-scroll'
 // Data
 import { MAIN_LINKS } from '../Navbar.constants'
 
-const HamburgerMenu = () => {
+type HamburgerMenuProps = {
+  onLinkClick?: () => void
+}
+
+const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
   return (
     <RemoveScroll>
       <motion.div
-        className='bg-custom-blue-800 fixed bottom-0 left-0 right-0 top-[110px] overflow-auto px-8 pb-8 pt-10'
+        className='fixed bottom-0 left-0 right-0 top-[110px] z-20 overflow-auto bg-custom-blue-800 px-8 pb-8 pt-10'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -25,7 +29,12 @@ const HamburgerMenu = () => {
               const { id, title, href } = link
 
               return (
-                <Link key={id} href={href} className='text-[2rem] text-white'>
+                <Link
+                  key={id}
+                  href={href}
+                  onClick={onLinkClick}
+                  className='text-[2rem] text-white'
+                >
                   <li>{title}</li>
                 </Link>
               )
