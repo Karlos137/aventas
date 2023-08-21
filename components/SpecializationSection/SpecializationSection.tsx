@@ -15,7 +15,7 @@ const SpecializationSection = ({ className }: SpecializationSectionProps) => {
     <section
       id='specializace'
       className={twMerge(
-        'lg:bg-[url("/images/specializations-bg.svg")] lg:bg-cover lg:bg-center lg:bg-no-repeat lg:pb-[17rem] lg:pt-[10rem] min-[1340px]:bg-contain',
+        'lg:bg-[url("/images/specializations-bg.svg")] lg:bg-cover lg:bg-center lg:bg-no-repeat lg:pb-[17rem] lg:pt-[8rem] min-[1340px]:bg-contain',
         className,
       )}
     >

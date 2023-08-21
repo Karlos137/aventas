@@ -13,5 +13,6 @@ export const Default: Story = {
   args: {
     title: 'M&A',
     subtitle: 'fúze a akvizice',
+    onClick: () => console.log('CLICK'),
   },
 }

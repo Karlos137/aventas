@@ -19,6 +19,9 @@ const config: Config = {
           800: 'hsl(213 100% 10%)', // #303A42
         },
       },
+      dropShadow: {
+        'custom-blue': '0 4px 6px rgba(0, 147, 255, 0.20)',
+      },
     },
   },
   plugins: [],

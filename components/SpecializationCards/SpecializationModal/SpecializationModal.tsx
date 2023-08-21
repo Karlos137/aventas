@@ -4,32 +4,70 @@ import FocusLock from 'react-focus-lock'
 // React Remove Scroll
 import { RemoveScroll } from 'react-remove-scroll'
 
+// Framer Motion
+import { motion } from 'framer-motion'
+
 // React components
 import CloseIcon from '@/components/svgs/icons/CloseIcon'
 
-const SpecializationModal = () => {
+type SpecializationModalProps = {
+  title: string
+  subtitle?: string
+  description: React.ReactNode
+  onClose: () => void
+}
+
+const SpecializationModal = ({
+  title,
+  subtitle,
+  description,
+  onClose,
+}: SpecializationModalProps) => {
   return (
     <FocusLock>
       <RemoveScroll>
         <div className='fixed inset-0 flex items-center justify-center'>
-          <div className='absolute inset-0 bg-[hsl(0_0%_0%_/_0.5)]' />
-          <div className='relative z-30 w-[1200px] max-w-[80vw] bg-white p-14'>
-            <button className='absolute right-12 top-5 p-4'>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className='absolute inset-0 bg-[hsl(0_0%_0%_/_0.4)]'
+            onClick={onClose}
+          />
+          <motion.div
+            initial={{ scale: 0.75, opacity: 0 }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              transition: {
+                ease: 'easeOut',
+                duration: 0.15,
+              },
+            }}
+            exit={{
+              scale: 0.75,
+              opacity: 0,
+              transition: {
+                ease: 'easeIn',
+                duration: 0.15,
+              },
+            }}
+            className='drop-shadow-custom-blue relative z-30 w-[1200px] max-w-[80vw] bg-white p-14'
+          >
+            <button className='absolute right-12 top-5 p-4' onClick={onClose}>
               <CloseIcon />
             </button>
             <h3 className='mx-auto mb-10 max-w-[70%] text-center text-2xl font-bold leading-[1.35]'>
-              Test title
+              <span>{title}</span>
+              {subtitle && (
+                <>
+                  <br />
+                  <span>{subtitle}</span>
+                </>
+              )}
             </h3>
-            <div className='mx-auto w-[1100px] max-w-[85%]'>
-              Zvažujete rozšíření Vašeho portfolia formou vhodné akvizice nebo
-              jste se rozhodli, že je čas předat Vaše podnikání do rukou nového
-              investora? V oblasti fúzí a akvizic (M&A) poskytujeme komplexní
-              služby od Vaší prvotní myšlenky na prodej rodinné firmy či zájmu
-              rozšířit Vaše portfolio formou vhodné akvizice až po finální
-              realizaci transakce a kontrolu spokojenosti a fungování po
-              transakci.
-            </div>
-          </div>
+            <div className='mx-auto w-[1100px] max-w-[85%]'>{description}</div>
+          </motion.div>
         </div>
       </RemoveScroll>
     </FocusLock>

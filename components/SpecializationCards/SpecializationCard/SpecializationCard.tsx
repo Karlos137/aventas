@@ -12,16 +12,22 @@ import RightArrowIcon from '@/components/svgs/icons/RightArrowIcon'
 type SpecializationCardProps = {
   title: string
   subtitle?: string
+  onClick: () => void
 }
 
-const SpecializationCard = ({ title, subtitle }: SpecializationCardProps) => {
+const SpecializationCard = ({
+  title,
+  subtitle,
+  onClick,
+}: SpecializationCardProps) => {
   const [hover, setHover] = useState(false)
 
   return (
     <button
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className='flex h-[330px] min-w-[280px] flex-col items-start gap-8 bg-white p-5 shadow-none transition-shadow hover:shadow-md'
+      onClick={onClick}
+      className='hover:drop-shadow-custom-blue drop-shadow-none-none flex h-[330px] min-w-[280px] flex-col items-start gap-8 bg-white p-5 transition-shadow'
     >
       <h3 className='text-left text-[1.375rem] font-bold leading-[1.35]'>
         <span>{title}</span>
