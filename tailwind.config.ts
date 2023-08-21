@@ -15,6 +15,9 @@ const config: Config = {
         'custom-blue': {
           800: 'hsl(217 58% 17%)', // #122544
         },
+        'custom-gray': {
+          800: 'hsl(213 100% 10%)', // #303A42
+        },
       },
     },
   },

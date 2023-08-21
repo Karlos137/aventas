@@ -109,5 +109,9 @@
     @apply scroll-smooth;
   }
 
+  body {
+    @apply text-custom-gray-800;
+  }
+
   /* CUSTOM END */
 }

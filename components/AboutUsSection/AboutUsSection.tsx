@@ -39,7 +39,7 @@ const AboutUsSection = ({ className }: AboutUsSectionProps) => {
           agendu, cizinecké právo a další související oblasti.
         </p>
       </div>
-      <div className='relative h-[290px] flex-shrink-0 lg:h-[520px] lg:w-[520px]'>
+      <div className='relative h-[290px] flex-shrink-0 sm:h-[320px] md:h-[400px] lg:h-[520px] lg:w-[520px]'>
         <Image src={aboutUsImage} alt='O nás' fill={true} objectFit='cover' />
       </div>
     </section>
