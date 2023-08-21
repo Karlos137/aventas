@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import AboutUsSection from './AboutUsSection'
 
 const meta: Meta<typeof AboutUsSection> = {
+  title: 'Sections/AboutUsSection',
   component: AboutUsSection,
 }
 

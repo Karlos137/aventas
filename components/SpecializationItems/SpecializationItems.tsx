@@ -11,7 +11,7 @@ type SpecializationItemsProps = {
 const SpecializationItems = ({ className }: SpecializationItemsProps) => {
   return (
     <ul className={twMerge('list-none', className)}>
-      {SPECIALIZATIONS.map((item, i) => {
+      {SPECIALIZATIONS.map((specialization, i) => {
         return (
           <li
             className={twMerge(
@@ -19,7 +19,7 @@ const SpecializationItems = ({ className }: SpecializationItemsProps) => {
               i + 1 === SPECIALIZATIONS.length && 'border-b-0',
             )}
           >
-            {item.title}
+            {specialization.title}
           </li>
         )
       })}

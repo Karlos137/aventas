@@ -19,17 +19,19 @@ const Hero = ({ className }: HeroProps) => {
         className,
       )}
     >
-      <Image
-        src={pragueImg}
-        alt='Praha'
-        priority={true}
-        fill={true}
-        objectFit='cover'
-      />
-      <h1 className='relative z-10 mt-auto text-[2rem] font-bold leading-tight text-white sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
-        Právní jistota
-        <br /> při každém kroku
-      </h1>
+      <div className='mx-auto mt-auto w-full max-w-[1200px]'>
+        <Image
+          src={pragueImg}
+          alt='Praha'
+          priority={true}
+          fill={true}
+          objectFit='cover'
+        />
+        <h1 className='relative z-10 text-[2rem] font-bold leading-tight text-white sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
+          Právní jistota
+          <br /> při každém kroku
+        </h1>
+      </div>
     </div>
   )
 }
