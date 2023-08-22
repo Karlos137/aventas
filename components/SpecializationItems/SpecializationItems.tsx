@@ -14,6 +14,7 @@ const SpecializationItems = ({ className }: SpecializationItemsProps) => {
       {SPECIALIZATIONS.map((specialization, i) => {
         return (
           <li
+            key={specialization.id}
             className={twMerge(
               'border-b border-custom-brown-400 p-4 text-2xl font-bold',
               i + 1 === SPECIALIZATIONS.length && 'border-b-0',
