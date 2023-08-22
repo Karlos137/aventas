@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         'custom-brown': {
+          300: 'hsl(25 22% 66%)',
           400: 'hsl(25 22% 60%)', // #BCA696
         },
         'custom-blue': {

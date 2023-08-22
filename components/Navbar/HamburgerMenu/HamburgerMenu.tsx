@@ -18,7 +18,7 @@ const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
   return (
     <RemoveScroll>
       <motion.div
-        className='fixed bottom-0 left-0 right-0 top-[110px] z-20 overflow-auto bg-custom-blue-800 px-8 pb-8 pt-10'
+        className='fixed inset-0 z-20 overflow-auto bg-custom-blue-800 px-8 pb-8 pt-[9.375rem]'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

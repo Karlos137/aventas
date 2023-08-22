@@ -17,7 +17,6 @@ const inter = Inter({
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
-
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -30,7 +29,7 @@ const preview: Preview = {
     backgrounds: {
       values: [
         { name: 'light', value: '#FFFFFF' },
-        { name: 'dark', value: '#000000' },
+        { name: 'dark', value: '#122544' },
       ],
     },
   },

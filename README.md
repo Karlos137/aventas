@@ -12,6 +12,8 @@ Keywords:
 - Tailwind Merge
 - Storybook
 - Framer Motion
+- React Focus Lock
+- React Remove Scroll
 - ESLint
 - Prettier
 

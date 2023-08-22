@@ -20,3 +20,13 @@ export const Specialization: Story = {
     children: 'Specializace',
   },
 }
+
+export const OurTeam: Story = {
+  args: {
+    children: 'Náš tým',
+    color: 'brown',
+  },
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+}
