@@ -11,6 +11,9 @@ export default meta
 type Story = StoryObj<typeof SpecializationSection>
 
 export const Default: Story = {
+  args: {
+    className: 'mt-12',
+  },
   parameters: {
     layout: 'fullscreen',
   },

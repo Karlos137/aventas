@@ -11,6 +11,9 @@ export default meta
 type Story = StoryObj<typeof AboutUsSection>
 
 export const Default: Story = {
+  args: {
+    className: 'mt-12 lg:mt-24',
+  },
   parameters: {
     layout: 'fullscreen',
   },
