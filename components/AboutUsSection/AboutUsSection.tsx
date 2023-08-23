@@ -12,9 +12,10 @@ import aboutUsImage from '../../public/images/o-nas.webp'
 
 type AboutUsSectionProps = {
   className?: string
+  image?: string
 }
 
-const AboutUsSection = ({ className }: AboutUsSectionProps) => {
+const AboutUsSection = ({ className, image }: AboutUsSectionProps) => {
   return (
     <section
       className={twMerge(
@@ -23,8 +24,17 @@ const AboutUsSection = ({ className }: AboutUsSectionProps) => {
       )}
       id='o-nas'
     >
-      <div className='px-12 lg:max-w-[460px] lg:px-0'>
-        <SectionTitle>O nás</SectionTitle>
+      <div
+        className={twMerge(
+          'mx-auto px-12 lg:max-w-[880px] lg:px-0',
+          image && 'mx-0 lg:max-w-[460px]',
+        )}
+      >
+        <SectionTitle
+          className={twMerge('lg:text-center', image && 'lg:text-left')}
+        >
+          O nás
+        </SectionTitle>
         <p>
           Jsme sehraný tým právníků s ekonomickým a businessovým přesahem a
           smyslem pro detail. Ke každému klientovi přistupujeme individuálně dle
@@ -39,9 +49,11 @@ const AboutUsSection = ({ className }: AboutUsSectionProps) => {
           agendu, cizinecké právo a další související oblasti.
         </p>
       </div>
-      <div className='relative h-[290px] flex-shrink-0 sm:h-[320px] md:h-[400px] lg:h-[520px] lg:w-[520px]'>
-        <Image src={aboutUsImage} alt='O nás' fill={true} objectFit='cover' />
-      </div>
+      {image && (
+        <div className='relative h-[290px] flex-shrink-0 sm:h-[320px] md:h-[400px] lg:h-[520px] lg:w-[520px]'>
+          <Image src={image} alt='O nás' fill={true} className='object-cover' />
+        </div>
+      )}
     </section>
   )
 }

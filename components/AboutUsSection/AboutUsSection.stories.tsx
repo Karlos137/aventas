@@ -18,3 +18,13 @@ export const Default: Story = {
     layout: 'fullscreen',
   },
 }
+
+export const WithImage: Story = {
+  args: {
+    className: 'mt-12 lg:mt-24',
+    image: '/images/aventas-hero.webp',
+  },
+  parameters: {
+    layout: 'fullscreen',
+  },
+}

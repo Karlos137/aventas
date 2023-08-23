@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 
 // Images
-import pragueImg from '../../public/images/prague.webp'
+import aventasHeroImage from '../../public/images/aventas-hero.webp'
 
 type HeroProps = {
   className?: string
@@ -21,11 +21,11 @@ const Hero = ({ className }: HeroProps) => {
     >
       <div className='mx-auto mt-auto w-full max-w-[1200px]'>
         <Image
-          src={pragueImg}
-          alt='Praha'
+          src={aventasHeroImage}
+          alt='Aventas'
           priority={true}
           fill={true}
-          objectFit='cover'
+          className='object-cover'
         />
         <h1 className='relative z-10 text-[2rem] font-bold leading-tight text-white sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
           Právní jistota
