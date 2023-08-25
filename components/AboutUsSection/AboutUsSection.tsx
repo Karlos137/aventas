@@ -7,9 +7,6 @@ import { twMerge } from 'tailwind-merge'
 // React components
 import SectionTitle from '../SectionTitle'
 
-// Images
-import aboutUsImage from '../../public/images/o-nas.webp'
-
 type AboutUsSectionProps = {
   className?: string
   image?: string

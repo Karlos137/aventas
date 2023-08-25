@@ -81,8 +81,18 @@ const PersonCard = ({
           display: showDescription ? 'none' : 'block',
         }}
       >
-        <div className='relative h-[378px] bg-custom-brown-300'>
-          <Image src={image} alt={name} fill={true} className='object-cover' />
+        <div
+          className='relative h-[378px] cursor-pointer overflow-hidden bg-custom-brown-300'
+          onClick={() => {
+            setDescription()
+          }}
+        >
+          <Image
+            src={image}
+            alt={name}
+            fill={true}
+            className='scale-100 object-cover transition-transform hover:scale-105'
+          />
         </div>
         <div className='flex flex-col items-center gap-2 bg-white px-4 py-5 text-center'>
           <div className='text-lg font-bold tracking-tight'>{name}</div>
