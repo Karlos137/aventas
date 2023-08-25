@@ -178,19 +178,19 @@ export const SPECIALIZATIONS = [
         <ul>
           <li>
             <strong>
-              nastavení jasných, transparentních a dlouhodobých pravidel
-              odměňování členů managementu společnosti;
+              Nastavení jasných, transparentních a dlouhodobých pravidel
+              odměňování členů managementu společnosti
             </strong>
           </li>
           <li>
             <strong>
-              vyšší osobní angažovanost členů managementu na chodu a
+              Vyšší osobní angažovanost členů managementu na chodu a
               hospodářském výsledku společnosti
             </strong>
           </li>
           <li>
             <strong>
-              podpoření personální kontinuity u klíčových pozic v rámci
+              Podpoření personální kontinuity u klíčových pozic v rámci
               managementu společnosti
             </strong>
           </li>
@@ -301,7 +301,7 @@ export const SPECIALIZATIONS = [
           pobytového oprávnění. Zajistíme pro Vás přípravu žádosti  o udělení
           nebo prodloužení pobytového oprávnění, poskytneme Vám zastoupení v
           navazujícím řízení před správním orgánem a v případě potřeby i před
-          soudem
+          soudem.
         </p>
       </>
     ),
