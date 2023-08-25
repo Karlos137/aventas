@@ -4,9 +4,9 @@ import Hero from '../Hero'
 
 const Header = () => {
   return (
-    <header className='flex min-h-screen flex-col'>
+    <header className='flex flex-col lg:min-h-screen'>
       <Navbar />
-      <Hero className='flex-grow' />
+      <Hero className='lg:flex-grow' />
     </header>
   )
 }

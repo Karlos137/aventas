@@ -15,22 +15,32 @@ const Hero = ({ className }: HeroProps) => {
   return (
     <div
       className={twMerge(
-        'relative flex w-full flex-col px-8 pb-[19.5vh] pt-8 min-[370px]:px-12 lg:px-[5.625rem] lg:pb-[21vh]',
+        'relative flex w-full flex-col lg:px-[5.625rem] lg:pb-[21vh]',
         className,
       )}
     >
       <div className='mx-auto mt-auto w-full max-w-[1200px]'>
-        <Image
-          src={aventasHeroImage}
-          alt='Aventas'
-          priority={true}
-          fill={true}
-          className='object-cover'
-        />
-        <h1 className='relative z-10 text-[2rem] font-bold leading-tight text-white sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
-          Právní jistota
-          <br /> při každém kroku
-        </h1>
+        <div className='lg:hidden'>
+          <Image src={aventasHeroImage} alt='Aventas' priority={true} />
+          <h1 className='relative z-10 mt-5 px-12 text-[2rem] font-bold leading-tight sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
+            Právní jistota
+            <br /> při každém kroku
+          </h1>
+        </div>
+        <div className='hidden lg:block'>
+          <Image
+            src={aventasHeroImage}
+            alt='Aventas'
+            priority={true}
+            fill={true}
+            className='object-cover object-top'
+          />
+
+          <h1 className='relative z-10 text-[2rem] font-bold leading-tight text-white sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
+            Právní jistota
+            <br /> při každém kroku
+          </h1>
+        </div>
       </div>
     </div>
   )
