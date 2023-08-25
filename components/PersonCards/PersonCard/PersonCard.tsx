@@ -63,14 +63,24 @@ const PersonCard = ({
                 duration: 0.3,
               },
             }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
           >
             <div className='flex justify-end'>
               <div className='w-fit cursor-pointer p-5' onClick={onClose}>
                 <CloseIcon />
               </div>
             </div>
-            <div className='px-5 pb-7'>{description}</div>
+            <motion.div
+              className='px-5 pb-7'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              {description}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
