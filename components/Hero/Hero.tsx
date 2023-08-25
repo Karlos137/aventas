@@ -15,7 +15,7 @@ const Hero = ({ className }: HeroProps) => {
   return (
     <div
       className={twMerge(
-        'relative flex w-full flex-col lg:px-[5.625rem] lg:pb-[21vh]',
+        'relative flex w-full flex-col lg:px-[5.625rem] lg:pb-[10vh]',
         className,
       )}
     >

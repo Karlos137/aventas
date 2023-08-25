@@ -52,7 +52,7 @@ const SpecializationModal = ({
                 duration: 0.15,
               },
             }}
-            className='drop-shadow-custom-blue relative z-30 w-[1200px] max-w-[80vw] bg-white p-14'
+            className='relative z-30 max-h-screen w-[1200px] max-w-[80vw] overflow-auto bg-white p-14 drop-shadow-custom-blue'
           >
             <button className='absolute right-12 top-5 p-4' onClick={onClose}>
               <CloseIcon />
@@ -66,7 +66,9 @@ const SpecializationModal = ({
                 </>
               )}
             </h3>
-            <div className='mx-auto w-[1100px] max-w-[85%]'>{description}</div>
+            <div className='prose mx-auto w-[1100px] max-w-[85%]'>
+              {description}
+            </div>
           </motion.div>
         </div>
       </RemoveScroll>
