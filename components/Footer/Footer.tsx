@@ -23,6 +23,7 @@ const Footer = () => {
             title='Česká advokátní komora'
             rel='noopener norefferer'
             className='underline hover:no-underline'
+            target='_blank'
           >
             https://www.cak.cz/scripts/detail.php?id=15607
           </a>
