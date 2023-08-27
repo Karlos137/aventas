@@ -5,6 +5,7 @@ import SpecializationSection from '@/components/SpecializationSection'
 import OurTeamSection from '@/components/OurTeamSection'
 import CollaboratingSubjectsSection from '@/components/CollaboratingSubjectsSection'
 import ContactSection from '@/components/ContactSection'
+import Footer from '@/components/Footer'
 
 const Home = () => {
   return (
@@ -14,7 +15,8 @@ const Home = () => {
       <SpecializationSection className='mt-12' />
       <OurTeamSection />
       <CollaboratingSubjectsSection className='pt-12 lg:pt-20' />
-      <ContactSection className='pt-12 lg:pt-20' />
+      <ContactSection className='mb-12 pt-12 lg:pt-20' />
+      <Footer />
     </>
   )
 }
