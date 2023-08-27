@@ -44,6 +44,7 @@ const Contact = ({ icon, title, description, links }: ContactProps) => {
                 href={link.href}
                 title={link.title}
                 className='block w-fit underline hover:no-underline'
+                target='_blank'
               >
                 {link.title}
               </a>
