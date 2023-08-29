@@ -105,7 +105,7 @@ export const PEOPLE = [
   {
     id: 4,
     name: 'Mgr. Ing. Adam Hrazdíra, M.A.',
-    role: 'strategický poradce',
+    role: 'Strategický poradce',
     email: 'hrazdira@aventas.cz',
     phone: '+420 773 905 191',
     image: '/images/adam.webp',

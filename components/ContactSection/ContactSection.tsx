@@ -16,7 +16,7 @@ const ContactSection = ({ className }: ContactSectionProps) => {
       className={twMerge('mx-auto max-w-[1920px]', className)}
       id='kontakt'
     >
-      <SectionTitle className='mx-auto mb-12 max-w-[1296px] px-8 lg:mb-16 lg:px-12 lg:text-center'>
+      <SectionTitle className='mx-auto mb-12 max-w-[1296px] px-8 text-center lg:mb-16 lg:px-12 lg:text-center'>
         Kontakt
       </SectionTitle>
       <Contacts />
