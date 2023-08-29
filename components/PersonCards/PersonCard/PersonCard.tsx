@@ -126,6 +126,8 @@ const PersonCard = ({
             </a>
           </div>
           <button
+            title='Zobrazit popisek'
+            aria-label='Zobrazit popisek'
             className='cursor mt-4 w-fit'
             onClick={() => {
               setDescription()

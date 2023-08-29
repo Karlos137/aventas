@@ -7,6 +7,7 @@ const SnazzyMap = ({ className }: SnazzyMapProps) => {
     <div className={className}>
       <div className='hidden lg:block'>
         <iframe
+          title='Aventas mapa'
           src='https://snazzymaps.com/embed/519160'
           width='100%'
           height={456}
