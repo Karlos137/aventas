@@ -113,5 +113,9 @@
     @apply text-custom-gray-800;
   }
 
+  .text-last-center {
+    text-align-last: center;
+  }
+
   /* CUSTOM END */
 }

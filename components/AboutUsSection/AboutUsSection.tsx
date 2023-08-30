@@ -32,7 +32,7 @@ const AboutUsSection = ({ className, image }: AboutUsSectionProps) => {
         >
           O nás
         </SectionTitle>
-        <p className='text-justify'>
+        <p className='text-last-center text-justify'>
           Jsme sehraný tým právníků s ekonomickým a businessovým přesahem a
           smyslem pro detail. Ke každému klientovi přistupujeme individuálně dle
           jeho potřeb a specifik prostředí, v němž se pohybuje. Naším hlavním
@@ -40,7 +40,8 @@ const AboutUsSection = ({ className, image }: AboutUsSectionProps) => {
           neomezuje pouze na právní řešení konkrétního problému, ale pokrývá
           ekonomické dopady a rizika a možné scénáře dalšího směřování klienta.
         </p>
-        <p className='text-justify'>
+        <br />
+        <p className='text-last-center text-justify'>
           Poskytujeme právní poradenství na špičkové úrovni odbornosti i při
           řešení nejsložitějších problémů. Specializujeme se na výstavbu
           holdingových struktur a svěřenských fondů, restrukturalizace a přeměny
