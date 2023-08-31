@@ -25,7 +25,12 @@ const Contacts = () => {
       <div className='mt-16 flex flex-col items-center justify-center'>
         <Contact
           icon='linkedIn'
-          links={[{ title: 'LinkedIn', href: 'https://www.linkedin.com/' }]}
+          links={[
+            {
+              title: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/akaventas',
+            },
+          ]}
         />
       </div>
     </div>
