@@ -39,13 +39,13 @@ const Footer = () => {
           >
             Zásady ochrany osobních údajů
           </a>
-          <a
+          {/* <a
             href='/'
             className='underline hover:no-underline'
             rel='noopener norefferer'
           >
             Informace o používání Cookies
-          </a>
+          </a> */}
         </div>
       </div>
     </footer>
