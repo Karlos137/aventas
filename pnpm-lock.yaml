@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@magicul/next-google-tag-manager':
+    specifier: ^2.0.0
+    version: 2.0.0(next@13.4.19)(react@18.2.0)
   '@types/node':
     specifier: 20.5.9
     version: 20.5.9
@@ -1942,6 +1945,16 @@ packages:
   /@juggle/resize-observer@3.4.0:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
     dev: true
+
+  /@magicul/next-google-tag-manager@2.0.0(next@13.4.19)(react@18.2.0):
+    resolution: {integrity: sha512-NXp0iGxdcAZL9IkkWwh2GS3dE1qSn4hGxXADnvt1li4gAXyxJ9AEDTrgqMVXIDzkGTD7Q0n37BJoCZdmwIXE+g==}
+    peerDependencies:
+      next: '>=13.0.0'
+      react: '>=17.0.2'
+    dependencies:
+      next: 13.4.19(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+    dev: false
 
   /@mdx-js/react@2.3.0(react@18.2.0):
     resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
