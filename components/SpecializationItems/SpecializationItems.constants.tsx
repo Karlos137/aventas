@@ -8,15 +8,15 @@ export const SPECIALIZATIONS = [
         <p>
           Zvažujete rozšíření Vašeho portfolia formou vhodné akvizice nebo jste
           se rozhodli, že je čas předat Vaše podnikání do rukou nového
-          investora?   V oblasti fúzí a akvizic (M&A) poskytujeme komplexní
-          služby od Vaší prvotní myšlenky na prodej rodinné firmy či zájmu
-          rozšířit Vaše portfolio formou vhodné akvizice až po finální realizaci
+          investora? V oblasti fúzí a akvizic (M&A) poskytujeme komplexní služby
+          od Vaší prvotní myšlenky na prodej rodinné firmy či zájmu rozšířit
+          Vaše portfolio formou vhodné akvizice až po finální realizaci
           transakce a kontrolu spokojenosti a fungování po transakci.
           V jednotlivých fázích se jedná zejména o následující úkony: 
         </p>
         <ul>
           <li>
-            <strong>Počáteční screening</strong> – Bezprostředně na projevení
+            <strong>Počáteční screening</strong> – Bezprostředně po projevení
             Vašeho zájmu o realizaci transakce provedeme počáteční analýzu trhu
             s cílem vyhledat ať už potenciální kupce či investory nebo ideální
             cílovou společnost, jejíž akvizice prospěje Vašemu podnikání.
@@ -79,7 +79,7 @@ export const SPECIALIZATIONS = [
         </p>
         <ul>
           <li>
-            <strong>Příprava a statutu svěřenského fondu</strong>
+            <strong>Příprava statutu svěřenského fondu</strong>
           </li>
           <li>
             <strong>Smlouva se správcem</strong>
@@ -107,7 +107,7 @@ export const SPECIALIZATIONS = [
         </p>
         <ul>
           <li>
-            <strong>Vedením účetnictví svěřenského fondu</strong>
+            <strong>Vedení účetnictví svěřenského fondu</strong>
           </li>
           <li>
             <strong>Vypracování a podání daňových přiznání</strong>
@@ -281,7 +281,6 @@ export const SPECIALIZATIONS = [
           při nepříjemných situacích jako je například nutnost rozvázání
           pracovního poměru se zaměstnancem.
         </p>
-        <br />
         <p>
           Společnostem využívajícím zaměstnance z ciziny jsme připraveni
           poradit, jak nastavit smluvní dokumentaci se zahraničními zaměstnanci,
@@ -289,7 +288,6 @@ export const SPECIALIZATIONS = [
           související poradenství, aby se předešlo problematické situaci jako je
           například nelegální zaměstnávání.
         </p>
-        <br />
         <p>
           Pro cizince mající zájem o pobyt na území České republiky zajišťujeme
           kompletní poradenství týkající se získání a následného prodloužení
@@ -312,7 +310,7 @@ export const SPECIALIZATIONS = [
     description: (
       <>
         <p>
-          Rádi pro Vás zajistíme přípravu veškerou interní dokumentaci
+          Rádi pro Vás zajistíme přípravu veškeré interní dokumentace
           související s ochranou osobních údajů a splňující požadavky stanovené
           vnitrostátními i evropskými předpisy, a to zejména zásady ochrany
           osobních údajů, příslušné interní směrnice obsahující mimo jiné
@@ -325,7 +323,6 @@ export const SPECIALIZATIONS = [
           osobních údajů a veškerých souvisejících záležitostí, které zrovna
           potřebujete vyřešit.
         </p>
-        <br />
         <p>
           Whistleblowing je problematika, kterou řeší zejména společnosti s 50 a
           více zaměstnanci, veřejní zadavatelé nebo osoby povinné dle zákona o
@@ -334,7 +331,6 @@ export const SPECIALIZATIONS = [
           týkajících se oznamování a připravíme kompletní dokumentaci nutnou k
           implementaci zvoleného řešení.
         </p>
-        <br />
         <p>
           Nemálo důležitou oblast regulace pokrývají právní předpisy upravující
           opatření proti legalizaci výnosů z trestné činnosti. Věděli jste, že

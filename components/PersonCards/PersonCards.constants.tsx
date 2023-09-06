@@ -11,9 +11,9 @@ export const PEOPLE = [
         <p>
           Karel je advokátem a zakládajícím partnerem advokátní kanceláře
           AVENTAS. Specializuje se v oblasti práva obchodních společností,
-          restrukturalizací a holdingových struktur, a dále také voblasti M&A,
-          obchodních kontraktů s mezinárodním prvkem a ochrany a správy majetku
-          a svěřenských fondů.
+          restrukturalizací a holdingových struktur, a dále také M&A, obchodních
+          kontraktů s mezinárodním prvkem a ochrany a správy majetku a
+          svěřenských fondů.
         </p>
         <p>
           V rámci své praxe se podílel na projektech restrukturalizací
@@ -113,7 +113,7 @@ export const PEOPLE = [
       <>
         <p>
           Adam v rámci poskytování poradenství pro naše klienty kombinuje své
-          nabité zkušenosti z bankovního sektoru a advokátních kanceláří. Za
+          nabyté zkušenosti z bankovního sektoru a advokátních kanceláří. Za
           téměř desetiletou praxi se podílel zejména na projektech komplexních
           restrukturalizací společností, přípravě svěřenských fondů a
           transakčního poradenství (M&A). Adamovi nejsou cizí ani ekonomické
