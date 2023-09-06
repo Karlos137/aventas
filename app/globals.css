@@ -41,7 +41,6 @@
   /*
  Allow percentage-based heights in the application
 */
-  html,
   body {
     @apply h-full;
   }

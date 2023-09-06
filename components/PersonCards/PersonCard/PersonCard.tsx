@@ -40,7 +40,7 @@ const PersonCard = ({
     if (ref.current && showDescription) {
       setTimeout(() => {
         ref?.current?.scrollIntoView({
-          behavior: 'instant',
+          behavior: 'smooth',
           block: 'start',
         })
       }, 501)
@@ -48,7 +48,10 @@ const PersonCard = ({
   }, [showDescription])
 
   return (
-    <div ref={ref} className='w-full min-w-[285px] max-w-[320px]'>
+    <div
+      ref={ref}
+      className='w-full min-w-[285px] max-w-[320px] scroll-mt-[6.875rem]'
+    >
       <AnimatePresence>
         {showDescription && (
           <motion.div

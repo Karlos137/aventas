@@ -1,3 +1,6 @@
+// Tailwind Merge
+import { twMerge } from 'tailwind-merge'
+
 // React components
 import Header from '@/components/Header'
 import AboutUsSection from '@/components/AboutUsSection/AboutUsSection'
@@ -8,14 +11,20 @@ import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 
 const Home = () => {
+  const scrollMarginClass = 'scroll-mt-[6.875rem]'
+
   return (
     <>
       <Header />
-      <AboutUsSection className='pt-12 lg:pt-20' />
-      <SpecializationSection className='mt-12' />
-      <OurTeamSection />
+      <AboutUsSection
+        className={twMerge('pt-12 lg:pt-20', scrollMarginClass)}
+      />
+      <SpecializationSection className='mt-12 scroll-mt-32 lg:scroll-mt-0' />
+      <OurTeamSection className={scrollMarginClass} />
       <CollaboratingSubjectsSection className='pt-12 lg:pt-20' />
-      <ContactSection className='mb-12 pt-12 lg:pt-20' />
+      <ContactSection
+        className={twMerge('mb-12 pt-12 lg:pt-20', scrollMarginClass)}
+      />
       <Footer />
     </>
   )

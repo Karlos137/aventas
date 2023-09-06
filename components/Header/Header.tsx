@@ -4,10 +4,12 @@ import Hero from '../Hero'
 
 const Header = () => {
   return (
-    <header className='flex flex-col lg:min-h-screen'>
+    <>
       <Navbar />
-      <Hero className='lg:flex-grow' />
-    </header>
+      <header className='flex flex-col lg:min-h-screen'>
+        <Hero className='lg:flex-grow' />
+      </header>
+    </>
   )
 }
 export default Header

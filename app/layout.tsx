@@ -1,15 +1,15 @@
 // Global styles
-import "./globals.css"
+import './globals.css'
 
 // Next.js
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Aventas",
-  description: "Advokátní kancelář.",
+  title: 'Aventas',
+  description: 'Advokátní kancelář Aventas.',
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="cs">
+    <html lang='cs'>
       <body className={`${inter.className} app h-full`}>{children}</body>
     </html>
   )

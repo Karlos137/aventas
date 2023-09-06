@@ -34,7 +34,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-      <div className='relative z-30 bg-custom-blue-800'>
+      <div className='sticky top-0 z-30 bg-custom-blue-800'>
         <div className='mx-auto flex max-w-[1296px] items-center justify-between gap-4 px-8 py-7 lg:px-12'>
           <Link href='/' className='flex min-h-[54px] items-center'>
             <div className='lg:hidden'>
