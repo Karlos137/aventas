@@ -61,7 +61,7 @@ export const SPECIALIZATIONS = [
   },
   {
     id: 2,
-    title: 'Výstavba holdingových struktur a svěřenských fondů',
+    title: 'Svěřenské fondy',
     description: (
       <>
         <p>
@@ -100,7 +100,6 @@ export const SPECIALIZATIONS = [
             </strong>
           </li>
         </ul>
-        <br />
         <p>
           V rámci správy fondu Vám naše kancelář ve spolupráci s našimi partnery
           poskytne podporu při:
@@ -124,7 +123,7 @@ export const SPECIALIZATIONS = [
   },
   {
     id: 3,
-    title: 'Korporátní agenda a závazkové právo',
+    title: 'Korporátní agenda, restrukturalizace a holdingové struktury',
     description: (
       <>
         <p>

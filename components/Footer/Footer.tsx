@@ -33,11 +33,12 @@ const Footer = () => {
         <p>{`© ${new Date().getFullYear()} AVENTAS All rights reserved.`}</p>
         <div className='flex flex-col gap-6 text-center lg:flex-row'>
           <a
-            href='/'
+            href='/AVENTAS_Zasady_GDPR.pdf'
             className='underline hover:no-underline'
             rel='noopener norefferer'
+            target='_blank'
           >
-            Zásady ochrany osobních údajů
+            Zásady zpracování osobních údajů
           </a>
           {/* <a
             href='/'
