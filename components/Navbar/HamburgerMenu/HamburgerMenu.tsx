@@ -1,3 +1,5 @@
+'use client'
+
 // Next.js
 import Link from 'next/link'
 
@@ -8,13 +10,19 @@ import { motion } from 'framer-motion'
 import { RemoveScroll } from 'react-remove-scroll'
 
 // Data
-import { MAIN_LINKS } from '../Navbar.constants'
+import { MAIN_LINKS_CZ, MAIN_LINKS_EN } from '../Navbar.constants'
+
+// Next intl
+import { useTranslations } from 'next-intl'
+import LocaleSwitcher from '@/components/LocaleSwitcher.tsx/LocaleSwitcher'
 
 type HamburgerMenuProps = {
   onLinkClick?: () => void
 }
 
 const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
+  const t = useTranslations('Navbar')
+  const mainLinks = t('lan') === 'cz' ? MAIN_LINKS_CZ : MAIN_LINKS_EN
   return (
     <RemoveScroll>
       <motion.div
@@ -25,7 +33,7 @@ const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
       >
         <nav>
           <ul className='flex flex-col items-center gap-8'>
-            {MAIN_LINKS.map(link => {
+            {mainLinks.map(link => {
               const { id, title, href } = link
 
               return (
@@ -39,6 +47,7 @@ const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
                 </Link>
               )
             })}
+            <LocaleSwitcher fontSize='2rem' />
           </ul>
         </nav>
       </motion.div>

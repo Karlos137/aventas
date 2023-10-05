@@ -1,3 +1,5 @@
+'use client'
+
 // React components
 import SectionTitle from '../SectionTitle'
 import PersonCards from '../PersonCards'
@@ -5,11 +7,16 @@ import PersonCards from '../PersonCards'
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
+// Next intl
+import { useTranslations } from 'next-intl'
+
 type OurTeamSectionProps = {
   className?: string
 }
 
 const OurTeamSection = ({ className }: OurTeamSectionProps) => {
+  const t = useTranslations('OurTeam')
+
   return (
     <section
       className={twMerge(
@@ -19,7 +26,7 @@ const OurTeamSection = ({ className }: OurTeamSectionProps) => {
       id='nas-tym'
     >
       <SectionTitle className='mb-8 text-center md:mb-16' color='brown'>
-        Náš tým
+        {t('title')}
       </SectionTitle>
       <PersonCards />
     </section>

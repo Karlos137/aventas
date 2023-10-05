@@ -1,23 +1,23 @@
+'use client'
+
 // React components
 import AventasLogo from '../svgs/AventasLogo'
 
+// Next intl
+import { useTranslations } from 'next-intl'
+
 const Footer = () => {
+  const t = useTranslations('Footer')
   return (
     <footer className='mx-auto max-w-[1296px] px-8 lg:px-12'>
       <div className='flex flex-col items-center gap-11'>
         <AventasLogo />
         <p className='text-center'>
-          Informace pro spotřebitele
-          <br /> Spotřebitel má dle zákona č. 634/1992 Sb., o ochraně
-          spotřebitele, v platném znění, právo na mimosoudní řešení
-          spotřebitelského sporu vyplývajícího ze smlouvy o poskytování právních
-          služeb. Pověřeným subjektem pro mimosoudní řešení spotřebitelských
-          sporů mezi advokátem a spotřebitelem ze smluv o poskytování právních
-          služeb je Česká advokátní komora.
-          <br /> Bližší informace o mimosoudním řešení spotřebitelských sporů
-          spolu s formulářem návrhu na zahájení řízení o mimosoudním řešení
-          spotřebitelských sporů naleznete na webových stránkách České advokátní
-          komory -{' '}
+          {t('title')}
+          <br />
+          {t('textOne')}
+          <br />
+          {t('textTwo')}{' '}
           <a
             href='https://www.cak.cz/scripts/detail.php?id=15607'
             title='Česká advokátní komora'
@@ -38,7 +38,7 @@ const Footer = () => {
             rel='noopener norefferer'
             target='_blank'
           >
-            Zásady zpracování osobních údajů
+            {t('personal')}
           </a>
           {/* <a
             href='/'

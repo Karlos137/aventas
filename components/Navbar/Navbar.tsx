@@ -16,10 +16,16 @@ import HamburgerMenuButton from './HamburgerMenuButton'
 import HamburgerMenu from './HamburgerMenu'
 
 // Data
-import { MAIN_LINKS } from './Navbar.constants'
+import { MAIN_LINKS_CZ, MAIN_LINKS_EN } from './Navbar.constants'
+
+// Next intl
+import { useTranslations } from 'next-intl'
+import LocaleSwitcher from '../LocaleSwitcher.tsx/LocaleSwitcher'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const t = useTranslations('Navbar')
+  const mainLinks = t('lan') === 'cz' ? MAIN_LINKS_CZ : MAIN_LINKS_EN
 
   return (
     <>
@@ -55,9 +61,9 @@ const Navbar = () => {
             />
           </div>
           <div className='hidden lg:block'>
-            <nav>
+            <nav className='flex gap-8'>
               <ul className='flex items-center gap-8'>
-                {MAIN_LINKS.map(link => {
+                {mainLinks.map(link => {
                   const { id, title, href } = link
 
                   return (
@@ -72,6 +78,7 @@ const Navbar = () => {
                   )
                 })}
               </ul>
+              <LocaleSwitcher fontSize='1rem' />
             </nav>
           </div>
         </div>

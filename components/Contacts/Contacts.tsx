@@ -1,14 +1,21 @@
+'use client'
+
 // React components
 import Contact from './Contact'
 
 // Data
-import { CONTACTS } from './Contacts.constants'
+import { CONTACTS_CZ, CONTACTS_EN } from './Contacts.constants'
+
+// Next intl
+import { useTranslations } from 'next-intl'
 
 const Contacts = () => {
+  const t = useTranslations('Contact')
+  const contacts = t('lan') === 'cz' ? CONTACTS_CZ : CONTACTS_EN
   return (
     <div className='mx-auto max-w-[1271px] px-8 lg:px-12'>
       <div className='flex max-w-[1271px] flex-col items-center gap-16 lg:flex-row lg:items-start lg:justify-between lg:gap-12'>
-        {CONTACTS.map(contact => {
+        {contacts.map(contact => {
           const { id, icon, title, description, links } = contact
 
           return (

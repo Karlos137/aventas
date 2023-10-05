@@ -7,14 +7,19 @@ import { useState } from 'react'
 import PersonCard from './PersonCard'
 
 // Data
-import { PEOPLE } from './PersonCards.constants'
+import { PEOPLE_CZ, PEOPLE_EN } from './PersonCards.constants'
+
+// Next intl
+import { useTranslations } from 'next-intl'
 
 const PersonCards = () => {
   const [cardDescription, setCardDescription] = useState<number | null>(null)
+  const t = useTranslations('Contact')
+  const people = t('lan') === 'cz' ? PEOPLE_CZ : PEOPLE_EN
 
   return (
     <div className='mx-auto grid max-w-[720px] grid-cols-1 justify-items-center gap-x-7 gap-y-16 sm:grid-cols-2 xl:max-w-[1220px] xl:grid-cols-4'>
-      {PEOPLE.map(person => {
+      {people.map(person => {
         const { id, name, role, email, phone, image, description } = person
 
         return (

@@ -1,3 +1,5 @@
+'use client'
+
 // Next.js
 import Image from 'next/image'
 
@@ -7,11 +9,16 @@ import { twMerge } from 'tailwind-merge'
 // Images
 import aventasHeroImage from '../../public/images/aventas-hero.webp'
 
+// Next intl
+import { useTranslations } from 'next-intl'
+
 type HeroProps = {
   className?: string
 }
 
 const Hero = ({ className }: HeroProps) => {
+  const t = useTranslations('Hero')
+
   return (
     <div
       className={twMerge(
@@ -23,8 +30,9 @@ const Hero = ({ className }: HeroProps) => {
         <div className='lg:hidden'>
           <Image src={aventasHeroImage} alt='Aventas' priority={true} />
           <h1 className='relative z-10 mt-5 px-12 text-[2rem] font-bold leading-tight sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
-            Právní jistota
-            <br /> při každém kroku
+            {t('motoFirstLine')}
+            <br />
+            {t('motoSecondLine')}
           </h1>
         </div>
         <div className='hidden lg:block'>
@@ -37,8 +45,9 @@ const Hero = ({ className }: HeroProps) => {
           />
 
           <h1 className='relative z-10 text-[2rem] font-bold leading-tight text-white sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
-            Právní jistota
-            <br /> při každém kroku
+            {t('motoFirstLine')}
+            <br />
+            {t('motoSecondLine')}
           </h1>
         </div>
       </div>

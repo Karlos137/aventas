@@ -1,3 +1,5 @@
+'use client'
+
 // Next.js
 import Image from 'next/image'
 
@@ -7,12 +9,16 @@ import { twMerge } from 'tailwind-merge'
 // React components
 import SectionTitle from '../SectionTitle'
 
+// Next intl
+import { useTranslations } from 'next-intl'
+
 type AboutUsSectionProps = {
   className?: string
   image?: string
 }
 
 const AboutUsSection = ({ className, image }: AboutUsSectionProps) => {
+  const t = useTranslations('AboutUsSection')
   return (
     <section
       className={twMerge(
@@ -30,24 +36,11 @@ const AboutUsSection = ({ className, image }: AboutUsSectionProps) => {
         <SectionTitle
           className={twMerge('lg:text-center', image && 'lg:text-left')}
         >
-          O nás
+          {t('us')}
         </SectionTitle>
-        <p className='text-last-center text-justify'>
-          Jsme sehraný tým právníků s ekonomickým a businessovým přesahem a
-          smyslem pro detail. Ke každému klientovi přistupujeme individuálně dle
-          jeho potřeb a specifik prostředí, v němž se pohybuje. Naším hlavním
-          cílem je poskytovat našim klientům vždy kvalitní službu, která se
-          neomezuje pouze na právní řešení konkrétního problému, ale pokrývá
-          ekonomické dopady a rizika a možné scénáře dalšího směřování klienta.
-        </p>
+        <p className='text-last-center text-justify'>{t('textOne')}</p>
         <br />
-        <p className='text-last-center text-justify'>
-          Poskytujeme právní poradenství na špičkové úrovni odbornosti i při
-          řešení nejsložitějších problémů. Specializujeme se na výstavbu
-          holdingových struktur a svěřenských fondů, restrukturalizace a přeměny
-          společností, komplexní transakční poradenství, běžnou korporátní
-          agendu, cizinecké právo a další související oblasti.
-        </p>
+        <p className='text-last-center text-justify'>{t('textTwo')}</p>
       </div>
       {image && (
         <div className='relative h-[290px] flex-shrink-0 sm:h-[320px] md:h-[400px] lg:h-[520px] lg:w-[520px]'>

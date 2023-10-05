@@ -1,26 +1,37 @@
+'use client'
+
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
 // Data
-import { SPECIALIZATIONS } from './SpecializationItems.constants'
+import {
+  SPECIALIZATIONS_CZ,
+  SPECIALIZATIONS_EN,
+} from './SpecializationItems.constants'
+
+// Next intl
+import { useTranslations } from 'next-intl'
 
 type SpecializationItemsProps = {
   className?: string
 }
 
 const SpecializationItems = ({ className }: SpecializationItemsProps) => {
+  const t = useTranslations('Specialization')
+  const specialization =
+    t('lan') === 'cz' ? SPECIALIZATIONS_CZ : SPECIALIZATIONS_EN
   return (
     <ul className={twMerge('list-none', className)}>
-      {SPECIALIZATIONS.map((specialization, i) => {
+      {specialization.map((specializationItem, i) => {
         return (
           <li
-            key={specialization.id}
+            key={specializationItem.id}
             className={twMerge(
               'border-b border-custom-brown-400 p-4 text-2xl font-bold',
-              i + 1 === SPECIALIZATIONS.length && 'border-b-0',
+              i + 1 === specialization.length && 'border-b-0',
             )}
           >
-            {specialization.title}
+            {specializationItem.title}
           </li>
         )
       })}

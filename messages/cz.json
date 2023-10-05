@@ -1,0 +1,40 @@
+{
+  "LocaleSwitcher": {
+    "locale": "{locale, select, cz {Čeština} en {Angličtina} other {inconnu}}"
+  },
+  "AboutUsSection": {
+    "us": "O nás",
+    "textOne": "Jsme sehraný tým právníků s ekonomickým a businessovým přesahem a smyslem pro detail. Ke každému klientovi přistupujeme individuálně dle jeho potřeb a specifik prostředí, v němž se pohybuje. Naším hlavním cílem je poskytovat našim klientům vždy kvalitní službu, která se neomezuje pouze na právní řešení konkrétního problému, ale pokrývá ekonomické dopady a rizika a možné scénáře dalšího směřování klienta.",
+    "textTwo": "Poskytujeme právní poradenství na špičkové úrovni odbornosti i při řešení nejsložitějších problémů. Specializujeme se na výstavbu holdingových struktur a svěřenských fondů, restrukturalizace a přeměny společností, komplexní transakční poradenství, běžnou korporátní agendu, cizinecké právo a další související oblasti."
+  },
+  "Hero": {
+    "motoFirstLine": "Právní jistota",
+    "motoSecondLine": "při každém kroku"
+  },
+  "Footer": {
+    "title": "Informace pro spotřebitele",
+    "textOne": "Spotřebitel má dle zákona č. 634/1992 Sb., o ochraně spotřebitele, v platném znění, právo na mimosoudní řešení spotřebitelského sporu vyplývajícího ze smlouvy o poskytování právních služeb. Pověřeným subjektem pro mimosoudní řešení spotřebitelských sporů mezi advokátem a spotřebitelem ze smluv o poskytování právních služeb je Česká advokátní komora.",
+    "textTwo": " Bližší informace o mimosoudním řešení spotřebitelských sporů spolu s formulářem návrhu na zahájení řízení o mimosoudním řešení spotřebitelských sporů naleznete na webových stránkách České advokátní komory -",
+    "personal": "Zásady zpracování osobních údajů"
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "lan": "cz"
+  },
+  "Navbar": {
+    "lan": "cz"
+  },
+  "Colaboration": {
+    "titleFirstPart": "Spolupracující",
+    "titleSecondPart": "subjekty"
+  },
+  "Specialization": {
+    "title": "Specializace",
+    "lan": "cz",
+    "more": "zjistit více"
+  },
+  "OurTeam": {
+    "title": "Náš tým",
+    "lan": "cz"
+  }
+}

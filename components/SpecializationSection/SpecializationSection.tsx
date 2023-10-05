@@ -1,3 +1,5 @@
+'use client'
+
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
@@ -6,11 +8,16 @@ import SectionTitle from '../SectionTitle'
 import SpecializationItems from '../SpecializationItems'
 import SpecializationCards from '../SpecializationCards'
 
+// Next intl
+import { useTranslations } from 'next-intl'
+
 type SpecializationSectionProps = {
   className?: string
 }
 
 const SpecializationSection = ({ className }: SpecializationSectionProps) => {
+  const t = useTranslations('Specialization')
+
   return (
     <section
       id='specializace'
@@ -20,7 +27,7 @@ const SpecializationSection = ({ className }: SpecializationSectionProps) => {
       )}
     >
       <SectionTitle className='mx-auto max-w-[1296px] px-12 md:mb-20 lg:text-center'>
-        Specializace
+        {t('title')}
       </SectionTitle>
       <div className='lg:hidden'>
         <SpecializationItems className='px-7' />

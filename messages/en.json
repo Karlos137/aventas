@@ -1,0 +1,40 @@
+{
+  "LocaleSwitcher": {
+    "locale": "{locale, select, cz {Čeština} en {English} other {Unknown}}"
+  },
+  "AboutUsSection": {
+    "us": "About us",
+    "textOne": "We are a team of lawyers with economic and business expertise and an eye for detail. We approach each client individually according to their needs and the specifics of the field in which they operate. Our main goal is to always provide our clients with high-quality service that extends beyond solely legal solutions, encompassing economic impacts, risks, and possible future scenarios.",
+    "textTwo": "We offer high-level legal support, even when dealing with complex issues. Our main specialty lies in the construction of holding structures and trust funds, company restructuring and transformations, comprehensive transactional advisory, everyday corporate matters, immigration law, and other related areas."
+  },
+  "Hero": {
+    "motoFirstLine": "Legal certainty",
+    "motoSecondLine": "at every step"
+  },
+  "Footer": {
+    "title": "Information for consumers",
+    "textOne": "According to Act No. 634/1992 Coll., on consumer protection, as amended, the consumer has the right to an out-of-court settlement of a consumer dispute arising from a contract for the provision of legal services. The authorized entity for out-of-court settlement of consumer disputes between a lawyer and a consumer arising from contracts for the provision of legal services is the Czech Bar Association.",
+    "textTwo": "You can find more detailed information on the out-of-court settlement of consumer disputes, together with the proposal form for the initiation of proceedings on the out-of-court settlement of consumer disputes, on the website of the Czech Bar Association -",
+    "personal": "Principles of personal data processing"
+  },
+  "Contact": {
+    "title": "Contact",
+    "lan": "en"
+  },
+  "Navbar": {
+    "lan": "en"
+  },
+  "Colaboration": {
+    "titleFirstPart": "Collaborating",
+    "titleSecondPart": "entities"
+  },
+  "Specialization": {
+    "title": "Specialization",
+    "lan": "en",
+    "more": "find more"
+  },
+  "OurTeam": {
+    "title": "Our team",
+    "lan": "en"
+  }
+}
