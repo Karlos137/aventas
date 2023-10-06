@@ -19,10 +19,10 @@
   },
   "Contact": {
     "title": "Kontakt",
-    "lan": "cz"
+    "lan": "cs"
   },
   "Navbar": {
-    "lan": "cz"
+    "lan": "cs"
   },
   "Colaboration": {
     "titleFirstPart": "Spolupracující",
@@ -30,11 +30,11 @@
   },
   "Specialization": {
     "title": "Specializace",
-    "lan": "cz",
+    "lan": "cs",
     "more": "zjistit více"
   },
   "OurTeam": {
     "title": "Náš tým",
-    "lan": "cz"
+    "lan": "cs"
   }
 }

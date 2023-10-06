@@ -19,7 +19,7 @@ type SpecializationItemsProps = {
 const SpecializationItems = ({ className }: SpecializationItemsProps) => {
   const t = useTranslations('Specialization')
   const specialization =
-    t('lan') === 'cz' ? SPECIALIZATIONS_CZ : SPECIALIZATIONS_EN
+    t('lan') === 'cs' ? SPECIALIZATIONS_CZ : SPECIALIZATIONS_EN
   return (
     <ul className={twMerge('list-none', className)}>
       {specialization.map((specializationItem, i) => {

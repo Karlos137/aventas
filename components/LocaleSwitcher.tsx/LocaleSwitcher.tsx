@@ -4,11 +4,14 @@
 import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from 'next-intl/client'
 
+// Tailwind Merge
+import { twMerge } from 'tailwind-merge'
+
 type LocaleSwitcherProps = {
-  fontSize: string
+  className?: string
 }
 
-export default function LocaleSwitcher({ fontSize }: LocaleSwitcherProps) {
+export default function LocaleSwitcher({ className }: LocaleSwitcherProps) {
   const t = useTranslations('LocaleSwitcher')
   const locale = useLocale()
   const router = useRouter()
@@ -20,10 +23,13 @@ export default function LocaleSwitcher({ fontSize }: LocaleSwitcherProps) {
 
   return (
     <div
-      className={`text-[${fontSize}] text-white transition-colors hover:text-custom-brown-400`}
+      className={twMerge(
+        `font-light text-white transition-colors hover:text-custom-brown-400`,
+        className,
+      )}
     >
-      <button onClick={() => onLocaleChange(locale === 'cz' ? 'en' : 'cz')}>
-        {locale === 'cz' ? 'Cz' : 'En'}
+      <button onClick={() => onLocaleChange(locale === 'cs' ? 'en' : 'cs')}>
+        {locale === 'cs' ? 'EN' : 'CS'}
       </button>
     </div>
   )

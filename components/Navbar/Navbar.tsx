@@ -25,7 +25,7 @@ import LocaleSwitcher from '../LocaleSwitcher.tsx/LocaleSwitcher'
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const t = useTranslations('Navbar')
-  const mainLinks = t('lan') === 'cz' ? MAIN_LINKS_CZ : MAIN_LINKS_EN
+  const mainLinks = t('lan') === 'cs' ? MAIN_LINKS_CZ : MAIN_LINKS_EN
 
   return (
     <>
@@ -78,7 +78,7 @@ const Navbar = () => {
                   )
                 })}
               </ul>
-              <LocaleSwitcher fontSize='1rem' />
+              <LocaleSwitcher className='text-base' />
             </nav>
           </div>
         </div>

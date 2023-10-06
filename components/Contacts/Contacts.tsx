@@ -11,7 +11,8 @@ import { useTranslations } from 'next-intl'
 
 const Contacts = () => {
   const t = useTranslations('Contact')
-  const contacts = t('lan') === 'cz' ? CONTACTS_CZ : CONTACTS_EN
+  const contacts = t('lan') === 'cs' ? CONTACTS_CZ : CONTACTS_EN
+
   return (
     <div className='mx-auto max-w-[1271px] px-8 lg:px-12'>
       <div className='flex max-w-[1271px] flex-col items-center gap-16 lg:flex-row lg:items-start lg:justify-between lg:gap-12'>

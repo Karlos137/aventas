@@ -22,7 +22,7 @@ type HamburgerMenuProps = {
 
 const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
   const t = useTranslations('Navbar')
-  const mainLinks = t('lan') === 'cz' ? MAIN_LINKS_CZ : MAIN_LINKS_EN
+  const mainLinks = t('lan') === 'cs' ? MAIN_LINKS_CZ : MAIN_LINKS_EN
   return (
     <RemoveScroll>
       <motion.div
@@ -47,7 +47,7 @@ const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
                 </Link>
               )
             })}
-            <LocaleSwitcher fontSize='2rem' />
+            <LocaleSwitcher className='mt-2 text-2xl' />
           </ul>
         </nav>
       </motion.div>
