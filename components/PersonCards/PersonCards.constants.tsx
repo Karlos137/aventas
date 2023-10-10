@@ -247,7 +247,7 @@ export const PEOPLE_EN = [
       <>
         <p>
           Adam combines his experience gained both in the banking sector and in
-          law g to provide complex support for our clients. In his ten years of
+          law to provide complex support for our clients. In his ten years of
           experience, he has participated in complex company restructuring
           projects, the establishment of trust funds and transaction consulting
           (M&A). Adam is no stranger to economic analyses, drawing up business
