@@ -23,7 +23,7 @@ const SpecializationCards = () => {
   const [modal, setModal] = useState<number | null>(null)
   const t = useTranslations('Specialization')
   const specialization =
-    t('lan') === 'cz' ? SPECIALIZATIONS_CZ : SPECIALIZATIONS_EN
+    t('lan') === 'cs' ? SPECIALIZATIONS_CZ : SPECIALIZATIONS_EN
 
   return (
     <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] sm:grid-cols-2 md:grid-cols-3 md:px-12 xl:grid-cols-4'>

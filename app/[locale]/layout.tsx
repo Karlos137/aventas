@@ -36,7 +36,7 @@ async function getMessages(locale: string) {
 }
 
 export async function generateStaticParams() {
-  return ['en', 'cz'].map(locale => ({ locale }))
+  return ['cs', 'en'].map(locale => ({ locale }))
 }
 
 const GTM_ID = 'GTM-KK7RD957'

@@ -362,8 +362,9 @@ export const SPECIALIZATIONS_EN = [
           (M&A), we will assist you in the entire process - from your initial
           idea to sell your family business or your interest to expand your
           portfolio through a suitable acquisition to the implementation of the
-          transaction and a post-transaction review. We will assist you mainly
+          transaction and a post-transaction review.
         </p>
+        <p>We will assist you mainly in the following:</p>
         <ul>
           <li>
             <strong>Initial screening </strong> – After expressing your interest
@@ -413,7 +414,7 @@ export const SPECIALIZATIONS_EN = [
   },
   {
     id: 2,
-    title: 'Trust Funds ',
+    title: 'Trust Funds',
     description: (
       <>
         <p>
@@ -482,7 +483,7 @@ export const SPECIALIZATIONS_EN = [
   },
   {
     id: 3,
-    title: 'Corporate agenda, restructuring, and holding structures',
+    title: 'Corporate agenda, restructuring and holding structures',
     description: (
       <>
         <p>
@@ -517,7 +518,7 @@ export const SPECIALIZATIONS_EN = [
         </ul>
         <p>
           We specialize in the fields of restructuring, establishment of holding
-          structures, risk diversification, including pre-sale structuring, and
+          structures, risk diversification, including pre-sale structuring and
           holding structures involving trust funds. We would be pleased to meet
           with you and discuss your situation in detail.
         </p>
@@ -560,6 +561,12 @@ export const SPECIALIZATIONS_EN = [
           following forms:
         </p>
         <ul>
+          <li>
+            <strong>
+              Contractual scheme with a discretionary and non-discretionary
+              bonus structure
+            </strong>
+          </li>
           <li>
             <strong>
               Stock plan with direct involvement of key people in the company
@@ -631,7 +638,7 @@ export const SPECIALIZATIONS_EN = [
       <>
         <p>
           We are ready to provide you with comprehensive legal support on the
-          whole range of labor law issues and cooperate with you to find a
+          whole range of labour law issues and cooperate with you to find a
           solution to the situation that best suits your needs.
         </p>
         <p>
@@ -650,7 +657,7 @@ export const SPECIALIZATIONS_EN = [
         <p>
           For foreigners interested in living in the Czech Republic, we provide
           complete counseling on obtaining and subsequently extending the
-          appropriate residence permit and also on obtaining Czech citizenship
+          appropriate residence permit and also on obtaining Czech citizenship.
         </p>
         <p>
           We will guide you through the entire process of acquiring or extending

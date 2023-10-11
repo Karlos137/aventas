@@ -15,7 +15,7 @@ import { useTranslations } from 'next-intl'
 const PersonCards = () => {
   const [cardDescription, setCardDescription] = useState<number | null>(null)
   const t = useTranslations('Contact')
-  const people = t('lan') === 'cz' ? PEOPLE_CZ : PEOPLE_EN
+  const people = t('lan') === 'cs' ? PEOPLE_CZ : PEOPLE_EN
 
   return (
     <div className='mx-auto grid max-w-[720px] grid-cols-1 justify-items-center gap-x-7 gap-y-16 sm:grid-cols-2 xl:max-w-[1220px] xl:grid-cols-4'>
