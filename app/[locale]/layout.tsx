@@ -7,13 +7,14 @@ import GoogleTagManager from '@magicul/next-google-tag-manager'
 // Next.js
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { notFound } from 'next/navigation'
 
 // React
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 
-// Next intl
-import { NextIntlClientProvider } from 'next-intl'
+// Next Intl
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { NextIntlClientProvider, useMessages } from 'next-intl'
+import { locales } from '@/localesConfig'
 
 type Props = {
   children: ReactNode
@@ -27,31 +28,23 @@ export const metadata: Metadata = {
   description: 'Advokátní kancelář Aventas.',
 }
 
-async function getMessages(locale: string) {
-  try {
-    return (await import(`../../messages/${locale}.json`)).default
-  } catch (error) {
-    notFound()
-  }
-}
-
-export async function generateStaticParams() {
-  return ['cs', 'en'].map(locale => ({ locale }))
+export function generateStaticParams() {
+  return locales.map(locale => ({ locale }))
 }
 
 const GTM_ID = 'GTM-KK7RD957'
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Props) {
-  const messages = await getMessages(locale)
+export default function RootLayout({ children, params: { locale } }: Props) {
+  unstable_setRequestLocale(locale)
+  const messages = useMessages()
 
   return (
-    <html lang='cs'>
+    <html lang={locale}>
       <body className={`${inter.className} app h-full`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <GoogleTagManager id={GTM_ID} />
+          <Suspense>
+            <GoogleTagManager id={GTM_ID} />
+          </Suspense>
           {children}
         </NextIntlClientProvider>
       </body>

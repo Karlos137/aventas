@@ -2,7 +2,9 @@
 
 // Next intl
 import { useLocale, useTranslations } from 'next-intl'
-import { usePathname, useRouter } from 'next-intl/client'
+
+// Next Intl Navigation
+import { useRouter, usePathname } from '@/navigation'
 
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
