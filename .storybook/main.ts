@@ -3,10 +3,10 @@ import path from 'path'
 
 const config: StorybookConfig = {
   stories: ['../components/**/*.stories.@(js|jsx|ts|tsx)'],
+  staticDirs: ['../public', { from: '../public', to: 'public' }],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
   ],
   framework: {
@@ -16,8 +16,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  staticDirs: ['../public'],
-  async webpackFinal(config, { configType }) {
+  async webpackFinal(config) {
     if (config?.resolve?.alias) {
       config.resolve.alias = {
         ...config.resolve.alias,
@@ -26,6 +25,9 @@ const config: StorybookConfig = {
       }
     }
     return config
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
 }
 export default config
