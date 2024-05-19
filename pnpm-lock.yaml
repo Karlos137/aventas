@@ -27,8 +27,8 @@ dependencies:
     specifier: 14.2.3
     version: 14.2.3(eslint@8.51.0)(typescript@5.2.2)
   framer-motion:
-    specifier: ^10.16.4
-    version: 10.16.4(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^11.2.4
+    version: 11.2.4(react-dom@18.3.1)(react@18.3.1)
   next:
     specifier: 14.2.3
     version: 14.2.3(@babel/core@7.22.10)(react-dom@18.3.1)(react@18.3.1)
@@ -1542,20 +1542,6 @@ packages:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
     dev: true
-
-  /@emotion/is-prop-valid@0.8.8:
-    resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
-    requiresBuild: true
-    dependencies:
-      '@emotion/memoize': 0.7.4
-    dev: false
-    optional: true
-
-  /@emotion/memoize@0.7.4:
-    resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
-    requiresBuild: true
-    dev: false
-    optional: true
 
   /@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@18.3.1):
     resolution: {integrity: sha512-jT/qyKZ9rzLErtrjGgdkMBn2OP8wl0G3sQlBb3YPryvKHsjvINUhVaPFfP+fpBcOkmrVOVEEHQFJ7nbj2TH2gw==}
@@ -7311,12 +7297,15 @@ packages:
     resolution: {integrity: sha512-n2aZ9tNfYDwaHhvFTkhFErqOMIb8uyzSQ+vGJBjZyanAKZVbGUQ1sngfk9FdkBw7G26O7AgNjLcecLffD1c7eg==}
     dev: false
 
-  /framer-motion@10.16.4(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-p9V9nGomS3m6/CALXqv6nFGMuFOxbWsmaOrdmhyQimMIlLl3LC7h7l86wge/Js/8cRu5ktutS/zlzgR7eBOtFA==}
+  /framer-motion@11.2.4(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-D+EXd0lspaZijv3BJhAcSsyGz+gnvoEdnf+QWkPZdhoFzbeX/2skrH9XSVFb0osgUnCajW8x1frjhLuKwa/Reg==}
     peerDependencies:
+      '@emotion/is-prop-valid': '*'
       react: ^18.0.0
       react-dom: ^18.0.0
     peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
       react:
         optional: true
       react-dom:
@@ -7325,8 +7314,6 @@ packages:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tslib: 2.6.2
-    optionalDependencies:
-      '@emotion/is-prop-valid': 0.8.8
     dev: false
 
   /fresh@0.5.2:
