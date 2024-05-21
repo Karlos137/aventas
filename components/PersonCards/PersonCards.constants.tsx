@@ -35,7 +35,7 @@ export const PEOPLE_CZ = [
   {
     id: 2,
     name: 'Mgr. Ing. Daniela Radikovská',
-    role: 'Advokátní koncipient',
+    role: 'Advokát & Partner',
     email: 'radikovska@aventas.cz',
     phone: '+420 775 975 412',
     image: '/images/daniela.webp',
