@@ -1,24 +1,39 @@
 import createMiddleware from 'next-intl/middleware'
+import { NextRequest, NextResponse } from 'next/server'
+import { pathnames, localePrefix } from './localesConfig'
 
-import { locales, pathnames, localePrefix } from './localesConfig'
-
-export default createMiddleware({
+// Default locale middleware
+const intlMiddleware = createMiddleware({
   // A list of all locales that are supported
-  locales,
+  locales: ['cs', 'en'],
   // Used when no locale matches
   defaultLocale: 'cs',
-  localePrefix,
+  localePrefix: 'as-needed',
+  localeDetection: false,
   pathnames,
 })
 
+export default function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl
+
+  // Redirect /en/admin and /cs/admin to /admin
+  if (pathname.startsWith('/en/admin') || pathname.startsWith('/cs/admin')) {
+    const newUrl = new URL(req.url)
+    newUrl.pathname = pathname.replace(/^\/(en|cs)/, '')
+    return NextResponse.redirect(newUrl)
+  }
+
+  // Remove locale prefix for API routes
+  if (pathname.startsWith('/en/api') || pathname.startsWith('/cs/api')) {
+    const newUrl = new URL(req.url)
+    newUrl.pathname = pathname.replace(/^\/(en|cs)(\/api)/, '$2')
+    return NextResponse.redirect(newUrl)
+  }
+
+  // Use the default intl middleware for other paths
+  return intlMiddleware(req)
+}
+
 export const config = {
-  // Match only internationalized pathnames
-  matcher: [
-    // Match all pathnames except for
-    // - … if they start with `/api`, `/_next` or `/_vercel`
-    // - … the ones containing a dot (e.g. `favicon.ico`)
-    '/((?!api|_next|_vercel|.*\\..*).*)',
-    // However, match all pathnames within `/users`, optionally with a locale prefix
-    '/([\\w-]+)?/users/(.+)',
-  ],
+  matcher: '/((?!static|.*\\..*|_next).*)',
 }
