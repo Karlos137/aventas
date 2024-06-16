@@ -11,6 +11,7 @@ import { Inter } from 'next/font/google'
 
 // Next Intl
 import { NextIntlClientProvider } from 'next-intl'
+import { defaultLocale } from '../localesConfig'
 
 // Messages
 import messages from '../messages/cs.json'
@@ -40,7 +41,7 @@ const preview: Preview = {
   },
   decorators: [
     Story => (
-      <NextIntlClientProvider locale='cs' messages={messages}>
+      <NextIntlClientProvider locale={defaultLocale} messages={messages}>
         <div className={inter.className}>
           <Story />
         </div>

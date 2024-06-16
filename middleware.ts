@@ -1,12 +1,17 @@
 import createMiddleware from 'next-intl/middleware'
 
-import { locales, pathnames, localePrefix } from './localesConfig'
+import {
+  defaultLocale,
+  locales,
+  pathnames,
+  localePrefix,
+} from './localesConfig'
 
 export default createMiddleware({
   // A list of all locales that are supported
   locales,
   // Used when no locale matches
-  defaultLocale: 'cs',
+  defaultLocale,
   localePrefix,
   pathnames,
 })
