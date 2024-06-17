@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge'
 
 // React components
 import SectionTitle from '../SectionTitle'
-import ReferenceObjects from '../ReferenceObjects'
+import ReferenceItems from '../ReferenceItems'
 
 // Next intl
 import { useTranslations } from 'next-intl'
@@ -25,7 +25,7 @@ const References = ({ className }: ReferencesProps) => {
         {t('titleFirstPart')} <br className='lg:hidden' />
         {t('titleSecondPart')}
       </SectionTitle>
-      <ReferenceObjects />
+      <ReferenceItems />
     </section>
   )
 }
