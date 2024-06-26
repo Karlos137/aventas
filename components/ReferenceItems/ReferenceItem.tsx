@@ -1,15 +1,13 @@
 // Next.js
 import Image from 'next/image'
 
-// Images
-import csobLogoImage from '../../public/images/csob-logo.png'
-
 type ReferenceItemProps = {
   title: string
   onClick: () => void
+  src: string
 }
 
-const ReferenceItem = ({ title, onClick }: ReferenceItemProps) => {
+const ReferenceItem = ({ title, onClick, src }: ReferenceItemProps) => {
   return (
     <a
       onClick={onClick}
@@ -18,12 +16,7 @@ const ReferenceItem = ({ title, onClick }: ReferenceItemProps) => {
       title={title}
       className='cursor-pointer'
     >
-      <Image
-        src={csobLogoImage}
-        alt='ČSOB Advisory logo'
-        width={94}
-        height={101}
-      />
+      <Image src={src} alt='ČSOB Advisory logo' width={94} height={101} />
     </a>
   )
 }
