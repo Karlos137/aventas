@@ -13,7 +13,7 @@ const ReferenceItems = () => {
   const REFERENCE_ITEMS = [
     {
       id: 1,
-      src: '/../public/images/csob-logo.png',
+      src: '/images/csob-logo.png',
       detail: {
         title: 'Reference 1',
         subtitle: 'Podnadpis',
@@ -23,7 +23,7 @@ const ReferenceItems = () => {
     },
     {
       id: 2,
-      src: '/../public/images/csob-logo.png',
+      src: '/images/csob-logo.png',
       detail: {
         title: 'Reference 2',
         subtitle: 'Podnadpis',
@@ -33,7 +33,7 @@ const ReferenceItems = () => {
     },
     {
       id: 3,
-      src: '/../public/images/csob-logo.png',
+      src: '/images/csob-logo.png',
       detail: {
         title: 'Reference 3',
         subtitle: 'Podnadpis',
