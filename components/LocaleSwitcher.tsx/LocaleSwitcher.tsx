@@ -1,7 +1,7 @@
 'use client'
 
 // Next intl
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 
 // Next Intl Navigation
 import { useRouter, usePathname } from '@/navigation'
@@ -14,13 +14,12 @@ type LocaleSwitcherProps = {
 }
 
 export default function LocaleSwitcher({ className }: LocaleSwitcherProps) {
-  const t = useTranslations('LocaleSwitcher')
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
 
   const onLocaleChange = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale })
+    router.replace(pathname, { locale: newLocale as 'cs' | 'en' })
   }
 
   return (
