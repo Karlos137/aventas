@@ -9,6 +9,7 @@ import OurTeamSection from '@/components/OurTeamSection'
 import CollaboratingSubjectsSection from '@/components/CollaboratingSubjectsSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
+import References from '@/components/References'
 
 const Home = () => {
   const scrollMarginClass = 'scroll-mt-[6.875rem]'
@@ -22,6 +23,7 @@ const Home = () => {
       <SpecializationSection className='mt-12 scroll-mt-32 lg:scroll-mt-0' />
       <OurTeamSection className={scrollMarginClass} />
       <CollaboratingSubjectsSection className='pt-12 lg:pt-20' />
+      <References className='pt-12 lg:pt-20' />
       <ContactSection
         className={twMerge('mb-12 pt-12 lg:pt-20', scrollMarginClass)}
       />

@@ -5,18 +5,16 @@ import { twMerge } from 'tailwind-merge'
 
 // React components
 import SectionTitle from '../SectionTitle'
-import LogosBar from '../LogosBar'
+import ReferenceItems from '../ReferenceItems'
 
 // Next intl
 import { useTranslations } from 'next-intl'
 
-type CollaboratingSubjectsSectionProps = {
+type ReferencesProps = {
   className?: string
 }
 
-const CollaboratingSubjectsSection = ({
-  className,
-}: CollaboratingSubjectsSectionProps) => {
+const References = ({ className }: ReferencesProps) => {
   const t = useTranslations('Colaboration')
 
   return (
@@ -27,8 +25,8 @@ const CollaboratingSubjectsSection = ({
         {t('titleFirstPart')} <br className='lg:hidden' />
         {t('titleSecondPart')}
       </SectionTitle>
-      <LogosBar />
+      <ReferenceItems />
     </section>
   )
 }
-export default CollaboratingSubjectsSection
+export default References
