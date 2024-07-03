@@ -52,9 +52,12 @@ const BasicModal = ({
                 duration: 0.15,
               },
             }}
-            className='relative z-30 max-h-screen w-[1200px] max-w-[80vw] overflow-auto bg-white p-14 drop-shadow-custom-blue'
+            className='relative z-30 max-h-screen w-[1200px] max-w-[80vw] overflow-auto bg-white py-4 drop-shadow-custom-blue lg:p-14'
           >
-            <button className='absolute right-12 top-5 p-4' onClick={onClose}>
+            <button
+              className='absolute right-4 h-6 w-6 p-1 lg:right-12 lg:top-5 lg:h-auto lg:w-auto lg:p-4'
+              onClick={onClose}
+            >
               <CloseIcon />
             </button>
             <h3 className='mx-auto mb-10 max-w-[70%] text-center text-2xl font-bold leading-[1.35]'>
