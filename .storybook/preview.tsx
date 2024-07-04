@@ -48,6 +48,7 @@ const preview: Preview = {
       </NextIntlClientProvider>
     ),
   ],
+  tags: ['autodocs'],
 }
 
 export default preview
