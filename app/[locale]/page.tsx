@@ -10,7 +10,7 @@ import CollaboratingSubjectsSection from '@/components/CollaboratingSubjectsSect
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import References from '@/components/References'
-import ArticleCardsTemporary from '@/components/ArticleCard/ArticleCardsTemporary'
+import ArticleCardsSection from '@/components/ArticleCardsSection'
 
 const Home = () => {
   const scrollMarginClass = 'scroll-mt-[6.875rem]'
@@ -22,8 +22,8 @@ const Home = () => {
         className={twMerge('pt-12 lg:pt-20', scrollMarginClass)}
       />
       <SpecializationSection className='mt-12 scroll-mt-32 lg:scroll-mt-0' />
-      <OurTeamSection className={scrollMarginClass} />  
-      <ArticleCardsTemporary />
+      <OurTeamSection className={scrollMarginClass} />
+      <ArticleCardsSection className='pt-12 lg:pt-20' />
       <CollaboratingSubjectsSection className='pt-12 lg:pt-20' />
       <References className='pt-12 lg:pt-20' />
       <ContactSection
