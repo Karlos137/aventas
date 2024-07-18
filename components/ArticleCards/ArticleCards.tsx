@@ -88,7 +88,7 @@ const ReferenceItems = () => {
   ]
 
   return (
-    <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] p-4 md:grid-cols-2 lg:grid-cols-3 lg:bg-[url("/images/specializations-bg.svg")] lg:bg-cover lg:bg-center lg:bg-no-repeat lg:pb-[17rem] lg:pt-[8rem] xl:grid-cols-4 min-[1340px]:bg-contain'>
+    <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] bg-[url("/images/specializations-bg.svg")] bg-cover bg-center bg-no-repeat p-4 pb-24 md:grid-cols-2 lg:grid-cols-3 lg:pb-[17rem] xl:grid-cols-4 min-[1340px]:bg-contain'>
       {REFERENCE_ITEMS.map((item, i) => {
         return (
           <ArticleCard
