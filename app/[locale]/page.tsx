@@ -24,7 +24,7 @@ const Home = () => {
       <SpecializationSection className='mt-12 scroll-mt-32 lg:scroll-mt-0' />
       <OurTeamSection className={scrollMarginClass} />
       <ArticlesSection className='scroll-mt-32 pt-[8rem] lg:scroll-mt-0' />
-      <CollaboratingSubjectsSection className='pt-12 lg:pt-20' />
+      <CollaboratingSubjectsSection />
       <References className='pt-12 lg:pt-20' />
       <ContactSection
         className={twMerge('mb-12 pt-12 lg:pt-20', scrollMarginClass)}

@@ -15,15 +15,14 @@ type ReferencesProps = {
 }
 
 const References = ({ className }: ReferencesProps) => {
-  const t = useTranslations('Colaboration')
+  const t = useTranslations('References')
 
   return (
     <section
       className={twMerge('mx-auto max-w-[1408px] px-7 lg:px-12', className)}
     >
       <SectionTitle className='mb-5 text-center text-2xl lg:text-2xl'>
-        {t('titleFirstPart')} <br className='lg:hidden' />
-        {t('titleSecondPart')}
+        {t('title')}
       </SectionTitle>
       <ReferenceItems />
     </section>

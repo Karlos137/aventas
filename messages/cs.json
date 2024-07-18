@@ -28,6 +28,12 @@
     "titleFirstPart": "Spolupracující",
     "titleSecondPart": "subjekty"
   },
+  "References": {
+    "title": "Reference"
+  },
+  "Articles": {
+    "title": "Aktuality"
+  },
   "Specialization": {
     "title": "Specializace",
     "lan": "cs",
