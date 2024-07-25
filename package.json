@@ -18,15 +18,15 @@
   },
   "dependencies": {
     "@magicul/next-google-tag-manager": "^2.0.0",
-    "framer-motion": "^11.3.6",
-    "next": "14.2.4",
+    "framer-motion": "^11.3.17",
+    "next": "14.2.5",
     "next-intl": "^3.15.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-focus-lock": "^2.12.1",
     "react-remove-scroll": "^2.5.10",
     "sharp": "^0.33.4",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.1.11",
@@ -48,8 +48,8 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "storybook": "^8.1.11",
-    "tailwindcss": "3.4.4",
-    "typescript": "5.5.3"
+    "tailwindcss": "3.4.6",
+    "typescript": "5.5.4"
   },
   "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f"
 }
