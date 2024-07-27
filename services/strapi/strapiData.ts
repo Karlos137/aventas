@@ -1,10 +1,11 @@
 import { fetchStrapi } from './fetchStrapi'
 import type { components } from '@/types/strapi'
 
-export const getHomePage = async () => {
+export const getHomePage = async (locale: string) => {
   const res = await fetchStrapi('/homepage', {
-    populate: [],
+    populate: ['hero.image', 'about'],
+    locale,
   })
 
-  return res as unknown as components['schemas']['Homepage']
+  return res as unknown as components['schemas']['HomepageResponse']
 }

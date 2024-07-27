@@ -12,12 +12,25 @@ import Footer from '@/components/Footer'
 import References from '@/components/References'
 import ArticlesSection from '@/components/ArticlesSection'
 
-const Home = () => {
+// Services (Strapi)
+import { getHomePage } from '@/services/strapi/strapiData'
+
+const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
+  const homePage = await getHomePage(locale)
+
+  const { hero } = homePage.data?.attributes || {}
+
   const scrollMarginClass = 'scroll-mt-[6.875rem]'
 
   return (
     <>
-      <Header />
+      <Header
+        hero={{
+          heading: hero?.text || '',
+          image: hero?.image,
+        }}
+      />
+
       <AboutUsSection
         className={twMerge('pt-12 lg:pt-20', scrollMarginClass)}
       />

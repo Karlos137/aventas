@@ -22,12 +22,9 @@ export const fetchStrapi = async <T>(
     ...options,
   }
 
-  const urlParamsString = qs.stringify(
-    urlParamsObject.locale === 'cs'
-      ? { ...urlParamsObject, locale: 'cs-CZ' }
-      : urlParamsObject,
-    { arrayFormat: 'index' },
-  )
+  const urlParamsString = qs.stringify(urlParamsObject, {
+    arrayFormat: 'index',
+  })
 
   const queryString = urlParamsString ? `?${urlParamsString}` : ''
 
