@@ -9,16 +9,27 @@ import { twMerge } from 'tailwind-merge'
 // React components
 import SectionTitle from '../SectionTitle'
 
+// React Markdown
+import Markdown from 'react-markdown'
+
 // Next intl
 import { useTranslations } from 'next-intl'
 
 type AboutUsSectionProps = {
   className?: string
   image?: string
+  heading?: string
+  description?: string
 }
 
-const AboutUsSection = ({ className, image }: AboutUsSectionProps) => {
+const AboutUsSection = ({
+  className,
+  image,
+  heading,
+  description,
+}: AboutUsSectionProps) => {
   const t = useTranslations('AboutUsSection')
+
   return (
     <section
       className={twMerge(
@@ -36,11 +47,18 @@ const AboutUsSection = ({ className, image }: AboutUsSectionProps) => {
         <SectionTitle
           className={twMerge('lg:text-center', image && 'lg:text-left')}
         >
-          {t('us')}
+          {heading ? heading : t('us')}
         </SectionTitle>
-        <p className='text-last-center text-justify'>{t('textOne')}</p>
-        <br />
-        <p className='text-last-center text-justify'>{t('textTwo')}</p>
+        <div className='text-last-center prose max-w-full text-justify'>
+          {description ? (
+            <Markdown>{description}</Markdown>
+          ) : (
+            <>
+              <p>{t('textOne')}</p>
+              <p>{t('textTwo')}</p>
+            </>
+          )}
+        </div>
       </div>
       {image && (
         <div className='relative h-[290px] flex-shrink-0 sm:h-[320px] md:h-[400px] lg:h-[520px] lg:w-[520px]'>

@@ -20,7 +20,7 @@ import parse from 'html-react-parser'
 
 type HeroProps = {
   className?: string
-  heading: string
+  heading?: string
   image?: components['schemas']['HomepageHeroComponent']['image']
 }
 
@@ -44,10 +44,15 @@ const Hero = ({ className, heading, image }: HeroProps) => {
             priority={true}
           />
           <h1 className='relative z-10 mt-5 px-12 text-[2rem] font-bold leading-tight sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
-            {/* {t('motoFirstLine')}
-            <br />
-            {t('motoSecondLine')} */}
-            {parse(heading)}
+            {heading ? (
+              parse(heading)
+            ) : (
+              <>
+                {t('motoFirstLine')}
+                <br />
+                {t('motoSecondLine')}
+              </>
+            )}
           </h1>
         </div>
         <div className='hidden lg:block'>
@@ -60,10 +65,15 @@ const Hero = ({ className, heading, image }: HeroProps) => {
           />
 
           <h1 className='relative z-10 text-[2rem] font-bold leading-tight text-white sm:text-5xl sm:leading-tight lg:text-7xl lg:leading-tight'>
-            {/* {t('motoFirstLine')}
-            <br />
-            {t('motoSecondLine')} */}
-            {parse(heading)}
+            {heading ? (
+              parse(heading)
+            ) : (
+              <>
+                {t('motoFirstLine')}
+                <br />
+                {t('motoSecondLine')}
+              </>
+            )}
           </h1>
         </div>
       </div>

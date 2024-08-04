@@ -12,9 +12,10 @@ import { useTranslations } from 'next-intl'
 
 type OurTeamSectionProps = {
   className?: string
+  heading?: string
 }
 
-const OurTeamSection = ({ className }: OurTeamSectionProps) => {
+const OurTeamSection = ({ className, heading }: OurTeamSectionProps) => {
   const t = useTranslations('OurTeam')
 
   return (
@@ -26,7 +27,7 @@ const OurTeamSection = ({ className }: OurTeamSectionProps) => {
       id='nas-tym'
     >
       <SectionTitle className='mb-8 text-center md:mb-16' color='brown'>
-        {t('title')}
+        {heading ? heading : t('title')}
       </SectionTitle>
       <PersonCards />
     </section>
