@@ -12,10 +12,12 @@ import { useTranslations } from 'next-intl'
 
 type CollaboratingSubjectsSectionProps = {
   className?: string
+  heading?: string
 }
 
 const CollaboratingSubjectsSection = ({
   className,
+  heading,
 }: CollaboratingSubjectsSectionProps) => {
   const t = useTranslations('Colaboration')
 
@@ -24,8 +26,15 @@ const CollaboratingSubjectsSection = ({
       className={twMerge('mx-auto max-w-[1408px] px-7 lg:px-12', className)}
     >
       <SectionTitle className='mb-5 text-center text-2xl lg:text-2xl'>
-        {t('titleFirstPart')} <br className='lg:hidden' />
-        {t('titleSecondPart')}
+        {heading ? (
+          heading
+        ) : (
+          <>
+            {' '}
+            {t('titleFirstPart')} <br className='lg:hidden' />
+            {t('titleSecondPart')}
+          </>
+        )}
       </SectionTitle>
       <LogosBar />
     </section>

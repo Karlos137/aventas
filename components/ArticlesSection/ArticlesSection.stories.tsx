@@ -13,6 +13,7 @@ type Story = StoryObj<typeof ArticlesSection>
 export const Default: Story = {
   args: {
     className: 'mt-12',
+    heading: 'Articles',
   },
   parameters: {
     layout: 'fullscreen',

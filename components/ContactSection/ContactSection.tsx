@@ -13,9 +13,34 @@ import { useTranslations } from 'next-intl'
 
 type ContactSectionProps = {
   className?: string
+  heading?: string
+  contact?: {
+    heading?: string
+    email?: string
+    phone?: string
+  }
+  contactInfo?: {
+    name?: string
+    ico?: string
+    dic?: string
+    heading?: string
+  }
+  contactOffice?: {
+    heading?: string
+    name?: string
+    href?: string
+  }
+  linkedInLink?: string
 }
 
-const ContactSection = ({ className }: ContactSectionProps) => {
+const ContactSection = ({
+  className,
+  heading,
+  contact,
+  contactInfo,
+  contactOffice,
+  linkedInLink,
+}: ContactSectionProps) => {
   const t = useTranslations('Contact')
 
   return (
@@ -24,9 +49,14 @@ const ContactSection = ({ className }: ContactSectionProps) => {
       id='kontakt'
     >
       <SectionTitle className='mx-auto mb-12 max-w-[1296px] px-8 text-center lg:mb-16 lg:px-12 lg:text-center'>
-        {t('title')}
+        {heading ? heading : t('title')}
       </SectionTitle>
-      <Contacts />
+      <Contacts
+        contact={contact}
+        contactInfo={contactInfo}
+        contactOffice={contactOffice}
+        linkedInLink={linkedInLink}
+      />
 
       <SnazzyMap className='mt-12 lg:mt-16' />
     </section>

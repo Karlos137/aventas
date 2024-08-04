@@ -13,9 +13,13 @@ import { useTranslations } from 'next-intl'
 
 type SpecializationSectionProps = {
   className?: string
+  heading: string
 }
 
-const SpecializationSection = ({ className }: SpecializationSectionProps) => {
+const SpecializationSection = ({
+  className,
+  heading,
+}: SpecializationSectionProps) => {
   const t = useTranslations('Specialization')
 
   return (
@@ -27,7 +31,7 @@ const SpecializationSection = ({ className }: SpecializationSectionProps) => {
       )}
     >
       <SectionTitle className='mx-auto max-w-[1296px] px-12 md:mb-20 lg:text-center'>
-        {t('title')}
+        {heading ? heading : t('title')}
       </SectionTitle>
       <div className='lg:hidden'>
         <SpecializationItems className='px-7' />

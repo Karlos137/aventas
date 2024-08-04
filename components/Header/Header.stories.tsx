@@ -10,6 +10,11 @@ export default meta
 type Story = StoryObj<typeof Header>
 
 export const Default: Story = {
+  args: {
+    hero: {
+      heading: 'Právní jistota při každém kroku',
+    },
+  },
   parameters: {
     layout: 'fullscreen',
   },

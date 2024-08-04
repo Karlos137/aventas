@@ -13,6 +13,7 @@ type Story = StoryObj<typeof OurTeamSection>
 export const Default: Story = {
   args: {
     className: '',
+    heading: 'Náš tým',
   },
   parameters: {
     layout: 'fullscreen',
