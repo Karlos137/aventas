@@ -29,7 +29,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
     contact,
   } = homePage.data?.attributes || {}
 
-  const scrollMarginClass = 'scroll-mt-[6.875rem]'
+  const scrollMarginClass = 'scroll-mt-32'
 
   return (
     <>
@@ -39,11 +39,14 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
           image: hero?.image,
         }}
       />
-
       <AboutUsSection
         className={twMerge('pt-12 lg:pt-20', scrollMarginClass)}
         heading={about?.heading || ''}
         description={about?.description || ''}
+      />
+      <ArticlesSection
+        heading={articles?.heading || ''}
+        className='scroll-mt-32 pt-20 lg:scroll-mt-0'
       />
       <SpecializationSection
         heading={specializations?.heading || ''}
@@ -53,16 +56,13 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         heading={ourTeam?.heading || ''}
         className={scrollMarginClass}
       />
-      <ArticlesSection
-        heading={articles?.heading || ''}
-        className='scroll-mt-32 pt-[8rem] lg:scroll-mt-0'
-      />
       <CollaboratingSubjectsSection
         heading={collaboratingSubjects?.heading || ''}
+        className='mt-12 scroll-mt-32 lg:mt-20'
       />
       <References
         heading={references?.heading || ''}
-        className='pt-12 lg:pt-20'
+        className='mt-12 scroll-mt-32 lg:mt-20'
       />
       <ContactSection
         heading={contact?.heading || ''}

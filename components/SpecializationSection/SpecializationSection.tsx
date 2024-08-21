@@ -26,7 +26,7 @@ const SpecializationSection = ({
     <section
       id='specializace'
       className={twMerge(
-        'lg:bg-[url("/images/specializations-bg.svg")] lg:bg-cover lg:bg-center lg:bg-no-repeat lg:pb-[17rem] lg:pt-[8rem] min-[1340px]:bg-contain',
+        'lg:bg-[url("/images/specializations-bg.svg")] lg:bg-contain lg:bg-center lg:bg-no-repeat lg:pb-32 lg:pt-12 min-[1340px]:bg-contain',
         className,
       )}
     >
