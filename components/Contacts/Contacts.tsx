@@ -175,7 +175,7 @@ const Contacts = ({
           )
         })}
       </div>
-      <div className='mt-16 flex flex-col items-center justify-center'>
+      <div className='text-custom-brown-600 mt-16 flex flex-row items-center justify-center gap-16'>
         <Contact
           icon='linkedIn'
           links={[
@@ -186,6 +186,17 @@ const Contacts = ({
                 : 'https://www.linkedin.com/company/akaventas',
             },
           ]}
+          className='min-w-[4.75rem]'
+        />
+        <Contact
+          icon='facebook'
+          links={[
+            {
+              title: 'Facebook',
+              href: 'https://facebook.com',
+            },
+          ]}
+          className='min-w-[4.75rem]'
         />
       </div>
     </div>

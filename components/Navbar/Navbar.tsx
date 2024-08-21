@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='lg:hidden'>
+      <div className='xl:hidden'>
         <AnimatePresence>
           {menuOpen && (
             <HamburgerMenu
@@ -43,15 +43,15 @@ const Navbar = () => {
       <div className='sticky top-0 z-30 bg-custom-blue-800'>
         <div className='mx-auto flex max-w-[1296px] items-center justify-between gap-4 px-8 py-7 lg:px-12'>
           <Link href='/' className='flex min-h-[54px] items-center'>
-            <div className='lg:hidden'>
+            <div className='xl:hidden'>
               <AventasLogo />
             </div>
-            <div className='hidden lg:block'>
+            <div className='hidden xl:block'>
               <AventasTextLogo />
             </div>
             <span className='sr-only'>Aventas logo</span>
           </Link>
-          <div className='lg:hidden'>
+          <div className='xl:hidden'>
             <HamburgerMenuButton
               menuOpen={menuOpen}
               toggle={() => {
@@ -60,9 +60,9 @@ const Navbar = () => {
               }}
             />
           </div>
-          <div className='hidden lg:block'>
+          <div className='hidden xl:block'>
             <nav className='flex gap-8'>
-              <ul className='flex items-center gap-8'>
+              <ul className='flex items-center gap-6'>
                 {mainLinks.map(link => {
                   const { id, title, href } = link
 
@@ -70,7 +70,7 @@ const Navbar = () => {
                     <li key={id}>
                       <Link
                         href={href}
-                        className='text-white transition-colors hover:text-custom-brown-400'
+                        className='text-base text-white transition-colors hover:text-custom-brown-400'
                       >
                         {title}
                       </Link>
