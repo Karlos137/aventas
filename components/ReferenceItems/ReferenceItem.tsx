@@ -14,7 +14,7 @@ const ReferenceItem = ({ title, onClick, src }: ReferenceItemProps) => {
       rel='noopener norefferer'
       target='_blank'
       title={title}
-      className='cursor-pointer'
+      className='scale-100 cursor-pointer transition-transform hover:scale-105'
     >
       <Image src={src} alt='ČSOB Advisory logo' width={94} height={101} />
     </a>

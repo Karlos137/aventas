@@ -70,6 +70,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         contactInfo={contact?.contactInfoSection}
         contactOffice={contact?.contactOfficeSection}
         linkedInLink={contact?.linkedInLink}
+        facebookLink={contact?.facebookLink}
         className={twMerge('mb-12 pt-12 lg:pt-20', scrollMarginClass)}
       />
       <Footer />

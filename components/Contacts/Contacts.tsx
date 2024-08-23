@@ -31,6 +31,7 @@ type ContactsProps = {
     href?: string
   }
   linkedInLink?: string
+  facebookLink?: string
 }
 
 const Contacts = ({
@@ -39,6 +40,7 @@ const Contacts = ({
   contactInfo,
   contactOffice,
   linkedInLink,
+  facebookLink,
 }: ContactsProps) => {
   const t = useTranslations('Contact')
   const contacts = t('lan') === 'cs' ? CONTACTS_CZ : CONTACTS_EN
@@ -175,7 +177,7 @@ const Contacts = ({
           )
         })}
       </div>
-      <div className='text-custom-brown-600 mt-16 flex flex-row items-center justify-center gap-16'>
+      <div className='mt-16 flex flex-row items-center justify-center gap-16 text-custom-brown-600'>
         <Contact
           icon='linkedIn'
           links={[
@@ -193,7 +195,9 @@ const Contacts = ({
           links={[
             {
               title: 'Facebook',
-              href: 'https://facebook.com',
+              href: facebookLink
+                ? facebookLink
+                : 'https://www.facebook.com/people/AVENTAS-advok%C3%A1tn%C3%AD-kancel%C3%A1%C5%99/61550591146107/',
             },
           ]}
           className='min-w-[4.75rem]'

@@ -31,6 +31,7 @@ type ContactSectionProps = {
     href?: string
   }
   linkedInLink?: string
+  facebookLink?: string
 }
 
 const ContactSection = ({
@@ -40,6 +41,7 @@ const ContactSection = ({
   contactInfo,
   contactOffice,
   linkedInLink,
+  facebookLink,
 }: ContactSectionProps) => {
   const t = useTranslations('Contact')
 
@@ -56,6 +58,7 @@ const ContactSection = ({
         contactInfo={contactInfo}
         contactOffice={contactOffice}
         linkedInLink={linkedInLink}
+        facebookLink={facebookLink}
       />
 
       <SnazzyMap className='mt-12 lg:mt-16' />
