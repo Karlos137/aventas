@@ -2408,6 +2408,7 @@ export interface components {
         heading?: string
       }
       linkedInLink?: string
+      facebookLink?: string
     }
     HomepageArticlesComponent: {
       id?: number
