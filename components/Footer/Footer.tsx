@@ -1,15 +1,25 @@
 'use client'
 
+// Tailwind Merge
+import { twMerge } from 'tailwind-merge'
+
 // React components
 import AventasLogo from '../svgs/AventasLogo'
 
 // Next intl
 import { useTranslations } from 'next-intl'
 
-const Footer = () => {
+type FooterProps = {
+  className?: string
+}
+
+const Footer = ({ className }: FooterProps) => {
   const t = useTranslations('Footer')
+
   return (
-    <footer className='mx-auto max-w-[1296px] px-8 lg:px-12'>
+    <footer
+      className={twMerge('mx-auto max-w-[1296px] px-8 lg:px-12', className)}
+    >
       <div className='flex flex-col items-center gap-11'>
         <AventasLogo />
         <p className='text-center'>

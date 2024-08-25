@@ -8,15 +8,24 @@ import SpecializationSection from '@/components/SpecializationSection'
 import OurTeamSection from '@/components/OurTeamSection'
 import CollaboratingSubjectsSection from '@/components/CollaboratingSubjectsSection'
 import ContactSection from '@/components/ContactSection'
-import Footer from '@/components/Footer'
 import References from '@/components/References'
 import ArticlesSection from '@/components/ArticlesSection'
 
 // Services (Strapi)
-import { getHomePage } from '@/services/strapi/strapiData'
+import { getHomePage, getArticles } from '@/services/strapi/strapiData'
+
+// Constants
+import { ARTICLES_LIMIT } from '@/constants/articles'
 
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
-  const homePage = await getHomePage(locale)
+  const homepageData = getHomePage(locale)
+  const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
+
+  // Initiate both requests in parallel
+  const [homepage, articleList] = await Promise.all([
+    homepageData,
+    articlesData,
+  ])
 
   const {
     hero,
@@ -27,7 +36,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
     collaboratingSubjects,
     references,
     contact,
-  } = homePage.data?.attributes || {}
+  } = homepage.data?.attributes || {}
 
   const scrollMarginClass = 'scroll-mt-32'
 
@@ -44,10 +53,15 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         heading={about?.heading || ''}
         description={about?.description || ''}
       />
-      <ArticlesSection
-        heading={articles?.heading || ''}
-        className='scroll-mt-32 pt-20 lg:scroll-mt-0'
-      />
+
+      {articleList?.data && articleList?.data?.length > 0 && (
+        <ArticlesSection
+          heading={articles?.heading || ''}
+          articles={articleList}
+          className='scroll-mt-32 pt-20 lg:scroll-mt-0'
+        />
+      )}
+
       <SpecializationSection
         heading={specializations?.heading || ''}
         className='mt-12 scroll-mt-32 lg:scroll-mt-0'
@@ -73,7 +87,6 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         facebookLink={contact?.facebookLink}
         className={twMerge('mb-12 pt-12 lg:pt-20', scrollMarginClass)}
       />
-      <Footer />
     </>
   )
 }
