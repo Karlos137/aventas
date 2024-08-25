@@ -20,3 +20,20 @@ export const getHomePage = async (locale: string) => {
 
   return res as unknown as components['schemas']['HomepageResponse']
 }
+
+export const getArticles = async (
+  locale: string,
+  start: number,
+  limit: number,
+  withCount?: boolean,
+) => {
+  const res = await fetchStrapi('/articles', {
+    populate: ['content'],
+    locale,
+    'pagination[start]': start || 0,
+    'pagination[limit]': limit,
+    'pagination[withCount]': withCount,
+  })
+
+  return res as unknown as components['schemas']['ArticleListResponse']
+}

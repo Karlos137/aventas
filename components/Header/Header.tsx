@@ -1,5 +1,5 @@
 // React components
-import Navbar from '../Navbar'
+
 import Hero from '../Hero'
 
 // Types
@@ -14,16 +14,13 @@ type HeaderProps = {
 
 const Header = ({ hero }: HeaderProps) => {
   return (
-    <>
-      <Navbar />
-      <header className='flex flex-col lg:min-h-[calc(100vh_-_110px)]'>
-        <Hero
-          heading={hero.heading}
-          image={hero.image}
-          className='lg:flex-grow'
-        />
-      </header>
-    </>
+    <header className='flex flex-col lg:min-h-[calc(100vh_-_110px)]'>
+      <Hero
+        heading={hero.heading}
+        image={hero.image}
+        className='lg:flex-grow'
+      />
+    </header>
   )
 }
 export default Header

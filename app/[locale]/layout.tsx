@@ -15,6 +15,8 @@ import { ReactNode, Suspense } from 'react'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
 import { locales } from '@/localesConfig'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 type Props = {
   children: ReactNode
@@ -45,7 +47,11 @@ export default function RootLayout({ children, params: { locale } }: Props) {
           <Suspense>
             <GoogleTagManager id={GTM_ID} />
           </Suspense>
-          {children}
+          <div className='flex h-full w-full flex-col'>
+            <Navbar />
+            <main>{children}</main>
+            <Footer className='mt-auto' />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -5,7 +5,7 @@ export const fetchStrapi = async <T>(
   urlParamsObject: { [key: string]: any } = {},
   options = {},
 ): Promise<{ data: T }> => {
-  const token = process.env.API_TOKEN
+  // const token = process.env.API_TOKEN
 
   const revalidateNumber = parseInt(process.env.NEXT_PUBLIC_REVALIDATE || '')
   const revalidate = Number.isInteger(revalidateNumber) ? revalidateNumber : 60
