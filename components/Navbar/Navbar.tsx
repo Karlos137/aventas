@@ -43,10 +43,10 @@ const Navbar = () => {
       <div className='sticky top-0 z-30 bg-custom-blue-800'>
         <div className='mx-auto flex max-w-[1296px] items-center justify-between gap-4 px-8 py-7 lg:px-12'>
           <Link href='/' className='flex min-h-[54px] items-center'>
-            <div className='xl:hidden'>
+            <div className='md:hidden'>
               <AventasLogo />
             </div>
-            <div className='hidden xl:block'>
+            <div className='hidden md:block'>
               <AventasTextLogo />
             </div>
             <span className='sr-only'>Aventas logo</span>
