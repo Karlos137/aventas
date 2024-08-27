@@ -4,6 +4,9 @@
 import SectionTitle from '../SectionTitle'
 import PersonCards from '../PersonCards'
 
+// Types
+import { components } from '@/types/strapi'
+
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
@@ -13,9 +16,14 @@ import { useTranslations } from 'next-intl'
 type OurTeamSectionProps = {
   className?: string
   heading?: string
+  members: components['schemas']['TeamMemberListResponse']
 }
 
-const OurTeamSection = ({ className, heading }: OurTeamSectionProps) => {
+const OurTeamSection = ({
+  className,
+  heading,
+  members,
+}: OurTeamSectionProps) => {
   const t = useTranslations('OurTeam')
 
   return (
@@ -29,7 +37,7 @@ const OurTeamSection = ({ className, heading }: OurTeamSectionProps) => {
       <SectionTitle className='mb-8 text-center md:mb-16' color='brown'>
         {heading ? heading : t('title')}
       </SectionTitle>
-      <PersonCards />
+      <PersonCards members={members} />
     </section>
   )
 }
