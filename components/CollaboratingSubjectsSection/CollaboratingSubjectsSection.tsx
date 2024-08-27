@@ -41,7 +41,7 @@ const CollaboratingSubjectsSection = ({
           </>
         )}
       </SectionTitle>
-      <LogosBar collabs={collabs} />
+      <LogosBar logos={collabs} />
     </section>
   )
 }
