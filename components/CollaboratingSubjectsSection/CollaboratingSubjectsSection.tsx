@@ -3,6 +3,9 @@
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
+// Types
+import { components } from '@/types/strapi'
+
 // React components
 import SectionTitle from '../SectionTitle'
 import LogosBar from '../LogosBar'
@@ -13,11 +16,13 @@ import { useTranslations } from 'next-intl'
 type CollaboratingSubjectsSectionProps = {
   className?: string
   heading?: string
+  collabs: components['schemas']['CollaboratingSubjectListResponse']
 }
 
 const CollaboratingSubjectsSection = ({
   className,
   heading,
+  collabs,
 }: CollaboratingSubjectsSectionProps) => {
   const t = useTranslations('Colaboration')
 
@@ -31,13 +36,12 @@ const CollaboratingSubjectsSection = ({
           heading
         ) : (
           <>
-            {' '}
             {t('titleFirstPart')} <br className='lg:hidden' />
             {t('titleSecondPart')}
           </>
         )}
       </SectionTitle>
-      <LogosBar />
+      <LogosBar collabs={collabs} />
     </section>
   )
 }

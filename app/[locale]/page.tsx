@@ -12,7 +12,11 @@ import References from '@/components/References'
 import ArticlesSection from '@/components/ArticlesSection'
 
 // Services (Strapi)
-import { getHomePage, getArticles } from '@/services/strapi/strapiData'
+import {
+  getHomePage,
+  getArticles,
+  getCollaboratingSubjects,
+} from '@/services/strapi/strapiData'
 
 // Constants
 import { ARTICLES_LIMIT } from '@/constants/articles'
@@ -20,11 +24,13 @@ import { ARTICLES_LIMIT } from '@/constants/articles'
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const homepageData = getHomePage(locale)
   const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
+  const collaboratingSubjectsData = getCollaboratingSubjects(locale)
 
   // Initiate both requests in parallel
-  const [homepage, articleList] = await Promise.all([
+  const [homepage, articleList, collaboratingSubjectsList] = await Promise.all([
     homepageData,
     articlesData,
+    collaboratingSubjectsData,
   ])
 
   const {
@@ -70,10 +76,15 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         heading={ourTeam?.heading || ''}
         className={scrollMarginClass}
       />
-      <CollaboratingSubjectsSection
-        heading={collaboratingSubjects?.heading || ''}
-        className='mt-12 scroll-mt-32 lg:mt-20'
-      />
+      {collaboratingSubjectsList?.data &&
+        collaboratingSubjectsList?.data?.length > 0 && (
+          <CollaboratingSubjectsSection
+            heading={collaboratingSubjects?.heading || ''}
+            collabs={collaboratingSubjectsList}
+            className='scroll-mt-32 pt-20 lg:scroll-mt-0'
+          />
+        )}
+
       <References
         heading={references?.heading || ''}
         className='mt-12 scroll-mt-32 lg:mt-20'
