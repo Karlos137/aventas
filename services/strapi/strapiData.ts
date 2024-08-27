@@ -37,3 +37,12 @@ export const getArticles = async (
 
   return res as unknown as components['schemas']['ArticleListResponse']
 }
+
+export const getCollaboratingSubjects = async (locale: string) => {
+  const res = await fetchStrapi('/collaborating-subjects', {
+    populate: ['content', 'logo'],
+    locale,
+  })
+
+  return res as unknown as components['schemas']['CollaboratingSubjectListResponse']
+}
