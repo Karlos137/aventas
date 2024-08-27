@@ -3,35 +3,39 @@
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
-// Data
-import {
-  SPECIALIZATIONS_CZ,
-  SPECIALIZATIONS_EN,
-} from './SpecializationItems.constants'
+// Types
+import { components } from '@/types/strapi'
 
 // Next intl
 import { useTranslations } from 'next-intl'
 
 type SpecializationItemsProps = {
   className?: string
+  content: components['schemas']['SpecializationListResponse']
 }
 
-const SpecializationItems = ({ className }: SpecializationItemsProps) => {
+const SpecializationItems = ({
+  className,
+  content,
+}: SpecializationItemsProps) => {
   const t = useTranslations('Specialization')
-  const specialization =
-    t('lan') === 'cs' ? SPECIALIZATIONS_CZ : SPECIALIZATIONS_EN
+
+  if (!content?.data || content?.data?.length === 0) {
+    return <></>
+  }
+
   return (
     <ul className={twMerge('list-none', className)}>
-      {specialization.map((specializationItem, i) => {
+      {content.data.map((item, i) => {
         return (
           <li
-            key={specializationItem.id}
+            key={item.id}
             className={twMerge(
               'border-b border-custom-brown-400 p-4 text-2xl font-bold',
-              i + 1 === specialization.length && 'border-b-0',
+              i + 1 === item.attributes?.heading.length && 'border-b-0',
             )}
           >
-            {specializationItem.title}
+            {item.attributes?.heading}
           </li>
         )
       })}
