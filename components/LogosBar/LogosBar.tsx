@@ -12,9 +12,7 @@ const LogosBar = ({ logos }: LogosBarProps) => {
   if (!logos?.data || logos?.data?.length === 0) {
     return <></>
   }
-  {
-    console.log(logos)
-  }
+
   return (
     <div className='flex flex-wrap items-center justify-center gap-x-10 gap-y-2 border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
       {logos.data.map((logo, i) => {
@@ -31,7 +29,8 @@ const LogosBar = ({ logos }: LogosBarProps) => {
                 logo.attributes?.logo.data?.attributes?.alternativeText || ''
               }
               src={logo.attributes?.logo.data?.attributes?.url || ''}
-              fill
+              fill={true}
+              className='object-contain object-center'
             />
           </a>
         )
