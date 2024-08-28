@@ -16,6 +16,7 @@ import {
   getHomePage,
   getArticles,
   getCollaboratingSubjects,
+  getTeamMembers,
   getSpecializations,
 } from '@/services/strapi/strapiData'
 
@@ -26,14 +27,17 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const homepageData = getHomePage(locale)
   const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
   const collaboratingSubjectsData = getCollaboratingSubjects(locale)
+  const teamMembersData = getTeamMembers(locale)
   const specializationsData = getSpecializations(locale)
 
   // Initiate both requests in parallel
-  const [homepage, articleList, collaboratingSubjectsList, specializationList] =
+  const [homepage, articleList, collaboratingSubjectsList, specializationList, teamMembersList] =
+
     await Promise.all([
       homepageData,
       articlesData,
       collaboratingSubjectsData,
+      teamMembersData,
       specializationsData,
     ])
 
@@ -63,7 +67,6 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         heading={about?.heading || ''}
         description={about?.description || ''}
       />
-
       {articleList?.data && articleList?.data?.length > 0 && (
         <ArticlesSection
           heading={articles?.heading || ''}
@@ -71,7 +74,6 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
           className='scroll-mt-32 pt-20 lg:scroll-mt-0'
         />
       )}
-
       {specializationList?.data && specializationList?.data?.length > 0 && (
         <SpecializationSection
           heading={specializations?.heading || ''}
@@ -79,11 +81,13 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
           className='mt-12 scroll-mt-32 lg:scroll-mt-0'
         />
       )}
-
-      <OurTeamSection
-        heading={ourTeam?.heading || ''}
-        className={scrollMarginClass}
-      />
+       {teamMembersList?.data && teamMembersList?.data?.length > 0 && (
+        <OurTeamSection
+          heading={ourTeam?.heading || ''}
+          members={teamMembersList || ''}
+          className={scrollMarginClass}
+        />
+      )}
       {collaboratingSubjectsList?.data &&
         collaboratingSubjectsList?.data?.length > 0 && (
           <CollaboratingSubjectsSection
@@ -92,7 +96,6 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
             className='scroll-mt-32 pt-20 lg:scroll-mt-0'
           />
         )}
-
       <References
         heading={references?.heading || ''}
         className='mt-12 scroll-mt-32 lg:mt-20'
