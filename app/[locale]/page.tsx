@@ -18,6 +18,7 @@ import {
   getCollaboratingSubjects,
   getTeamMembers,
   getSpecializations,
+  getReferences,
 } from '@/services/strapi/strapiData'
 
 // Constants
@@ -29,6 +30,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const collaboratingSubjectsData = getCollaboratingSubjects(locale)
   const teamMembersData = getTeamMembers(locale)
   const specializationsData = getSpecializations(locale)
+  const referencesData = getReferences(locale)
 
   // Initiate both requests in parallel
   const [
@@ -37,12 +39,14 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
     collaboratingSubjectsList,
     specializationList,
     teamMembersList,
+    referencesList,
   ] = await Promise.all([
     homepageData,
     articlesData,
     collaboratingSubjectsData,
     specializationsData,
     teamMembersData,
+    referencesData,
   ])
 
   const {
@@ -100,10 +104,14 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
             className='scroll-mt-32 pt-20 lg:scroll-mt-0'
           />
         )}
-      <References
-        heading={references?.heading || ''}
-        className='mt-12 scroll-mt-32 lg:mt-20'
-      />
+      {referencesList?.data && referencesList?.data?.length > 0 && (
+        <References
+          heading={references?.heading || ''}
+          references={referencesList}
+          className='mt-12 scroll-mt-32 lg:mt-20'
+        />
+      )}
+
       <ContactSection
         heading={contact?.heading || ''}
         contact={contact?.contactSection}

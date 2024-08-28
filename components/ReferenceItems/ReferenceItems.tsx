@@ -1,69 +1,83 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 // React
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+
+// Types
+import { components } from '@/types/strapi'
 
 // React components
-import ReferenceItem from './ReferenceItem'
 import BasicModal from '../BasicModal'
+import ReferenceItem from './ReferenceItem'
+import RightArrowIcon from '@/components/svgs/icons/RightArrowIcon'
+import LeftArrowIcon from '@/components/svgs/icons/LeftArrowIcon'
 
 // Framer-motion
 import { AnimatePresence } from 'framer-motion'
 
-const ReferenceItems = () => {
+// Embla carousel
+import useEmblaCarousel from 'embla-carousel-react'
+
+type ReferenceItemsProps = {
+  className?: string
+  heading?: string
+  references: components['schemas']['ReferenceListResponse']
+}
+
+const ReferenceItems = ({
+  className,
+  heading,
+  references,
+}: ReferenceItemsProps) => {
   const [modal, setModal] = useState<number | null>(null)
-  const REFERENCE_ITEMS = [
-    {
-      id: 1,
-      src: '/images/csob-logo.png',
-      detail: {
-        title: 'Reference 1',
-        subtitle: 'Podnadpis',
-        description:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ',
-      },
-    },
-    {
-      id: 2,
-      src: '/images/csob-logo.png',
-      detail: {
-        title: 'Reference 2',
-        subtitle: 'Podnadpis',
-        description:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ',
-      },
-    },
-    {
-      id: 3,
-      src: '/images/csob-logo.png',
-      detail: {
-        title: 'Reference 3',
-        subtitle: 'Podnadpis',
-        description:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ',
-      },
-    },
-  ]
+  const [emblaRef, emblaApi] = useEmblaCarousel()
+
+  if (!references?.data || references?.data?.length === 0) {
+    return <></>
+  }
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
 
   return (
-    <div className='flex items-center justify-center gap-10 border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
-      {REFERENCE_ITEMS.map((item, i) => {
-        return (
-          <ReferenceItem
-            key={item.id}
-            title={item.detail.title}
-            src={item.src}
-            onClick={() => {
-              setModal(i)
-            }}
-          />
-        )
-      })}
-
+    <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
+      <div className='overflow-hidden' ref={emblaRef}>
+        <div className='flex justify-center'>
+          {references.data.map((item, i) => {
+            return (
+              <ReferenceItem
+                key={item.id}
+                title={item.attributes?.href || ''}
+                src={item.attributes?.logo.data?.attributes?.url || ''}
+                className={
+                  'flex min-w-0 flex-[0_0_30%] scale-100 cursor-pointer transition-transform hover:scale-105 md:flex-[0_0_20%] lg:flex-[0_0_10%]'
+                }
+                onClick={() => {
+                  setModal(i)
+                }}
+              />
+            )
+          })}
+        </div>
+        <div className='flex justify-center gap-8'>
+          <button onClick={scrollPrev}>
+            <LeftArrowIcon />
+          </button>
+          <button onClick={scrollNext}>
+            <RightArrowIcon />
+          </button>
+        </div>
+      </div>
       <AnimatePresence>
         {modal !== null && (
           <BasicModal
-            title={REFERENCE_ITEMS[modal].detail.title}
-            subtitle={REFERENCE_ITEMS[modal].detail.subtitle}
-            description={REFERENCE_ITEMS[modal].detail.description}
+            title={references.data[modal].attributes?.href || ''}
+            subtitle={references.data[modal].attributes?.href || ''}
+            description={references.data[modal].attributes?.href || ''}
             onClose={() => {
               setModal(null)
             }}

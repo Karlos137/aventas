@@ -20,6 +20,7 @@
   "dependencies": {
     "@magicul/next-google-tag-manager": "^2.0.0",
     "dayjs": "^1.11.13",
+    "embla-carousel-react": "^8.2.0",
     "framer-motion": "^11.3.30",
     "html-react-parser": "^5.1.12",
     "next": "14.2.6",
