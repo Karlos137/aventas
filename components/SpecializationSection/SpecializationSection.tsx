@@ -3,6 +3,9 @@
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
+// Types
+import { components } from '@/types/strapi'
+
 // React components
 import SectionTitle from '../SectionTitle'
 import SpecializationItems from '../SpecializationItems'
@@ -14,11 +17,13 @@ import { useTranslations } from 'next-intl'
 type SpecializationSectionProps = {
   className?: string
   heading: string
+  content: components['schemas']['SpecializationListResponse']
 }
 
 const SpecializationSection = ({
   className,
   heading,
+  content,
 }: SpecializationSectionProps) => {
   const t = useTranslations('Specialization')
 
@@ -34,10 +39,10 @@ const SpecializationSection = ({
         {heading ? heading : t('title')}
       </SectionTitle>
       <div className='lg:hidden'>
-        <SpecializationItems className='px-7' />
+        <SpecializationItems content={content} className='px-7' />
       </div>
       <div className='hidden lg:block'>
-        <SpecializationCards />
+        <SpecializationCards content={content} />
       </div>
     </section>
   )

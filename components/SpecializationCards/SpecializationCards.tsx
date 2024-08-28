@@ -3,6 +3,9 @@
 // React
 import { useState } from 'react'
 
+// Types
+import { components } from '@/types/strapi'
+
 // Framer Motion
 import { AnimatePresence } from 'framer-motion'
 
@@ -10,31 +13,38 @@ import { AnimatePresence } from 'framer-motion'
 import SpecializationCard from './SpecializationCard'
 import SpecializationModal from './SpecializationModal'
 
-// Data
-import {
-  SPECIALIZATIONS_CZ,
-  SPECIALIZATIONS_EN,
-} from '../SpecializationItems/SpecializationItems.constants'
-
 // Next intl
 import { useTranslations } from 'next-intl'
+import { twMerge } from 'tailwind-merge'
 
-const SpecializationCards = () => {
+type SpecializationCardsProps = {
+  className?: string
+  content: components['schemas']['SpecializationListResponse']
+}
+
+const SpecializationCards = ({
+  className,
+  content,
+}: SpecializationCardsProps) => {
   const [modal, setModal] = useState<number | null>(null)
   const t = useTranslations('Specialization')
-  const specialization =
-    t('lan') === 'cs' ? SPECIALIZATIONS_CZ : SPECIALIZATIONS_EN
+
+  if (!content?.data || content?.data?.length === 0) {
+    return <></>
+  }
 
   return (
-    <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] sm:grid-cols-2 md:grid-cols-3 md:px-12 xl:grid-cols-4'>
-      {specialization.map((specializationItem, i) => {
-        const { id, title, subtitle } = specializationItem
-
+    <div
+      className={twMerge(
+        'mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] sm:grid-cols-2 md:grid-cols-3 md:px-12 xl:grid-cols-4',
+        className,
+      )}
+    >
+      {content.data.map((item, i) => {
         return (
           <SpecializationCard
-            key={id}
-            title={title}
-            subtitle={subtitle}
+            key={item.id}
+            title={item.attributes?.heading || ''}
             onClick={() => {
               setModal(i)
             }}
@@ -44,9 +54,8 @@ const SpecializationCards = () => {
       <AnimatePresence>
         {modal !== null && (
           <SpecializationModal
-            title={specialization[modal].title}
-            subtitle={specialization[modal].subtitle}
-            description={specialization[modal].description}
+            title={content.data[modal].attributes?.heading || ''}
+            description={content.data[modal].attributes?.content || ''}
             onClose={() => {
               setModal(null)
             }}

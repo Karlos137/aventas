@@ -55,3 +55,12 @@ export const getTeamMembers = async (locale: string) => {
 
   return res as unknown as components['schemas']['TeamMemberListResponse']
 }
+
+export const getSpecializations = async (locale: string) => {
+  const res = await fetchStrapi('/specializations', {
+    populate: ['content'],
+    locale,
+  })
+
+  return res as unknown as components['schemas']['SpecializationListResponse']
+}

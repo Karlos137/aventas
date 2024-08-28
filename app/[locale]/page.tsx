@@ -17,6 +17,7 @@ import {
   getArticles,
   getCollaboratingSubjects,
   getTeamMembers,
+  getSpecializations,
 } from '@/services/strapi/strapiData'
 
 // Constants
@@ -27,14 +28,17 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
   const collaboratingSubjectsData = getCollaboratingSubjects(locale)
   const teamMembersData = getTeamMembers(locale)
+  const specializationsData = getSpecializations(locale)
 
   // Initiate both requests in parallel
-  const [homepage, articleList, collaboratingSubjectsList, teamMembersList] =
+  const [homepage, articleList, collaboratingSubjectsList, specializationList, teamMembersList] =
+
     await Promise.all([
       homepageData,
       articlesData,
       collaboratingSubjectsData,
       teamMembersData,
+      specializationsData,
     ])
 
   const {
@@ -70,11 +74,14 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
           className='scroll-mt-32 pt-20 lg:scroll-mt-0'
         />
       )}
-      <SpecializationSection
-        heading={specializations?.heading || ''}
-        className='mt-12 scroll-mt-32 lg:scroll-mt-0'
-      />
-      {teamMembersList?.data && teamMembersList?.data?.length > 0 && (
+      {specializationList?.data && specializationList?.data?.length > 0 && (
+        <SpecializationSection
+          heading={specializations?.heading || ''}
+          content={specializationList}
+          className='mt-12 scroll-mt-32 lg:scroll-mt-0'
+        />
+      )}
+       {teamMembersList?.data && teamMembersList?.data?.length > 0 && (
         <OurTeamSection
           heading={ourTeam?.heading || ''}
           members={teamMembersList || ''}

@@ -14,15 +14,10 @@ import { useTranslations } from 'next-intl'
 
 type SpecializationCardProps = {
   title: string
-  subtitle?: string
   onClick: () => void
 }
 
-const SpecializationCard = ({
-  title,
-  subtitle,
-  onClick,
-}: SpecializationCardProps) => {
+const SpecializationCard = ({ title, onClick }: SpecializationCardProps) => {
   const [hover, setHover] = useState(false)
   const t = useTranslations('Specialization')
 
@@ -35,12 +30,6 @@ const SpecializationCard = ({
     >
       <h3 className='text-left text-[1.375rem] font-bold leading-[1.35]'>
         <span>{title}</span>
-        {subtitle && (
-          <>
-            <br />
-            <span>{subtitle}</span>
-          </>
-        )}
       </h3>
       <div className='mt-auto flex items-center gap-3'>
         <span> {t('more')}</span>
