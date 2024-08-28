@@ -15,6 +15,7 @@ import SpecializationModal from './SpecializationModal'
 
 // Next intl
 import { useTranslations } from 'next-intl'
+import { twMerge } from 'tailwind-merge'
 
 type SpecializationCardsProps = {
   className?: string
@@ -32,9 +33,13 @@ const SpecializationCards = ({
     return <></>
   }
 
-  console.log(content)
   return (
-    <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] sm:grid-cols-2 md:grid-cols-3 md:px-12 xl:grid-cols-4'>
+    <div
+      className={twMerge(
+        'mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] sm:grid-cols-2 md:grid-cols-3 md:px-12 xl:grid-cols-4',
+        className,
+      )}
+    >
       {content.data.map((item, i) => {
         return (
           <SpecializationCard

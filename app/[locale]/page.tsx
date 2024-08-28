@@ -26,7 +26,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const homepageData = getHomePage(locale)
   const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
   const collaboratingSubjectsData = getCollaboratingSubjects(locale)
-  const specializationData = getSpecializations(locale)
+  const specializationsData = getSpecializations(locale)
 
   // Initiate both requests in parallel
   const [homepage, articleList, collaboratingSubjectsList, specializationList] =
@@ -34,7 +34,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
       homepageData,
       articlesData,
       collaboratingSubjectsData,
-      specializationData,
+      specializationsData,
     ])
 
   const {
