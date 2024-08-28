@@ -31,15 +31,19 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const specializationsData = getSpecializations(locale)
 
   // Initiate both requests in parallel
-  const [homepage, articleList, collaboratingSubjectsList, specializationList, teamMembersList] =
-
-    await Promise.all([
-      homepageData,
-      articlesData,
-      collaboratingSubjectsData,
-      teamMembersData,
-      specializationsData,
-    ])
+  const [
+    homepage,
+    articleList,
+    collaboratingSubjectsList,
+    specializationList,
+    teamMembersList,
+  ] = await Promise.all([
+    homepageData,
+    articlesData,
+    collaboratingSubjectsData,
+    specializationsData,
+    teamMembersData,
+  ])
 
   const {
     hero,
@@ -81,7 +85,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
           className='mt-12 scroll-mt-32 lg:scroll-mt-0'
         />
       )}
-       {teamMembersList?.data && teamMembersList?.data?.length > 0 && (
+      {teamMembersList?.data && teamMembersList?.data?.length > 0 && (
         <OurTeamSection
           heading={ourTeam?.heading || ''}
           members={teamMembersList || ''}
