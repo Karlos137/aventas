@@ -12,7 +12,13 @@ import References from '@/components/References'
 import ArticlesSection from '@/components/ArticlesSection'
 
 // Services (Strapi)
-import { getHomePage, getArticles } from '@/services/strapi/strapiData'
+import {
+  getHomePage,
+  getArticles,
+  getCollaboratingSubjects,
+  getTeamMembers,
+  getSpecializations,
+} from '@/services/strapi/strapiData'
 
 // Constants
 import { ARTICLES_LIMIT } from '@/constants/articles'
@@ -20,11 +26,23 @@ import { ARTICLES_LIMIT } from '@/constants/articles'
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const homepageData = getHomePage(locale)
   const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
+  const collaboratingSubjectsData = getCollaboratingSubjects(locale)
+  const teamMembersData = getTeamMembers(locale)
+  const specializationsData = getSpecializations(locale)
 
   // Initiate both requests in parallel
-  const [homepage, articleList] = await Promise.all([
+  const [
+    homepage,
+    articleList,
+    collaboratingSubjectsList,
+    specializationList,
+    teamMembersList,
+  ] = await Promise.all([
     homepageData,
     articlesData,
+    collaboratingSubjectsData,
+    specializationsData,
+    teamMembersData,
   ])
 
   const {
@@ -53,7 +71,6 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         heading={about?.heading || ''}
         description={about?.description || ''}
       />
-
       {articleList?.data && articleList?.data?.length > 0 && (
         <ArticlesSection
           heading={articles?.heading || ''}
@@ -61,19 +78,28 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
           className='scroll-mt-32 pt-20 lg:scroll-mt-0'
         />
       )}
-
-      <SpecializationSection
-        heading={specializations?.heading || ''}
-        className='mt-12 scroll-mt-32 lg:scroll-mt-0'
-      />
-      <OurTeamSection
-        heading={ourTeam?.heading || ''}
-        className={scrollMarginClass}
-      />
-      <CollaboratingSubjectsSection
-        heading={collaboratingSubjects?.heading || ''}
-        className='mt-12 scroll-mt-32 lg:mt-20'
-      />
+      {specializationList?.data && specializationList?.data?.length > 0 && (
+        <SpecializationSection
+          heading={specializations?.heading || ''}
+          content={specializationList}
+          className='mt-12 scroll-mt-32 lg:scroll-mt-0'
+        />
+      )}
+      {teamMembersList?.data && teamMembersList?.data?.length > 0 && (
+        <OurTeamSection
+          heading={ourTeam?.heading || ''}
+          members={teamMembersList || ''}
+          className={scrollMarginClass}
+        />
+      )}
+      {collaboratingSubjectsList?.data &&
+        collaboratingSubjectsList?.data?.length > 0 && (
+          <CollaboratingSubjectsSection
+            heading={collaboratingSubjects?.heading || ''}
+            collabs={collaboratingSubjectsList}
+            className='scroll-mt-32 pt-20 lg:scroll-mt-0'
+          />
+        )}
       <References
         heading={references?.heading || ''}
         className='mt-12 scroll-mt-32 lg:mt-20'

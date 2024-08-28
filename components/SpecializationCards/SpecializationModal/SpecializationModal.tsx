@@ -10,16 +10,17 @@ import { motion } from 'framer-motion'
 // React components
 import CloseIcon from '@/components/svgs/icons/CloseIcon'
 
+// React Markdown
+import Markdown from 'react-markdown'
+
 type SpecializationModalProps = {
   title: string
-  subtitle?: string
   description: React.ReactNode
   onClose: () => void
 }
 
 const SpecializationModal = ({
   title,
-  subtitle,
   description,
   onClose,
 }: SpecializationModalProps) => {
@@ -59,15 +60,9 @@ const SpecializationModal = ({
             </button>
             <h3 className='mx-auto mb-10 max-w-[70%] text-center text-2xl font-bold leading-[1.35]'>
               <span>{title}</span>
-              {subtitle && (
-                <>
-                  <br />
-                  <span>{subtitle}</span>
-                </>
-              )}
             </h3>
             <div className='prose mx-auto w-[1100px] max-w-[85%]'>
-              {description}
+              <Markdown>{description?.toString()}</Markdown>
             </div>
           </motion.div>
         </div>

@@ -37,3 +37,30 @@ export const getArticles = async (
 
   return res as unknown as components['schemas']['ArticleListResponse']
 }
+
+export const getCollaboratingSubjects = async (locale: string) => {
+  const res = await fetchStrapi('/collaborating-subjects', {
+    populate: ['content', 'logo'],
+    locale,
+  })
+
+  return res as unknown as components['schemas']['CollaboratingSubjectListResponse']
+}
+
+export const getTeamMembers = async (locale: string) => {
+  const res = await fetchStrapi('/team-members', {
+    populate: ['content', 'name', 'position', 'about', 'image'],
+    locale,
+  })
+
+  return res as unknown as components['schemas']['TeamMemberListResponse']
+}
+
+export const getSpecializations = async (locale: string) => {
+  const res = await fetchStrapi('/specializations', {
+    populate: ['content'],
+    locale,
+  })
+
+  return res as unknown as components['schemas']['SpecializationListResponse']
+}

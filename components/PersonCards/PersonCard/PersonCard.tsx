@@ -11,6 +11,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import PlusCircleIcon from '@/components/svgs/icons/PlusCircleIcon'
 import CloseIcon from '@/components/svgs/icons/CloseIcon'
 
+// React Markdown
+import Markdown from 'react-markdown'
+
 type PersonCardProps = {
   name: string
   role: string
@@ -82,7 +85,7 @@ const PersonCard = ({
               }}
               transition={{ duration: 0.5 }}
             >
-              {description}
+              <Markdown>{description?.toString()}</Markdown>
             </motion.div>
           </motion.div>
         )}
