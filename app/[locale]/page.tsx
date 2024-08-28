@@ -16,6 +16,7 @@ import {
   getHomePage,
   getArticles,
   getCollaboratingSubjects,
+  getSpecializations,
 } from '@/services/strapi/strapiData'
 
 // Constants
@@ -25,13 +26,16 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const homepageData = getHomePage(locale)
   const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
   const collaboratingSubjectsData = getCollaboratingSubjects(locale)
+  const specializationsData = getSpecializations(locale)
 
   // Initiate both requests in parallel
-  const [homepage, articleList, collaboratingSubjectsList] = await Promise.all([
-    homepageData,
-    articlesData,
-    collaboratingSubjectsData,
-  ])
+  const [homepage, articleList, collaboratingSubjectsList, specializationList] =
+    await Promise.all([
+      homepageData,
+      articlesData,
+      collaboratingSubjectsData,
+      specializationsData,
+    ])
 
   const {
     hero,
@@ -68,10 +72,14 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         />
       )}
 
-      <SpecializationSection
-        heading={specializations?.heading || ''}
-        className='mt-12 scroll-mt-32 lg:scroll-mt-0'
-      />
+      {specializationList?.data && specializationList?.data?.length > 0 && (
+        <SpecializationSection
+          heading={specializations?.heading || ''}
+          content={specializationList}
+          className='mt-12 scroll-mt-32 lg:scroll-mt-0'
+        />
+      )}
+
       <OurTeamSection
         heading={ourTeam?.heading || ''}
         className={scrollMarginClass}

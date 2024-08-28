@@ -12,7 +12,6 @@ type Story = StoryObj<typeof SpecializationCard>
 export const Default: Story = {
   args: {
     title: 'M&A',
-    subtitle: 'fúze a akvizice',
     onClick: () => console.log('CLICK'),
   },
 }
