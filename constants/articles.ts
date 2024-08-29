@@ -1,1 +1,2 @@
-export const ARTICLES_LIMIT = 3
+export const ARTICLES_LIMIT = 6
+export const ARTICLES_HOMEPAGE_LIMIT = 3

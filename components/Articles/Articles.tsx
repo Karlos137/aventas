@@ -27,6 +27,7 @@ import { getArticles } from '@/services/strapi/strapiData'
 
 // Constants
 import { ARTICLES_LIMIT } from '@/constants/articles'
+import { twMerge } from 'tailwind-merge'
 
 type ArticlesProps = {
   articles: components['schemas']['ArticleListResponse']
@@ -83,7 +84,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
         {heading ? heading : t('title')}
       </SectionTitle>
 
-      <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] bg-[url("/images/specializations-bg.svg")] bg-contain bg-center bg-no-repeat p-4 pb-10 md:grid-cols-2 lg:grid-cols-3 lg:pb-12 xl:grid-cols-4 min-[1340px]:bg-contain'>
+      <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] bg-[url("/images/specializations-bg.svg")] bg-contain bg-center bg-no-repeat px-[1.75rem] py-4 pb-10 md:grid-cols-2 lg:grid-cols-3 lg:pb-12 xl:grid-cols-4 min-[1340px]:bg-contain'>
         {currentArticles.data.map((article, i) => {
           return (
             <ArticleCard
@@ -112,16 +113,19 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
               title='Další články'
               aria-label='Další články'
               onClick={() => setShouldFetch(true)}
-              className='scale-100 transform transition-transform duration-300 ease-in-out hover:scale-105'
+              className={
+                'scale-100 transform animate-spin text-custom-brown-400 transition-transform duration-300 ease-in-out hover:scale-105 disabled:text-neutral-300'
+              }
+              disabled={isLoading}
             >
-              <PlusCircleIcon />
+              <PlusCircleIcon
+                className={twMerge(
+                  'text-custom-brown-400',
+                  isLoading && 'animate-spin text-neutral-300',
+                )}
+              />
             </button>
           </div>
-          {isLoading && (
-            <div className='mt-1 flex justify-center'>
-              <p className='text-gray-500'>Loading...</p>
-            </div>
-          )}
         </>
       )}
 

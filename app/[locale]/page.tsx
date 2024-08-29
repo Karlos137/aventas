@@ -21,11 +21,11 @@ import {
 } from '@/services/strapi/strapiData'
 
 // Constants
-import { ARTICLES_LIMIT } from '@/constants/articles'
+import { ARTICLES_HOMEPAGE_LIMIT } from '@/constants/articles'
 
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   const homepageData = getHomePage(locale)
-  const articlesData = getArticles(locale, 0, ARTICLES_LIMIT)
+  const articlesData = getArticles(locale, 0, ARTICLES_HOMEPAGE_LIMIT)
   const collaboratingSubjectsData = getCollaboratingSubjects(locale)
   const teamMembersData = getTeamMembers(locale)
   const specializationsData = getSpecializations(locale)
