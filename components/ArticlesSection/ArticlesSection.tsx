@@ -40,9 +40,9 @@ const ArticlesSection = ({
           title='Další články'
           aria-label='Další články'
           href='/clanky'
-          className='scale-100 transform transition-transform duration-300 ease-in-out hover:scale-105'
+          className='scale-100 transform text-custom-brown-400 transition-transform duration-300 ease-in-out hover:scale-105'
         >
-          <PlusCircleIcon />
+          <PlusCircleIcon className='text-custom-brown-400' />
         </Link>
       </div>
     </section>

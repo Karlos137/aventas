@@ -1,4 +1,8 @@
-const PlusCircleIcon = () => {
+type PlusCircleIconProps = {
+  className?: string
+}
+
+const PlusCircleIcon = ({ className }: PlusCircleIconProps) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,9 +10,10 @@ const PlusCircleIcon = () => {
       height='56'
       fill='none'
       viewBox='0 0 56 56'
+      className={className}
     >
       <g
-        stroke='#BCA696'
+        stroke='currentColor'
         strokeMiterlimit='10'
         strokeWidth='2'
         clipPath='url(#clip0_427_512)'
