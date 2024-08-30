@@ -46,7 +46,7 @@ const ReferenceItems = ({
   return (
     <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
       <div className='overflow-hidden' ref={emblaRef}>
-        <div className='flex justify-center'>
+        <div className='flex gap-12'>
           {references.data.map((item, i) => {
             return (
               <ReferenceItem
@@ -54,7 +54,7 @@ const ReferenceItems = ({
                 title={item.attributes?.href || ''}
                 src={item.attributes?.logo.data?.attributes?.url || ''}
                 className={
-                  'flex min-w-0 flex-[0_0_30%] scale-100 cursor-pointer transition-transform hover:scale-105 md:flex-[0_0_20%] lg:flex-[0_0_10%]'
+                  'flex min-w-0 flex-[0_0_auto] cursor-pointer transition-transform hover:scale-105'
                 }
                 onClick={() => {
                   setModal(i)
@@ -63,11 +63,17 @@ const ReferenceItems = ({
             )
           })}
         </div>
-        <div className='flex justify-center gap-8'>
-          <button onClick={scrollPrev}>
+        <div className='flex justify-center gap-16 p-2'>
+          <button
+            className='p-2 duration-300 hover:scale-105 lg:opacity-30'
+            onClick={scrollPrev}
+          >
             <LeftArrowIcon />
           </button>
-          <button onClick={scrollNext}>
+          <button
+            className='p-2 duration-300 hover:scale-105 lg:opacity-30'
+            onClick={scrollNext}
+          >
             <RightArrowIcon />
           </button>
         </div>
