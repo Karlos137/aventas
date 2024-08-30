@@ -5,16 +5,22 @@ type ReferenceItemProps = {
   title: string
   onClick: () => void
   src: string
+  className: string
 }
 
-const ReferenceItem = ({ title, onClick, src }: ReferenceItemProps) => {
+const ReferenceItem = ({
+  title,
+  onClick,
+  src,
+  className,
+}: ReferenceItemProps) => {
   return (
     <a
       onClick={onClick}
       rel='noopener norefferer'
       target='_blank'
       title={title}
-      className='scale-100 cursor-pointer transition-transform hover:scale-105'
+      className={className}
     >
       <Image src={src} alt='ČSOB Advisory logo' width={94} height={101} />
     </a>

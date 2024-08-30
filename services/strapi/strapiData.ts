@@ -66,3 +66,12 @@ export const getSpecializations = async (locale: string) => {
 
   return res as unknown as components['schemas']['SpecializationListResponse']
 }
+
+export const getReferences = async (locale: string) => {
+  const res = await fetchStrapi('/references', {
+    populate: ['content', 'logo'],
+    locale,
+  })
+
+  return res as unknown as components['schemas']['ReferenceListResponse']
+}

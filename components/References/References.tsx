@@ -3,6 +3,9 @@
 // Tailwind Merge
 import { twMerge } from 'tailwind-merge'
 
+// Types
+import { components } from '@/types/strapi'
+
 // React components
 import SectionTitle from '../SectionTitle'
 import ReferenceItems from '../ReferenceItems'
@@ -13,9 +16,10 @@ import { useTranslations } from 'next-intl'
 type ReferencesProps = {
   className?: string
   heading?: string
+  references: components['schemas']['ReferenceListResponse']
 }
 
-const References = ({ className, heading }: ReferencesProps) => {
+const References = ({ className, heading, references }: ReferencesProps) => {
   const t = useTranslations('References')
 
   return (
@@ -26,7 +30,7 @@ const References = ({ className, heading }: ReferencesProps) => {
       <SectionTitle className='mb-5 text-center text-2xl lg:text-2xl'>
         {heading ? heading : t('title')}
       </SectionTitle>
-      <ReferenceItems />
+      <ReferenceItems references={references} />
     </section>
   )
 }
