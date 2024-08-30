@@ -134,12 +134,12 @@ const PersonCard = ({
           <button
             title='Zobrazit popisek'
             aria-label='Zobrazit popisek'
-            className='cursor mt-4 w-fit scale-100 transform transition-transform duration-300 ease-in-out hover:scale-105'
+            className='cursor mt-4 w-fit scale-100 transform text-custom-brown-400 transition-transform duration-300 ease-in-out hover:scale-105'
             onClick={() => {
               setDescription()
             }}
           >
-            <PlusCircleIcon />
+            <PlusCircleIcon className='text-custom-brown-400' />
           </button>
         </div>
       </motion.div>

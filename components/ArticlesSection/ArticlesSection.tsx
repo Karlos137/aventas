@@ -2,17 +2,21 @@
 
 // Next.js
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
 // Types
 import { components } from '@/types/strapi'
 
 // React components
 import SectionTitle from '../SectionTitle'
-import ArticleCards from '../ArticleCards'
 import PlusCircleIcon from '../svgs/icons/PlusCircleIcon'
 
 // Next intl
 import { useTranslations } from 'next-intl'
+
+const DynamicArticleCards = dynamic(() => import('../ArticleCards'), {
+  ssr: false,
+})
 
 type ArticlesSectionProps = {
   className?: string
@@ -33,16 +37,16 @@ const ArticlesSection = ({
         {heading ? heading : t('title')}
       </SectionTitle>
       <div>
-        <ArticleCards articles={articles} />
+        <DynamicArticleCards articles={articles} />
       </div>
       <div className='mx-auto flex max-w-[1296px] justify-center px-12'>
         <Link
           title='Další články'
           aria-label='Další články'
           href='/clanky'
-          className='scale-100 transform transition-transform duration-300 ease-in-out hover:scale-105'
+          className='scale-100 transform text-custom-brown-400 transition-transform duration-300 ease-in-out hover:scale-105'
         >
-          <PlusCircleIcon />
+          <PlusCircleIcon className='text-custom-brown-400' />
         </Link>
       </div>
     </section>

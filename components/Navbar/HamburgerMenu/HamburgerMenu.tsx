@@ -41,7 +41,7 @@ const HamburgerMenu = ({ onLinkClick }: HamburgerMenuProps) => {
                   key={id}
                   href={href}
                   onClick={onLinkClick}
-                  className='text-[2rem] text-white'
+                  className='text-center text-[1.5rem] text-white'
                 >
                   <li>{title}</li>
                 </Link>

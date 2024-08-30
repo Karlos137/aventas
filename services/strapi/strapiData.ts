@@ -28,8 +28,9 @@ export const getArticles = async (
   withCount?: boolean,
 ) => {
   const res = await fetchStrapi('/articles', {
-    populate: ['content'],
+    populate: ['content', 'pdf'],
     locale,
+    sort: 'publishedAt:desc',
     'pagination[start]': start || 0,
     'pagination[limit]': limit,
     'pagination[withCount]': withCount,
@@ -50,6 +51,7 @@ export const getCollaboratingSubjects = async (locale: string) => {
 export const getTeamMembers = async (locale: string) => {
   const res = await fetchStrapi('/team-members', {
     populate: ['content', 'name', 'position', 'about', 'image'],
+    sort: 'rank:asc',
     locale,
   })
 

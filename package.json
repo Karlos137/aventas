@@ -20,20 +20,27 @@
   "dependencies": {
     "@magicul/next-google-tag-manager": "^2.0.0",
     "dayjs": "^1.11.13",
+<<<<<<< HEAD
     "embla-carousel-react": "^8.2.0",
     "framer-motion": "^11.3.30",
     "html-react-parser": "^5.1.12",
     "next": "14.2.6",
+=======
+    "framer-motion": "^11.3.31",
+    "html-react-parser": "^5.1.15",
+    "next": "14.2.7",
+>>>>>>> 6351b97998e14b03938f8f74230008cd1771cad5
     "next-intl": "^3.17.4",
     "query-string": "^9.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-focus-lock": "^2.12.1",
     "react-markdown": "^9.0.1",
+    "react-pdf": "^9.1.0",
     "react-remove-scroll": "^2.5.10",
     "sharp": "^0.33.5",
     "swr": "^2.2.5",
-    "tailwind-merge": "^2.4.0"
+    "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.2.7",
@@ -49,14 +56,14 @@
     "@types/react-dom": "18.3.0",
     "autoprefixer": "10.4.20",
     "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.6",
+    "eslint-config-next": "14.2.7",
     "eslint-plugin-storybook": "^0.8.0",
     "openapi-typescript": "^7.3.0",
     "postcss": "8.4.40",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.5",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "storybook": "^8.2.7",
-    "tailwindcss": "3.4.7",
+    "tailwindcss": "3.4.10",
     "typescript": "5.5.4"
   },
   "packageManager": "pnpm@9.8.0+sha256.56a9e76b51796ca7f73b85e44cf83712862091f4d498c0ce4d5b7ecdc6ba18f7"
