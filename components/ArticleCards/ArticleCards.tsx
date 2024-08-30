@@ -79,6 +79,27 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
       )}
     >
       {articles.data.map((article, i) => {
+        if (article.attributes?.link) {
+          return (
+            <a
+              key={article.id}
+              target='_blank'
+              href={article.attributes.link}
+              rel='norefferer noopener'
+            >
+              <ArticleCard
+                title={article.attributes?.heading || ''}
+                date={
+                  article.attributes?.publishedAt
+                    ? formatDate(article.attributes.publishedAt)
+                    : ''
+                }
+                description={article.attributes?.content || ''}
+              />
+            </a>
+          )
+        }
+
         return (
           <ArticleCard
             key={article.id}

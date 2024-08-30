@@ -16,7 +16,7 @@ type ArticleCardProps = {
   title: string
   date: string
   description: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 const ArticleCard = ({

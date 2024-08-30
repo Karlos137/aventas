@@ -1544,14 +1544,20 @@ export interface components {
     ArticleLocalizationRequest: {
       heading: string
       perex: string
-      content: string
+      content?: string
+      link?: string
+      /** @example string or id */
+      pdf?: number | string
       locale: string
     }
     ArticleRequest: {
       data: {
         heading: string
         perex: string
-        content: string
+        content?: string
+        link?: string
+        /** @example string or id */
+        pdf?: number | string
         locale?: string
       }
     }
@@ -1596,53 +1602,83 @@ export interface components {
     Article: {
       heading: string
       perex: string
-      content: string
-      /** Format: date-time */
-      createdAt?: string
-      /** Format: date-time */
-      updatedAt?: string
-      /** Format: date-time */
-      publishedAt?: string
-      createdBy?: {
+      content?: string
+      link?: string
+      pdf?: {
         data?: {
           id?: number
           attributes?: {
-            firstname?: string
-            lastname?: string
-            username?: string
-            /** Format: email */
-            email?: string
-            resetPasswordToken?: string
-            registrationToken?: string
-            isActive?: boolean
-            roles?: {
+            name?: string
+            alternativeText?: string
+            caption?: string
+            width?: number
+            height?: number
+            formats?: unknown
+            hash?: string
+            ext?: string
+            mime?: string
+            /** Format: float */
+            size?: number
+            url?: string
+            previewUrl?: string
+            provider?: string
+            provider_metadata?: unknown
+            related?: {
+              data?: {
+                id?: number
+                attributes?: Record<string, never>
+              }[]
+            }
+            folder?: {
               data?: {
                 id?: number
                 attributes?: {
                   name?: string
-                  code?: string
-                  description?: string
-                  users?: {
+                  pathId?: number
+                  parent?: {
+                    data?: {
+                      id?: number
+                      attributes?: Record<string, never>
+                    }
+                  }
+                  children?: {
                     data?: {
                       id?: number
                       attributes?: Record<string, never>
                     }[]
                   }
-                  permissions?: {
+                  files?: {
                     data?: {
                       id?: number
                       attributes?: {
-                        action?: string
-                        actionParameters?: unknown
-                        subject?: string
-                        properties?: unknown
-                        conditions?: unknown
-                        role?: {
+                        name?: string
+                        alternativeText?: string
+                        caption?: string
+                        width?: number
+                        height?: number
+                        formats?: unknown
+                        hash?: string
+                        ext?: string
+                        mime?: string
+                        /** Format: float */
+                        size?: number
+                        url?: string
+                        previewUrl?: string
+                        provider?: string
+                        provider_metadata?: unknown
+                        related?: {
+                          data?: {
+                            id?: number
+                            attributes?: Record<string, never>
+                          }[]
+                        }
+                        folder?: {
                           data?: {
                             id?: number
                             attributes?: Record<string, never>
                           }
                         }
+                        folderPath?: string
                         /** Format: date-time */
                         createdAt?: string
                         /** Format: date-time */
@@ -1650,7 +1686,100 @@ export interface components {
                         createdBy?: {
                           data?: {
                             id?: number
-                            attributes?: Record<string, never>
+                            attributes?: {
+                              firstname?: string
+                              lastname?: string
+                              username?: string
+                              /** Format: email */
+                              email?: string
+                              resetPasswordToken?: string
+                              registrationToken?: string
+                              isActive?: boolean
+                              roles?: {
+                                data?: {
+                                  id?: number
+                                  attributes?: {
+                                    name?: string
+                                    code?: string
+                                    description?: string
+                                    users?: {
+                                      data?: {
+                                        id?: number
+                                        attributes?: Record<string, never>
+                                      }[]
+                                    }
+                                    permissions?: {
+                                      data?: {
+                                        id?: number
+                                        attributes?: {
+                                          action?: string
+                                          actionParameters?: unknown
+                                          subject?: string
+                                          properties?: unknown
+                                          conditions?: unknown
+                                          role?: {
+                                            data?: {
+                                              id?: number
+                                              attributes?: Record<string, never>
+                                            }
+                                          }
+                                          /** Format: date-time */
+                                          createdAt?: string
+                                          /** Format: date-time */
+                                          updatedAt?: string
+                                          createdBy?: {
+                                            data?: {
+                                              id?: number
+                                              attributes?: Record<string, never>
+                                            }
+                                          }
+                                          updatedBy?: {
+                                            data?: {
+                                              id?: number
+                                              attributes?: Record<string, never>
+                                            }
+                                          }
+                                        }
+                                      }[]
+                                    }
+                                    /** Format: date-time */
+                                    createdAt?: string
+                                    /** Format: date-time */
+                                    updatedAt?: string
+                                    createdBy?: {
+                                      data?: {
+                                        id?: number
+                                        attributes?: Record<string, never>
+                                      }
+                                    }
+                                    updatedBy?: {
+                                      data?: {
+                                        id?: number
+                                        attributes?: Record<string, never>
+                                      }
+                                    }
+                                  }
+                                }[]
+                              }
+                              blocked?: boolean
+                              preferedLanguage?: string
+                              /** Format: date-time */
+                              createdAt?: string
+                              /** Format: date-time */
+                              updatedAt?: string
+                              createdBy?: {
+                                data?: {
+                                  id?: number
+                                  attributes?: Record<string, never>
+                                }
+                              }
+                              updatedBy?: {
+                                data?: {
+                                  id?: number
+                                  attributes?: Record<string, never>
+                                }
+                              }
+                            }
                           }
                         }
                         updatedBy?: {
@@ -1662,6 +1791,7 @@ export interface components {
                       }
                     }[]
                   }
+                  path?: string
                   /** Format: date-time */
                   createdAt?: string
                   /** Format: date-time */
@@ -1679,10 +1809,9 @@ export interface components {
                     }
                   }
                 }
-              }[]
+              }
             }
-            blocked?: boolean
-            preferedLanguage?: string
+            folderPath?: string
             /** Format: date-time */
             createdAt?: string
             /** Format: date-time */
@@ -1700,6 +1829,18 @@ export interface components {
               }
             }
           }
+        }
+      }
+      /** Format: date-time */
+      createdAt?: string
+      /** Format: date-time */
+      updatedAt?: string
+      /** Format: date-time */
+      publishedAt?: string
+      createdBy?: {
+        data?: {
+          id?: number
+          attributes?: Record<string, never>
         }
       }
       updatedBy?: {
