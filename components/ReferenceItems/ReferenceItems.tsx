@@ -29,7 +29,7 @@ const ReferenceItems = ({
   references,
 }: ReferenceItemsProps) => {
   const [modal, setModal] = useState<number | null>(null)
-  const [emblaRef, emblaApi] = useEmblaCarousel()
+  const [emblaRef, emblaApi] = useEmblaCarousel({})
 
   if (!references?.data || references?.data?.length === 0) {
     return <></>
@@ -54,7 +54,7 @@ const ReferenceItems = ({
                 title={item.attributes?.href || ''}
                 src={item.attributes?.logo.data?.attributes?.url || ''}
                 className={
-                  'flex min-w-0 flex-[0_0_auto] cursor-pointer transition-transform hover:scale-105'
+                  'flex min-w-0 flex-[0_0_auto] grow cursor-pointer justify-center transition-transform hover:scale-105'
                 }
                 onClick={() => {
                   setModal(i)
@@ -63,7 +63,7 @@ const ReferenceItems = ({
             )
           })}
         </div>
-        <div className='flex justify-center gap-16 p-2'>
+        <div className='hidden justify-center gap-16 p-2 lg:flex'>
           <button
             className='p-2 duration-300 hover:scale-105 lg:opacity-30'
             onClick={scrollPrev}
