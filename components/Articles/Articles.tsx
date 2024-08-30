@@ -86,6 +86,27 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
 
       <div className='mx-auto grid max-w-[1271px] grid-cols-1 gap-x-[1.125rem] gap-y-[3.125rem] bg-[url("/images/specializations-bg.svg")] bg-contain bg-center bg-no-repeat px-[1.75rem] py-4 pb-10 md:grid-cols-2 lg:grid-cols-3 lg:pb-12 xl:grid-cols-4 min-[1340px]:bg-contain'>
         {currentArticles.data.map((article, i) => {
+          if (article.attributes?.link) {
+            return (
+              <a
+                key={article.id}
+                target='_blank'
+                href={article.attributes.link}
+                rel='norefferer noopener'
+              >
+                <ArticleCard
+                  title={article.attributes?.heading || ''}
+                  date={
+                    article.attributes?.publishedAt
+                      ? formatDate(article.attributes.publishedAt)
+                      : ''
+                  }
+                  description={article.attributes?.content || ''}
+                />
+              </a>
+            )
+          }
+
           return (
             <ArticleCard
               key={article.id}
