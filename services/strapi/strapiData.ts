@@ -50,6 +50,7 @@ export const getCollaboratingSubjects = async (locale: string) => {
 export const getTeamMembers = async (locale: string) => {
   const res = await fetchStrapi('/team-members', {
     populate: ['content', 'name', 'position', 'about', 'image'],
+    sort: 'rank:asc',
     locale,
   })
 
