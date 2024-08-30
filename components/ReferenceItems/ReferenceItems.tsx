@@ -48,6 +48,25 @@ const ReferenceItems = ({
       <div className='overflow-hidden' ref={emblaRef}>
         <div className='flex items-center gap-12'>
           {references.data.map((item, i) => {
+            if (item.attributes?.href) {
+              return (
+                <a
+                  key={item.id}
+                  href={item.attributes.href}
+                  target='_blank'
+                  rel='noopener norefferer'
+                  className={
+                    'flex h-full min-w-0 flex-[0_0_auto] grow cursor-pointer justify-center transition-transform hover:scale-105'
+                  }
+                >
+                  <ReferenceItem
+                    title={item.attributes?.href || ''}
+                    src={item.attributes?.logo.data?.attributes?.url || ''}
+                  />
+                </a>
+              )
+            }
+
             return (
               <ReferenceItem
                 key={item.id}
@@ -81,9 +100,8 @@ const ReferenceItems = ({
       <AnimatePresence>
         {modal !== null && (
           <BasicModal
-            title={references.data[modal].attributes?.href || ''}
-            subtitle={references.data[modal].attributes?.href || ''}
-            description={references.data[modal].attributes?.href || ''}
+            title={''}
+            description={references.data[modal].attributes?.content || ''}
             onClose={() => {
               setModal(null)
             }}
