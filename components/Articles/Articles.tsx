@@ -56,8 +56,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 const Articles = ({ articles, heading }: ArticlesProps) => {
   const t = useTranslations('Articles')
   const locale = useLocale()
-  const [numPages, setNumPages] = useState<number>()
-  const [pageNumber, setPageNumber] = useState<number>(1)
 
   const [shouldFetch, setShouldFetch] = useState(false)
   const [currentArticles, setCurrentArticles] = useState<
@@ -65,6 +63,8 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
   >(() => articles)
   const [modal, setModal] = useState<number | null>(null)
 
+  const [numPages, setNumPages] = useState<number>()
+  const [pageNumber, setPageNumber] = useState<number>(1)
   const pdfWrapperRef = useRef<HTMLInputElement>(null)
   const [width, setWidth] = useState<number>()
 
