@@ -30,6 +30,7 @@ export const getArticles = async (
   const res = await fetchStrapi('/articles', {
     populate: ['content', 'pdf'],
     locale,
+    sort: 'publishedAt:desc',
     'pagination[start]': start || 0,
     'pagination[limit]': limit,
     'pagination[withCount]': withCount,
