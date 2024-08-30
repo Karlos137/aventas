@@ -72,7 +72,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
     setNumPages(numPages)
   }
 
-  const { data, isLoading } = useSWR(
+  const { isLoading } = useSWR(
     // @ts-expect-error
     shouldFetch ? `articles-${currentArticles?.meta?.pagination?.start}` : null,
     () =>
@@ -103,9 +103,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
   )
 
   useLayoutEffect(() => {
-    console.log('RUN', pdfWrapperRef?.current)
     const resizeObserver = new ResizeObserver(entries => {
-      console.log('SET WIDTH')
       for (const entry of entries) {
         setWidth(entry?.target?.clientWidth * 0.95)
       }
