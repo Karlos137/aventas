@@ -1,10 +1,11 @@
 'use client'
+import '@/promisePolyfill'
 
 // SWR
 import useSWR from 'swr'
 
 // React
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 
 // Types
 import { components } from '@/types/strapi'
@@ -29,20 +30,47 @@ import { getArticles } from '@/services/strapi/strapiData'
 import { ARTICLES_LIMIT } from '@/constants/articles'
 import { twMerge } from 'tailwind-merge'
 
+// React PDF
+import { pdfjs, Document, Page } from 'react-pdf'
+
 type ArticlesProps = {
   articles: components['schemas']['ArticleListResponse']
   heading?: string
 }
 
+if (typeof Promise.withResolvers === 'undefined') {
+  if (window)
+    // @ts-expect-error This does not exist outside of polyfill which this is doing
+    window.Promise.withResolvers = function () {
+      let resolve, reject
+      const promise = new Promise((res, rej) => {
+        resolve = res
+        reject = rej
+      })
+      return { promise, resolve, reject }
+    }
+}
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
+
 const Articles = ({ articles, heading }: ArticlesProps) => {
   const t = useTranslations('Articles')
   const locale = useLocale()
+  const [numPages, setNumPages] = useState<number>()
+  const [pageNumber, setPageNumber] = useState<number>(1)
 
   const [shouldFetch, setShouldFetch] = useState(false)
   const [currentArticles, setCurrentArticles] = useState<
     components['schemas']['ArticleListResponse'] | null
   >(() => articles)
   const [modal, setModal] = useState<number | null>(null)
+
+  const pdfWrapperRef = useRef<HTMLInputElement>(null)
+  const [width, setWidth] = useState<number>()
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages)
+  }
 
   const { data, isLoading } = useSWR(
     // @ts-expect-error
@@ -73,6 +101,101 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
   const activeArticle = currentArticles?.data?.find(
     article => article.id === modal,
   )
+
+  useLayoutEffect(() => {
+    console.log('RUN', pdfWrapperRef?.current)
+    const resizeObserver = new ResizeObserver(entries => {
+      console.log('SET WIDTH')
+      for (const entry of entries) {
+        setWidth(entry?.target?.clientWidth * 0.95)
+      }
+    })
+    pdfWrapperRef?.current && resizeObserver.observe(pdfWrapperRef.current)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [activeArticle?.attributes?.pdf?.data?.attributes?.url])
+
+  const pdfContent = activeArticle?.attributes?.pdf?.data?.attributes?.url ? (
+    <div
+      className='flex flex-col items-center justify-center'
+      ref={pdfWrapperRef}
+    >
+      <Document
+        file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
+        onLoadSuccess={onDocumentLoadSuccess}
+        className='border-2 border-custom-brown-400'
+      >
+        <Page
+          renderTextLayer={false}
+          renderAnnotationLayer={false}
+          pageNumber={pageNumber}
+          width={width || undefined}
+        />
+      </Document>
+      <div className='mt-4 flex items-center justify-between gap-8'>
+        <div>
+          {pageNumber} / {numPages}
+        </div>
+        <div className='flex items-center gap-4'>
+          <button
+            onClick={() =>
+              setPageNumber(prev => {
+                if (numPages) {
+                  if (prev - 1 < 1) {
+                    return prev
+                  } else {
+                    return prev - 1
+                  }
+                } else {
+                  return prev
+                }
+              })
+            }
+            className={twMerge(
+              'text-lg text-custom-brown-600',
+              pageNumber === 1 && 'text-neutral-200',
+            )}
+          >
+            &lt;
+          </button>
+          <button
+            onClick={() =>
+              setPageNumber(prev => {
+                if (numPages) {
+                  if (prev + 1 > numPages) {
+                    return prev
+                  } else {
+                    return prev + 1
+                  }
+                } else {
+                  return prev
+                }
+              })
+            }
+            className={twMerge(
+              'text-lg text-custom-brown-600',
+              pageNumber === numPages && 'text-neutral-200',
+            )}
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+      <div className='mt-4 flex justify-center text-center'>
+        <a
+          href={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
+          download={true}
+          target='_blank'
+          rel='noreferrer noopener'
+          className='text-lg text-custom-brown-600 hover:no-underline'
+        >
+          Download
+        </a>
+      </div>
+    </div>
+  ) : null
 
   if (!currentArticles?.data || currentArticles?.data?.length === 0) {
     return <></>
@@ -159,7 +282,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
                 ? formatDate(activeArticle?.attributes?.publishedAt)
                 : ''
             }
-            description={activeArticle?.attributes?.content || ''}
+            description={pdfContent || activeArticle?.attributes?.content || ''}
             onClose={() => {
               setModal(null)
             }}

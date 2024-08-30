@@ -28,7 +28,7 @@ export const getArticles = async (
   withCount?: boolean,
 ) => {
   const res = await fetchStrapi('/articles', {
-    populate: ['content'],
+    populate: ['content', 'pdf'],
     locale,
     'pagination[start]': start || 0,
     'pagination[limit]': limit,
