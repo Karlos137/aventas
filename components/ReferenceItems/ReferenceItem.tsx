@@ -3,9 +3,9 @@ import Image from 'next/image'
 
 type ReferenceItemProps = {
   title: string
-  onClick: () => void
+  onClick?: () => void
   src: string
-  className: string
+  className?: string
 }
 
 const ReferenceItem = ({
@@ -15,15 +15,9 @@ const ReferenceItem = ({
   className,
 }: ReferenceItemProps) => {
   return (
-    <a
-      onClick={onClick}
-      rel='noopener norefferer'
-      target='_blank'
-      title={title}
-      className={className}
-    >
+    <div onClick={onClick} title={title} className={className}>
       <Image src={src} alt='ČSOB Advisory logo' width={94} height={101} />
-    </a>
+    </div>
   )
 }
 

@@ -2556,16 +2556,18 @@ export interface components {
       heading?: string
     }
     ReferenceLocalizationRequest: {
-      href: string
+      href?: string
       /** @example string or id */
       logo: number | string
+      content?: string
       locale: string
     }
     ReferenceRequest: {
       data: {
-        href: string
+        href?: string
         /** @example string or id */
         logo: number | string
+        content?: string
         locale?: string
       }
     }
@@ -2608,7 +2610,7 @@ export interface components {
       }
     }
     Reference: {
-      href: string
+      href?: string
       logo: {
         data?: {
           id?: number
@@ -2836,6 +2838,7 @@ export interface components {
           }
         }
       }
+      content?: string
       /** Format: date-time */
       createdAt?: string
       /** Format: date-time */
@@ -3052,6 +3055,7 @@ export interface components {
       about: string
       /** @example string or id */
       image: number | string
+      rank?: number
       locale: string
     }
     TeamMemberRequest: {
@@ -3063,6 +3067,7 @@ export interface components {
         about: string
         /** @example string or id */
         image: number | string
+        rank?: number
         locale?: string
       }
     }
@@ -3337,6 +3342,7 @@ export interface components {
           }
         }
       }
+      rank?: number
       /** Format: date-time */
       createdAt?: string
       /** Format: date-time */

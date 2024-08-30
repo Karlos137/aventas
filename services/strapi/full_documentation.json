@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-08-30T05:36:04.575Z"
+    "x-generation-date": "2024-08-30T14:20:27.898Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2962,7 +2962,7 @@
         }
       },
       "ReferenceLocalizationRequest": {
-        "required": ["href", "logo", "locale"],
+        "required": ["logo", "locale"],
         "type": "object",
         "properties": {
           "href": {
@@ -2979,6 +2979,9 @@
             ],
             "example": "string or id"
           },
+          "content": {
+            "type": "string"
+          },
           "locale": {
             "type": "string"
           }
@@ -2989,7 +2992,7 @@
         "required": ["data"],
         "properties": {
           "data": {
-            "required": ["href", "logo"],
+            "required": ["logo"],
             "type": "object",
             "properties": {
               "href": {
@@ -3005,6 +3008,9 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "content": {
+                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -3129,7 +3135,7 @@
       },
       "Reference": {
         "type": "object",
-        "required": ["href", "logo"],
+        "required": ["logo"],
         "properties": {
           "href": {
             "type": "string"
@@ -3756,6 +3762,9 @@
               }
             }
           },
+          "content": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -4366,6 +4375,9 @@
             ],
             "example": "string or id"
           },
+          "rank": {
+            "type": "integer"
+          },
           "locale": {
             "type": "string"
           }
@@ -4404,6 +4416,9 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "rank": {
+                "type": "integer"
               },
               "locale": {
                 "type": "string"
@@ -5166,6 +5181,9 @@
                 }
               }
             }
+          },
+          "rank": {
+            "type": "integer"
           },
           "createdAt": {
             "type": "string",
