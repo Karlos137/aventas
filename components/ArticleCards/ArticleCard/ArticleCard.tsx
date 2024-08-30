@@ -33,7 +33,7 @@ const ArticleCard = ({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={onClick}
-      className='drop-shadow-none-none flex h-[330px] min-w-[280px] flex-col items-start gap-2 bg-white p-5 transition-all duration-300 ease-in-out hover:drop-shadow-custom-blue'
+      className='drop-shadow-none-none flex h-[330px] w-full min-w-[280px] flex-col items-start gap-2 bg-white p-5 transition-all duration-300 ease-in-out hover:drop-shadow-custom-blue'
     >
       <h3 className='text-left text-[1.375rem] font-bold leading-[1.35]'>
         <div>{title}</div>

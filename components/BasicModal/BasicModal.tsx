@@ -70,7 +70,7 @@ const BasicModal = ({
               )}
             </h3>
             <div className='prose mx-auto max-h-[60vh] w-[1100px] max-w-[85%]'>
-              {description}
+              <div className='pb-8'>{description}</div>
             </div>
           </motion.div>
         </RemoveScroll>
