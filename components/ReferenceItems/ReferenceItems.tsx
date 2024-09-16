@@ -44,71 +44,79 @@ const ReferenceItems = ({
   }, [emblaApi])
 
   return (
-    <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
-      <div className='overflow-hidden' ref={emblaRef}>
-        <div className='flex items-center gap-12'>
-          {references.data.map((item, i) => {
-            if (item.attributes?.href) {
-              return (
-                <a
-                  key={item.id}
-                  href={item.attributes.href}
-                  target='_blank'
-                  rel='noopener norefferer'
-                  className={
-                    'flex h-full min-w-0 flex-[0_0_auto] grow cursor-pointer justify-center transition-transform hover:scale-105'
-                  }
-                >
-                  <ReferenceItem
-                    title={item.attributes?.href || ''}
-                    src={item.attributes?.logo.data?.attributes?.url || ''}
-                  />
-                </a>
-              )
+    <>
+      <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
+        <div className='overflow-hidden' ref={emblaRef}>
+          <div
+            className={
+              references.data.length <= 6
+                ? 'flex items-center gap-12 md:justify-center'
+                : 'flex items-center gap-12'
             }
+          >
+            {references.data.map((item, i) => {
+              if (item.attributes?.href) {
+                return (
+                  <a
+                    key={item.id}
+                    href={item.attributes.href}
+                    target='_blank'
+                    rel='noopener norefferer'
+                    className={
+                      'flex h-full min-w-0 flex-[0_0_auto] cursor-pointer justify-center transition-transform hover:scale-105'
+                    }
+                  >
+                    <ReferenceItem
+                      title={item.attributes?.href || ''}
+                      src={item.attributes?.logo.data?.attributes?.url || ''}
+                    />
+                  </a>
+                )
+              }
 
-            return (
-              <ReferenceItem
-                key={item.id}
-                title={item.attributes?.href || ''}
-                src={item.attributes?.logo.data?.attributes?.url || ''}
-                className={
-                  'flex h-full min-w-0 flex-[0_0_auto] grow cursor-pointer justify-center transition-transform hover:scale-105'
-                }
-                onClick={() => {
-                  setModal(i)
-                }}
-              />
-            )
-          })}
+              return (
+                <ReferenceItem
+                  key={item.id}
+                  title={item.attributes?.href || ''}
+                  src={item.attributes?.logo.data?.attributes?.url || ''}
+                  className={
+                    'flex h-full min-w-0 flex-[0_0_auto] cursor-pointer justify-center transition-transform hover:scale-105'
+                  }
+                  onClick={() => {
+                    setModal(i)
+                  }}
+                />
+              )
+            })}
+          </div>
         </div>
-        <div className='hidden justify-center gap-16 p-2 lg:flex'>
-          <button
-            className='p-2 duration-300 hover:scale-105 lg:opacity-30'
-            onClick={scrollPrev}
-          >
-            <LeftArrowIcon />
-          </button>
-          <button
-            className='p-2 duration-300 hover:scale-105 lg:opacity-30'
-            onClick={scrollNext}
-          >
-            <RightArrowIcon />
-          </button>
-        </div>
+        <AnimatePresence>
+          {modal !== null && (
+            <BasicModal
+              title={''}
+              description={references.data[modal].attributes?.content || ''}
+              onClose={() => {
+                setModal(null)
+              }}
+            />
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence>
-        {modal !== null && (
-          <BasicModal
-            title={''}
-            description={references.data[modal].attributes?.content || ''}
-            onClose={() => {
-              setModal(null)
-            }}
-          />
-        )}
-      </AnimatePresence>
-    </div>
+      <div className='hidden justify-center gap-16 p-4 lg:flex'>
+        <button
+          className='p-2 duration-300 hover:scale-105 lg:opacity-30'
+          onClick={scrollPrev}
+        >
+          <LeftArrowIcon />
+        </button>
+        <button
+          className='p-2 duration-300 hover:scale-105 lg:opacity-30'
+          onClick={scrollNext}
+        >
+          <RightArrowIcon />
+        </button>
+      </div>
+    </>
   )
 }
 export default ReferenceItems
