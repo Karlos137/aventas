@@ -26,8 +26,8 @@ type Props = {
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Aventas',
-  description: 'Advokátní kancelář Aventas.',
+  title: 'AVENTAS',
+  description: 'Advokátní kancelář AVENTAS.',
 }
 
 export function generateStaticParams() {
