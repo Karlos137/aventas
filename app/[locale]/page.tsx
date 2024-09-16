@@ -10,6 +10,7 @@ import CollaboratingSubjectsSection from '@/components/CollaboratingSubjectsSect
 import ContactSection from '@/components/ContactSection'
 import References from '@/components/References'
 import ArticlesSection from '@/components/ArticlesSection'
+import Navbar from '@/components/Navbar'
 
 // Services (Strapi)
 import {
@@ -64,6 +65,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
 
   return (
     <>
+      <Navbar />
       <Header
         hero={{
           heading: hero?.text || '',
