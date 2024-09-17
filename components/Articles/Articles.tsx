@@ -108,6 +108,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
   useLayoutEffect(() => {
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
+        console.log('entry?.target?.clientWidth', entry?.target?.clientWidth)
         setWidth(entry?.target?.clientWidth * 0.95)
       }
     })

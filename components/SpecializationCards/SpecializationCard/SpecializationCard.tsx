@@ -33,7 +33,11 @@ const SpecializationCard = ({ title, onClick }: SpecializationCardProps) => {
       </h3>
       <div className='mt-auto flex items-center gap-3'>
         <span> {t('more')}</span>
-        <motion.span initial={{ x: 0 }} animate={hover ? { x: 7 } : { x: 0 }}>
+        <motion.span
+          className='text-custom-brown-400'
+          initial={{ x: 0 }}
+          animate={hover ? { x: 7 } : { x: 0 }}
+        >
           <RightArrowIcon />
         </motion.span>
       </div>
