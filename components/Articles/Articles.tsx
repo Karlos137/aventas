@@ -5,7 +5,7 @@ import '@/promisePolyfill'
 import useSWR from 'swr'
 
 // React
-import { useState, useRef, useLayoutEffect } from 'react'
+import { useState, useRef, useLayoutEffect, useEffect } from 'react'
 
 // Types
 import { components } from '@/types/strapi'
@@ -70,6 +70,12 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const pdfWrapperRef = useRef<HTMLInputElement>(null)
   const [width, setWidth] = useState<number>()
+
+  useEffect(() => {
+    if (!modal) {
+      setPageNumber(1)
+    }
+  }, [modal])
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
     setNumPages(numPages)

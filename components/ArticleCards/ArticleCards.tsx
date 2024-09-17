@@ -1,7 +1,7 @@
 'use client'
 
 // React
-import { useState, useRef, useLayoutEffect } from 'react'
+import { useState, useRef, useLayoutEffect, useEffect } from 'react'
 
 // Types
 import { components } from '@/types/strapi'
@@ -56,12 +56,18 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
     setNumPages(numPages)
   }
 
+  useEffect(() => {
+    if (!modal) {
+      setPageNumber(1)
+    }
+  }, [modal])
+
   const activeArticle = articles?.data?.find(article => article.id === modal)
 
   useLayoutEffect(() => {
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
-        setWidth(entry?.target?.clientWidth * 0.7)
+        setWidth(entry?.target?.clientWidth * 0.75)
       }
     })
     pdfWrapperRef?.current && resizeObserver.observe(pdfWrapperRef.current)
