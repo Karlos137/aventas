@@ -61,7 +61,7 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
   useLayoutEffect(() => {
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
-        setWidth(entry?.target?.clientWidth * 0.95)
+        setWidth(entry?.target?.clientWidth * 0.7)
       }
     })
     pdfWrapperRef?.current && resizeObserver.observe(pdfWrapperRef.current)
@@ -215,9 +215,10 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
           <BasicModal
             title={activeArticle?.attributes?.heading || ''}
             subtitle={
-              activeArticle?.attributes?.publishedAt
-                ? formatDate(activeArticle?.attributes?.publishedAt)
-                : ''
+              // activeArticle?.attributes?.publishedAt
+              //   ? formatDate(activeArticle?.attributes?.publishedAt)
+              //   : ''
+              ''
             }
             description={pdfContent || articleContent || ''}
             onClose={() => {
