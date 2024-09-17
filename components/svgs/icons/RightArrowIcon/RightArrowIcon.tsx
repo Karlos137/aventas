@@ -8,7 +8,7 @@ const RightArrowIcon = () => {
       viewBox='0 0 25 21'
     >
       <path
-        stroke='#BCA696'
+        stroke='currentColor'
         strokeMiterlimit='10'
         strokeWidth='3'
         d='M13.731 19l8.5-8.5-8.5-8.5M22.23 10.5H0'
