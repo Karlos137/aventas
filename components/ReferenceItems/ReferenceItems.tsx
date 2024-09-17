@@ -31,7 +31,8 @@ const ReferenceItems = ({
 }: ReferenceItemsProps) => {
   const [modal, setModal] = useState<number | null>(null)
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
+    align: 'start',
+    containScroll: 'trimSnaps',
   })
 
   if (!references?.data || references?.data?.length === 0) {
@@ -51,11 +52,10 @@ const ReferenceItems = ({
       <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
         <div className='overflow-hidden' ref={emblaRef}>
           <div
-            className={
-              references.data.length <= 6
-                ? 'flex items-center justify-center gap-12'
-                : 'flex items-center gap-12'
-            }
+            className={twMerge(
+              'flex items-center gap-12',
+              references.data.length <= 6 && '',
+            )}
           >
             {references.data.map((item, i) => {
               if (item.attributes?.href) {
