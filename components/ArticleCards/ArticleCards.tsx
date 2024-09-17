@@ -22,6 +22,9 @@ import { formatDate } from '@/utils/formatDate'
 // React PDF
 import { pdfjs, Document, Page } from 'react-pdf'
 
+// React Markdown
+import Markdown from 'react-markdown'
+
 type ArticleCardsProps = {
   className?: string
   articles: components['schemas']['ArticleListResponse']
@@ -73,6 +76,11 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
       className='flex flex-col items-center justify-center'
       ref={pdfWrapperRef}
     >
+      {activeArticle?.attributes?.content && (
+        <Markdown className='mb-8'>
+          {activeArticle?.attributes?.content}
+        </Markdown>
+      )}
       <Document
         file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
         onLoadSuccess={onDocumentLoadSuccess}
@@ -148,6 +156,10 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
     </div>
   ) : null
 
+  const articleContent = (
+    <Markdown>{activeArticle?.attributes?.content || ''}</Markdown>
+  )
+
   if (!articles?.data || articles?.data?.length === 0) {
     return <></>
   }
@@ -175,7 +187,7 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
                     ? formatDate(article.attributes.publishedAt)
                     : ''
                 }
-                description={article.attributes?.content || ''}
+                description={article.attributes?.perex || ''}
               />
             </a>
           )
@@ -190,7 +202,7 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
                 ? formatDate(article.attributes.publishedAt)
                 : ''
             }
-            description={article.attributes?.content || ''}
+            description={article.attributes?.perex || ''}
             onClick={() => {
               article.id && setModal(article.id)
             }}
@@ -207,7 +219,7 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
                 ? formatDate(activeArticle?.attributes?.publishedAt)
                 : ''
             }
-            description={pdfContent || activeArticle?.attributes?.content || ''}
+            description={pdfContent || articleContent || ''}
             onClose={() => {
               setModal(null)
             }}

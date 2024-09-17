@@ -33,6 +33,9 @@ import { twMerge } from 'tailwind-merge'
 // React PDF
 import { pdfjs, Document, Page } from 'react-pdf'
 
+// React Markdown
+import Markdown from 'react-markdown'
+
 type ArticlesProps = {
   articles: components['schemas']['ArticleListResponse']
   heading?: string
@@ -120,6 +123,11 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
       className='flex flex-col items-center justify-center'
       ref={pdfWrapperRef}
     >
+      {activeArticle?.attributes?.content && (
+        <Markdown className='mb-8'>
+          {activeArticle?.attributes?.content}
+        </Markdown>
+      )}
       <Document
         file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
         onLoadSuccess={onDocumentLoadSuccess}
@@ -195,6 +203,10 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
     </div>
   ) : null
 
+  const articleContent = (
+    <Markdown>{activeArticle?.attributes?.content || ''}</Markdown>
+  )
+
   if (!currentArticles?.data || currentArticles?.data?.length === 0) {
     return <></>
   }
@@ -222,7 +234,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
                       ? formatDate(article.attributes.publishedAt)
                       : ''
                   }
-                  description={article.attributes?.content || ''}
+                  description={article.attributes?.perex || ''}
                 />
               </a>
             )
@@ -237,7 +249,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
                   ? formatDate(article.attributes.publishedAt)
                   : ''
               }
-              description={article.attributes?.content || ''}
+              description={article.attributes?.perex || ''}
               onClick={() => {
                 article.id && setModal(article.id)
               }}
@@ -280,7 +292,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
                 ? formatDate(activeArticle?.attributes?.publishedAt)
                 : ''
             }
-            description={pdfContent || activeArticle?.attributes?.content || ''}
+            description={pdfContent || articleContent || ''}
             onClose={() => {
               setModal(null)
             }}

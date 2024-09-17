@@ -35,7 +35,7 @@ const ArticleCard = ({
       onClick={onClick}
       className='drop-shadow-none-none flex h-[330px] w-full min-w-[280px] flex-col items-start gap-2 bg-white p-5 transition-all duration-300 ease-in-out hover:drop-shadow-custom-blue'
     >
-      <h3 className='text-left text-[1.375rem] font-bold leading-[1.35]'>
+      <h3 className='text-left text-xl font-bold'>
         <div>{title}</div>
         <div className='mt-2 text-xs font-light leading-[0.907rem] tracking-wide'>
           {date}
