@@ -47,7 +47,7 @@ export default function RootLayout({ children, params: { locale } }: Props) {
           <Suspense>
             <GoogleTagManager id={GTM_ID} />
           </Suspense>
-          <div className='flex h-full w-full flex-col'>
+          <div className='flex min-h-full w-full flex-col'>
             <Navbar />
             <main>{children}</main>
             <Footer className='mt-auto' />
