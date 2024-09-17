@@ -16,6 +16,7 @@ import { AnimatePresence } from 'framer-motion'
 
 // Embla carousel
 import useEmblaCarousel from 'embla-carousel-react'
+import { twMerge } from 'tailwind-merge'
 
 type ReferenceItemsProps = {
   className?: string
@@ -29,7 +30,10 @@ const ReferenceItems = ({
   references,
 }: ReferenceItemsProps) => {
   const [modal, setModal] = useState<number | null>(null)
-  const [emblaRef, emblaApi] = useEmblaCarousel({})
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    containScroll: 'trimSnaps',
+  })
 
   if (!references?.data || references?.data?.length === 0) {
     return <></>
@@ -44,71 +48,86 @@ const ReferenceItems = ({
   }, [emblaApi])
 
   return (
-    <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
-      <div className='overflow-hidden' ref={emblaRef}>
-        <div className='flex items-center gap-12'>
-          {references.data.map((item, i) => {
-            if (item.attributes?.href) {
-              return (
-                <a
-                  key={item.id}
-                  href={item.attributes.href}
-                  target='_blank'
-                  rel='noopener norefferer'
-                  className={
-                    'flex h-full min-w-0 flex-[0_0_auto] grow cursor-pointer justify-center transition-transform hover:scale-105'
-                  }
-                >
-                  <ReferenceItem
-                    title={item.attributes?.href || ''}
-                    src={item.attributes?.logo.data?.attributes?.url || ''}
-                  />
-                </a>
-              )
-            }
+    <>
+      <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
+        <div className='overflow-hidden' ref={emblaRef}>
+          <div
+            className={twMerge(
+              'flex items-center gap-12',
+              !emblaApi?.canScrollNext() &&
+                !emblaApi?.canScrollPrev() &&
+                'justify-center',
+            )}
+          >
+            {references.data.map((item, i) => {
+              if (item.attributes?.href) {
+                return (
+                  <a
+                    key={item.id}
+                    href={item.attributes.href}
+                    target='_blank'
+                    rel='noopener norefferer'
+                    className={
+                      'flex h-24 w-24 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-105'
+                    }
+                  >
+                    <ReferenceItem
+                      title={item.attributes?.href || ''}
+                      src={item.attributes?.logo.data?.attributes?.url || ''}
+                    />
+                  </a>
+                )
+              }
 
-            return (
-              <ReferenceItem
-                key={item.id}
-                title={item.attributes?.href || ''}
-                src={item.attributes?.logo.data?.attributes?.url || ''}
-                className={
-                  'flex h-full min-w-0 flex-[0_0_auto] grow cursor-pointer justify-center transition-transform hover:scale-105'
-                }
-                onClick={() => {
-                  setModal(i)
-                }}
-              />
-            )
-          })}
+              return (
+                <ReferenceItem
+                  key={item.id}
+                  title={item.attributes?.href || ''}
+                  src={item.attributes?.logo.data?.attributes?.url || ''}
+                  className={
+                    'flex h-24 w-24 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-105'
+                  }
+                  onClick={() => {
+                    setModal(i)
+                  }}
+                />
+              )
+            })}
+          </div>
         </div>
-        <div className='hidden justify-center gap-16 p-2 lg:flex'>
-          <button
-            className='p-2 duration-300 hover:scale-105 lg:opacity-30'
-            onClick={scrollPrev}
-          >
-            <LeftArrowIcon />
-          </button>
-          <button
-            className='p-2 duration-300 hover:scale-105 lg:opacity-30'
-            onClick={scrollNext}
-          >
-            <RightArrowIcon />
-          </button>
-        </div>
+        <AnimatePresence>
+          {modal !== null && (
+            <BasicModal
+              title={''}
+              description={references.data[modal].attributes?.content || ''}
+              onClose={() => {
+                setModal(null)
+              }}
+            />
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence>
-        {modal !== null && (
-          <BasicModal
-            title={''}
-            description={references.data[modal].attributes?.content || ''}
-            onClose={() => {
-              setModal(null)
-            }}
-          />
-        )}
-      </AnimatePresence>
-    </div>
+      <div className='hidden justify-center gap-8 p-4 lg:flex'>
+        <button
+          className={twMerge(
+            'p-2 text-custom-brown-400 duration-300 hover:scale-105',
+            !emblaApi?.canScrollPrev() && 'opacity-50',
+          )}
+          onClick={scrollPrev}
+        >
+          <LeftArrowIcon />
+        </button>
+        <button
+          className={twMerge(
+            'p-2 text-custom-brown-400 duration-300 hover:scale-105',
+            !emblaApi?.canScrollNext() && 'opacity-50',
+          )}
+          onClick={scrollNext}
+        >
+          <RightArrowIcon />
+        </button>
+      </div>
+    </>
   )
 }
 export default ReferenceItems
