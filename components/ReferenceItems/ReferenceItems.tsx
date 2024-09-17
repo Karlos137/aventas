@@ -54,7 +54,9 @@ const ReferenceItems = ({
           <div
             className={twMerge(
               'flex items-center gap-12',
-              references.data.length <= 6 && '',
+              !emblaApi?.canScrollNext() &&
+                !emblaApi?.canScrollPrev() &&
+                'justify-center',
             )}
           >
             {references.data.map((item, i) => {
