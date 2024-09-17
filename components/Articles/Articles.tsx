@@ -136,7 +136,6 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
       )}
       <object
         data={activeArticle?.attributes?.pdf?.data?.attributes?.url}
-        type='application/pdf'
         width='100%'
         height='760px'
       >
