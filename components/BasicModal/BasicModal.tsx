@@ -33,7 +33,7 @@ const BasicModal = ({
         onClick={onClose}
       />
       <FocusLock>
-        <RemoveScroll>
+        <RemoveScroll allowPinchZoom={true}>
           <motion.div
             initial={{ scale: 0.75, opacity: 0 }}
             animate={{

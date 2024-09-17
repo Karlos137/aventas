@@ -87,7 +87,12 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
           {activeArticle?.attributes?.content}
         </Markdown>
       )}
-      <Document
+      <embed
+        src={activeArticle?.attributes?.pdf?.data?.attributes?.url}
+        width='100%'
+        height='760px'
+      />
+      {/* <Document
         file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
         onLoadSuccess={onDocumentLoadSuccess}
         className='border-2 border-custom-brown-400'
@@ -98,8 +103,8 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
           pageNumber={pageNumber}
           width={width || undefined}
         />
-      </Document>
-      <div className='mt-4 flex items-center justify-between gap-8'>
+      </Document> */}
+      {/* <div className='mt-4 flex items-center justify-between gap-8'>
         <div>
           {pageNumber} / {numPages}
         </div>
@@ -147,7 +152,7 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
             &gt;
           </button>
         </div>
-      </div>
+      </div> */}
       <div className='mt-4 flex justify-center text-center'>
         <a
           href={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
