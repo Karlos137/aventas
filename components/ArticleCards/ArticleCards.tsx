@@ -87,11 +87,20 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
           {activeArticle?.attributes?.content}
         </Markdown>
       )}
-      <embed
-        src={activeArticle?.attributes?.pdf?.data?.attributes?.url}
+
+      <object
+        data={activeArticle?.attributes?.pdf?.data?.attributes?.url}
+        type='application/pdf'
         width='100%'
         height='760px'
-      />
+      >
+        <p>
+          Your web browser doesnt have a PDF plugin. Instead you can{' '}
+          <a href={activeArticle?.attributes?.pdf?.data?.attributes?.url}>
+            click here to download the PDF file.
+          </a>
+        </p>
+      </object>
       {/* <Document
         file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
         onLoadSuccess={onDocumentLoadSuccess}
