@@ -50,7 +50,7 @@ const ReferenceItems = ({
           <div
             className={
               references.data.length <= 6
-                ? 'flex items-center gap-12 md:justify-center'
+                ? 'flex items-center justify-center gap-12'
                 : 'flex items-center gap-12'
             }
           >
@@ -63,7 +63,7 @@ const ReferenceItems = ({
                     target='_blank'
                     rel='noopener norefferer'
                     className={
-                      'flex h-full min-w-0 flex-[0_0_auto] cursor-pointer justify-center transition-transform hover:scale-105'
+                      'flex h-24 w-24 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-105'
                     }
                   >
                     <ReferenceItem
@@ -80,7 +80,7 @@ const ReferenceItems = ({
                   title={item.attributes?.href || ''}
                   src={item.attributes?.logo.data?.attributes?.url || ''}
                   className={
-                    'flex h-full min-w-0 flex-[0_0_auto] cursor-pointer justify-center transition-transform hover:scale-105'
+                    'flex h-24 w-24 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-105'
                   }
                   onClick={() => {
                     setModal(i)
@@ -104,13 +104,13 @@ const ReferenceItems = ({
       </div>
       <div className='hidden justify-center gap-16 p-4 lg:flex'>
         <button
-          className='p-2 duration-300 hover:scale-105 lg:opacity-30'
+          className='p-2 duration-300 hover:scale-105'
           onClick={scrollPrev}
         >
           <LeftArrowIcon />
         </button>
         <button
-          className='p-2 duration-300 hover:scale-105 lg:opacity-30'
+          className='p-2 duration-300 hover:scale-105'
           onClick={scrollNext}
         >
           <RightArrowIcon />
