@@ -16,6 +16,7 @@ import { AnimatePresence } from 'framer-motion'
 
 // Embla carousel
 import useEmblaCarousel from 'embla-carousel-react'
+import { twMerge } from 'tailwind-merge'
 
 type ReferenceItemsProps = {
   className?: string
@@ -29,7 +30,9 @@ const ReferenceItems = ({
   references,
 }: ReferenceItemsProps) => {
   const [modal, setModal] = useState<number | null>(null)
-  const [emblaRef, emblaApi] = useEmblaCarousel({})
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+  })
 
   if (!references?.data || references?.data?.length === 0) {
     return <></>
@@ -102,15 +105,21 @@ const ReferenceItems = ({
           )}
         </AnimatePresence>
       </div>
-      <div className='hidden justify-center gap-16 p-4 lg:flex'>
+      <div className='hidden justify-center gap-8 p-4 lg:flex'>
         <button
-          className='p-2 duration-300 hover:scale-105'
+          className={twMerge(
+            'p-2 text-custom-brown-400 duration-300 hover:scale-105',
+            !emblaApi?.canScrollPrev() && 'opacity-50',
+          )}
           onClick={scrollPrev}
         >
           <LeftArrowIcon />
         </button>
         <button
-          className='p-2 duration-300 hover:scale-105'
+          className={twMerge(
+            'p-2 text-custom-brown-400 duration-300 hover:scale-105',
+            !emblaApi?.canScrollNext() && 'opacity-50',
+          )}
           onClick={scrollNext}
         >
           <RightArrowIcon />
