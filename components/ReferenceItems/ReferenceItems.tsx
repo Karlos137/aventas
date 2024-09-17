@@ -30,9 +30,7 @@ const ReferenceItems = ({
   references,
 }: ReferenceItemsProps) => {
   const [modal, setModal] = useState<number | null>(null)
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    dragFree: true,
-  })
+  const [emblaRef, emblaApi] = useEmblaCarousel({})
 
   if (!references?.data || references?.data?.length === 0) {
     return <></>
@@ -53,9 +51,8 @@ const ReferenceItems = ({
           <div
             className={twMerge(
               'flex items-center gap-12',
-              !emblaApi?.canScrollNext() &&
-                !emblaApi?.canScrollPrev() &&
-                'justify-center',
+              (!emblaApi?.canScrollNext() || !emblaApi?.canScrollPrev()) &&
+                'md:justify-center',
             )}
           >
             {references.data.map((item, i) => {
