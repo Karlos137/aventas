@@ -87,12 +87,11 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
           {activeArticle?.attributes?.content}
         </Markdown>
       )}
-
       <object
         data={activeArticle?.attributes?.pdf?.data?.attributes?.url}
-        type='application/pdf'
         width='100%'
         height='760px'
+        className='hidden lg:block'
       >
         <p>
           Your web browser doesnt have a PDF plugin. Instead you can{' '}
@@ -101,10 +100,10 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
           </a>
         </p>
       </object>
-      {/* <Document
+      <Document
         file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
         onLoadSuccess={onDocumentLoadSuccess}
-        className='border-2 border-custom-brown-400'
+        className='border-2 border-custom-brown-400 lg:hidden'
       >
         <Page
           renderTextLayer={false}
@@ -112,8 +111,8 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
           pageNumber={pageNumber}
           width={width || undefined}
         />
-      </Document> */}
-      {/* <div className='mt-4 flex items-center justify-between gap-8'>
+      </Document>
+      <div className='mt-4 flex items-center justify-between gap-8 lg:hidden'>
         <div>
           {pageNumber} / {numPages}
         </div>
@@ -161,7 +160,7 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
             &gt;
           </button>
         </div>
-      </div> */}
+      </div>
       <div className='mt-4 flex justify-center text-center'>
         <a
           href={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}

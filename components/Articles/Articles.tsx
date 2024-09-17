@@ -138,6 +138,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
         data={activeArticle?.attributes?.pdf?.data?.attributes?.url}
         width='100%'
         height='760px'
+        className='hidden lg:block'
       >
         <p>
           Your web browser doesnt have a PDF plugin. Instead you can{' '}
@@ -146,10 +147,10 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
           </a>
         </p>
       </object>
-      {/* <Document
+      <Document
         file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
         onLoadSuccess={onDocumentLoadSuccess}
-        className='border-2 border-custom-brown-400'
+        className='border-2 border-custom-brown-400 lg:hidden'
       >
         <Page
           renderTextLayer={false}
@@ -157,8 +158,8 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
           pageNumber={pageNumber}
           width={width || undefined}
         />
-      </Document> */}
-      {/* <div className='mt-4 flex items-center justify-between gap-8'>
+      </Document>
+      <div className='mt-4 flex items-center justify-between gap-8 lg:hidden'>
         <div>
           {pageNumber} / {numPages}
         </div>
@@ -206,7 +207,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
             &gt;
           </button>
         </div>
-      </div> */}
+      </div>
       <div className='mt-4 flex justify-center text-center'>
         <a
           href={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
