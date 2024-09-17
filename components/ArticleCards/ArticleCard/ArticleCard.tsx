@@ -19,12 +19,7 @@ type ArticleCardProps = {
   onClick?: () => void
 }
 
-const ArticleCard = ({
-  title,
-  date,
-  description,
-  onClick,
-}: ArticleCardProps) => {
+const ArticleCard = ({ title, description, onClick }: ArticleCardProps) => {
   const [hover, setHover] = useState(false)
   const t = useTranslations('Specialization')
 
@@ -37,9 +32,9 @@ const ArticleCard = ({
     >
       <h3 className='text-left text-xl font-bold'>
         <div>{title}</div>
-        <div className='mt-2 text-xs font-light leading-[0.907rem] tracking-wide'>
+        {/* <div className='mt-2 text-xs font-light leading-[0.907rem] tracking-wide'>
           {date}
-        </div>
+        </div> */}
       </h3>
       <div className='text-left text-base font-normal leading-5 tracking-wide text-black'>
         {description.length > 100
