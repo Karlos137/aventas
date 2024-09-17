@@ -31,8 +31,7 @@ const ReferenceItems = ({
 }: ReferenceItemsProps) => {
   const [modal, setModal] = useState<number | null>(null)
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    containScroll: 'trimSnaps',
+    dragFree: true,
   })
 
   if (!references?.data || references?.data?.length === 0) {
