@@ -67,7 +67,7 @@ const ArticleCards = ({ className, articles }: ArticleCardsProps) => {
   useLayoutEffect(() => {
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
-        setWidth(entry?.target?.clientWidth * 0.95)
+        setWidth(entry?.target?.clientWidth * 0.9)
       }
     })
     pdfWrapperRef?.current && resizeObserver.observe(pdfWrapperRef.current)
