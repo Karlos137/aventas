@@ -134,23 +134,11 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
           {activeArticle?.attributes?.content}
         </Markdown>
       )}
-      <object
-        data={activeArticle?.attributes?.pdf?.data?.attributes?.url}
-        width='100%'
-        height='760px'
-        className='hidden lg:block'
-      >
-        <p>
-          Your web browser doesnt have a PDF plugin. Instead you can{' '}
-          <a href={activeArticle?.attributes?.pdf?.data?.attributes?.url}>
-            click here to download the PDF file.
-          </a>
-        </p>
-      </object>
+
       <Document
         file={activeArticle?.attributes?.pdf?.data?.attributes?.url || ''}
         onLoadSuccess={onDocumentLoadSuccess}
-        className='border-2 border-custom-brown-400 lg:hidden'
+        className='border-2 border-custom-brown-400'
       >
         <Page
           renderTextLayer={false}
@@ -159,7 +147,7 @@ const Articles = ({ articles, heading }: ArticlesProps) => {
           width={width || undefined}
         />
       </Document>
-      <div className='mt-4 flex items-center justify-between gap-8 lg:hidden'>
+      <div className='mt-4 flex items-center justify-between gap-8'>
         <div>
           {pageNumber} / {numPages}
         </div>
