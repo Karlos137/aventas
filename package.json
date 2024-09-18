@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@magicul/next-google-tag-manager": "^2.0.0",
+    "@uidotdev/usehooks": "^2.4.1",
     "dayjs": "^1.11.13",
     "embla-carousel-react": "^8.2.0",
     "framer-motion": "^11.3.31",
