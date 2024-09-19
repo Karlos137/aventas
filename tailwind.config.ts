@@ -9,20 +9,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'custom-brown': {
-          300: 'hsl(25 22% 66%)',
-          400: 'hsl(25 22% 60%)', // #BCA696
-          600: 'hsl(28 11% 42%)', // #776A5F
+        'eudiw-red': {
+          500: '#F67875',
         },
-        'custom-blue': {
-          800: 'hsl(217 58% 17%)', // #122544
+        'eudiw-yellow': {
+          500: '#FFE998',
         },
-        'custom-gray': {
-          800: 'hsl(213 100% 10%)', // #303A42
+        'eudiw-purple': {
+          500: '#D4BDEC',
         },
-      },
-      dropShadow: {
-        'custom-blue': '0 4px 6px rgba(0, 147, 255, 0.20)',
+        'eudiw-blue': {
+          200: '#D1DEFF',
+          300: '#ABC3FF',
+          500: '#2B5ED9',
+        },
+        'eudiw-green': {
+          500: '#DCF2CC',
+        },
+        'dia-green': {
+          500: '#46AD48',
+          700: '#207315',
+        },
+        'dia-gray': {
+          300: '#F5F5F5',
+        },
       },
     },
   },
