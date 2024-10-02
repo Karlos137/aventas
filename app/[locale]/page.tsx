@@ -86,7 +86,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
         <SpecializationSection
           heading={specializations?.heading || ''}
           content={specializationList}
-          className='mt-12 scroll-mt-32 lg:scroll-mt-0'
+          className='mt-12 scroll-mt-32'
         />
       )}
       {teamMembersList?.data && teamMembersList?.data?.length > 0 && (
@@ -101,7 +101,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
           <CollaboratingSubjectsSection
             heading={collaboratingSubjects?.heading || ''}
             collabs={collaboratingSubjectsList}
-            className='scroll-mt-32 pt-20 lg:scroll-mt-0'
+            className='scroll-mt-32 pt-20 lg:scroll-mt-16'
           />
         )}
       {referencesList?.data && referencesList?.data?.length > 0 && (

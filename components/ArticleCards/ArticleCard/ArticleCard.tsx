@@ -37,8 +37,8 @@ const ArticleCard = ({ title, description, onClick }: ArticleCardProps) => {
         </div> */}
       </h3>
       <div className='text-left text-base font-normal leading-5 tracking-wide text-black'>
-        {description.length > 100
-          ? `${description.substring(0, 100)}...`
+        {description.length > 180
+          ? `${description.substring(0, 180)}...`
           : description}
       </div>
       <div className='mt-auto flex w-full items-center justify-center gap-3'>
