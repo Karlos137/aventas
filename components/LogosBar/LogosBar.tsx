@@ -22,7 +22,7 @@ const LogosBar = ({ logos }: LogosBarProps) => {
             href={logo.attributes?.href}
             rel='noopener norefferer'
             target='_blank'
-            className='relative block h-24 w-24 scale-100 cursor-pointer transition-transform hover:scale-105'
+            className='relative block size-28 scale-100 cursor-pointer transition-transform hover:scale-105 lg:size-32'
           >
             <Image
               alt={

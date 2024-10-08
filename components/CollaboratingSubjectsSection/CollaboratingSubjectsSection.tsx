@@ -31,7 +31,7 @@ const CollaboratingSubjectsSection = ({
       id='spolupracujici-subjekty'
       className={twMerge('mx-auto max-w-[1408px] px-7 lg:px-12', className)}
     >
-      <SectionTitle className='mb-5 text-center text-2xl lg:text-2xl'>
+      <SectionTitle className='text-center md:mb-12'>
         {heading ? (
           heading
         ) : (

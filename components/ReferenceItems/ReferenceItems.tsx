@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 // React
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 
 // Types
 import { components } from '@/types/strapi'
@@ -29,8 +29,13 @@ const ReferenceItems = ({
   heading,
   references,
 }: ReferenceItemsProps) => {
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
   const [modal, setModal] = useState<number | null>(null)
-  const [emblaRef, emblaApi] = useEmblaCarousel({})
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    slidesToScroll: 1,
+  })
 
   if (!references?.data || references?.data?.length === 0) {
     return <></>
@@ -44,17 +49,23 @@ const ReferenceItems = ({
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
+  const onSelect = useCallback((emblaApi: any) => {
+    setPrevBtnDisabled(!emblaApi.canScrollPrev())
+    setNextBtnDisabled(!emblaApi.canScrollNext())
+  }, [])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    onSelect(emblaApi)
+    emblaApi.on('reInit', onSelect).on('select', onSelect)
+  }, [emblaApi, onSelect])
+
   return (
     <>
-      <div className='border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:py-1'>
+      <div className='grid grid-cols-1 items-center gap-8 border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:grid-cols-[1fr,_75px] lg:py-1'>
         <div className='overflow-hidden' ref={emblaRef}>
-          <div
-            className={twMerge(
-              'flex items-center gap-12',
-              (!emblaApi?.canScrollNext() || !emblaApi?.canScrollPrev()) &&
-                'md:justify-center',
-            )}
-          >
+          <div className={twMerge('flex items-center gap-12')}>
             {references.data.map((item, i) => {
               if (item.attributes?.href) {
                 return (
@@ -64,7 +75,7 @@ const ReferenceItems = ({
                     target='_blank'
                     rel='noopener norefferer'
                     className={
-                      'flex h-24 w-24 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-105'
+                      'flex size-28 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-105 lg:size-32'
                     }
                   >
                     <ReferenceItem
@@ -91,6 +102,26 @@ const ReferenceItems = ({
             })}
           </div>
         </div>
+        <div className='hidden shrink-0 items-center gap-4 p-4 lg:flex lg:flex-col'>
+          <button
+            className={twMerge(
+              'p-2 text-custom-brown-400 duration-300 hover:scale-105',
+              prevBtnDisabled && 'opacity-50',
+            )}
+            onClick={scrollPrev}
+          >
+            <LeftArrowIcon />
+          </button>
+          <button
+            className={twMerge(
+              'p-2 text-custom-brown-400 duration-300 hover:scale-105',
+              nextBtnDisabled && 'opacity-50',
+            )}
+            onClick={scrollNext}
+          >
+            <RightArrowIcon />
+          </button>
+        </div>
         <AnimatePresence>
           {modal !== null && (
             <BasicModal
@@ -102,26 +133,6 @@ const ReferenceItems = ({
             />
           )}
         </AnimatePresence>
-      </div>
-      <div className='hidden justify-center gap-8 p-4 lg:flex'>
-        <button
-          className={twMerge(
-            'p-2 text-custom-brown-400 duration-300 hover:scale-105',
-            !emblaApi?.canScrollPrev() && 'opacity-50',
-          )}
-          onClick={scrollPrev}
-        >
-          <LeftArrowIcon />
-        </button>
-        <button
-          className={twMerge(
-            'p-2 text-custom-brown-400 duration-300 hover:scale-105',
-            !emblaApi?.canScrollNext() && 'opacity-50',
-          )}
-          onClick={scrollNext}
-        >
-          <RightArrowIcon />
-        </button>
       </div>
     </>
   )

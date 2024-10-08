@@ -32,24 +32,28 @@ export const MAIN_LINKS_EN = [
   {
     id: 1,
     title: 'About us',
-    href: '/#o-nas',
+    href: '/en#o-nas',
   },
-  { id: 2, title: 'News and articles', href: '/clanky' },
+  { id: 2, title: 'News and articles', href: '/en/articles' },
   {
     id: 3,
     title: 'Specialization',
-    href: '/#specializace',
+    href: '/en#specializace',
   },
   {
     id: 4,
     title: 'Our team',
-    href: '/#nas-tym',
+    href: '/en#nas-tym',
   },
-  { id: 5, title: 'Collaborating entities', href: '/#spolupracujici-subjekty' },
-  { id: 6, title: 'References', href: '/#reference' },
+  {
+    id: 5,
+    title: 'Collaborating entities',
+    href: '/en#spolupracujici-subjekty',
+  },
+  { id: 6, title: 'References', href: '/en#reference' },
   {
     id: 7,
     title: 'Contact',
-    href: '/#kontakt',
+    href: '/en#kontakt',
   },
 ]
