@@ -1,6 +1,9 @@
 // Next.js
 import Image from 'next/image'
 
+// Tailwind Merge
+import { twMerge } from 'tailwind-merge'
+
 type ReferenceItemProps = {
   title: string
   onClick?: () => void
@@ -15,8 +18,17 @@ const ReferenceItem = ({
   className,
 }: ReferenceItemProps) => {
   return (
-    <div onClick={onClick} title={title} className={className}>
-      <Image src={src} alt='ČSOB Advisory logo' width={94} height={101} />
+    <div
+      onClick={onClick}
+      title={title}
+      className={twMerge('relative h-full w-full', className)}
+    >
+      <Image
+        src={src}
+        alt={title}
+        fill={true}
+        className='object-contain object-center'
+      />
     </div>
   )
 }
