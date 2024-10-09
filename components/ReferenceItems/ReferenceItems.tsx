@@ -63,7 +63,18 @@ const ReferenceItems = ({
 
   return (
     <>
-      <div className='grid grid-cols-1 items-center gap-8 border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:grid-cols-[1fr,_75px] lg:py-1'>
+      <div className='grid grid-cols-1 items-center gap-8 border-b border-t border-b-custom-gray-800 border-t-custom-gray-800 py-3 lg:grid-cols-[48px_1fr,_48px] lg:py-1'>
+        <div className='hidden w-12 shrink-0 lg:block'>
+          <button
+            className={twMerge(
+              'p-2 text-custom-brown-400 duration-300 hover:scale-105',
+              prevBtnDisabled && 'opacity-50',
+            )}
+            onClick={scrollPrev}
+          >
+            <LeftArrowIcon />
+          </button>
+        </div>
         <div className='overflow-hidden' ref={emblaRef}>
           <div className={twMerge('flex items-center gap-12')}>
             {references.data.map((item, i) => {
@@ -102,16 +113,7 @@ const ReferenceItems = ({
             })}
           </div>
         </div>
-        <div className='hidden shrink-0 items-center gap-4 p-4 lg:flex lg:flex-col'>
-          <button
-            className={twMerge(
-              'p-2 text-custom-brown-400 duration-300 hover:scale-105',
-              prevBtnDisabled && 'opacity-50',
-            )}
-            onClick={scrollPrev}
-          >
-            <LeftArrowIcon />
-          </button>
+        <div className='hidden w-12 shrink-0 lg:block'>
           <button
             className={twMerge(
               'p-2 text-custom-brown-400 duration-300 hover:scale-105',
