@@ -86,7 +86,7 @@ const ReferenceItems = ({
                     target='_blank'
                     rel='noopener norefferer'
                     className={
-                      'flex size-28 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-105 lg:size-32'
+                      'flex size-48 min-w-0 flex-[0_0_auto] cursor-pointer items-center justify-center transition-transform hover:scale-[1.02] lg:size-56'
                     }
                   >
                     <ReferenceItem
