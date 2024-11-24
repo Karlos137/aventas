@@ -2560,6 +2560,7 @@ export interface components {
       /** @example string or id */
       logo: number | string
       content?: string
+      rank?: number
       locale: string
     }
     ReferenceRequest: {
@@ -2568,6 +2569,7 @@ export interface components {
         /** @example string or id */
         logo: number | string
         content?: string
+        rank?: number
         locale?: string
       }
     }
@@ -2839,6 +2841,7 @@ export interface components {
         }
       }
       content?: string
+      rank?: number
       /** Format: date-time */
       createdAt?: string
       /** Format: date-time */

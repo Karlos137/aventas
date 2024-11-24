@@ -1,6 +1,9 @@
 // React Focus Lock
 import FocusLock from 'react-focus-lock'
 
+// React
+import { ReactNode } from 'react'
+
 // Framer Motion
 import { motion } from 'framer-motion'
 
@@ -10,10 +13,13 @@ import { useLockBodyScroll } from '@uidotdev/usehooks'
 // React components
 import CloseIcon from '@/components/svgs/icons/CloseIcon'
 
+// React Markdown
+import Markdown from 'react-markdown'
+
 type BasicModalProps = {
   title: string
   subtitle?: string
-  description: React.ReactNode
+  description: ReactNode
   onClose: () => void
 }
 
@@ -70,7 +76,15 @@ const BasicModal = ({
             )}
           </h3>
           <div className='prose mx-auto max-h-[60vh] w-[1100px] max-w-[85%]'>
-            <div className='pb-8'>{description}</div>
+            {description && (
+              <div className='pb-8'>
+                {typeof description === 'string' ? (
+                  <Markdown>{description}</Markdown>
+                ) : (
+                  description
+                )}
+              </div>
+            )}
           </div>
         </motion.div>
       </FocusLock>
