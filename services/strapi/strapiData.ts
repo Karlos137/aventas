@@ -70,6 +70,7 @@ export const getSpecializations = async (locale: string) => {
 export const getReferences = async (locale: string) => {
   const res = await fetchStrapi('/references', {
     populate: ['content', 'logo'],
+    sort: 'rank:asc',
     locale,
   })
 
