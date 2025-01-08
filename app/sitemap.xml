@@ -1,13 +1,8 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aventas.cz</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://aventas.cz"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aventas.cz/en"/>
   </url>
   <url>
     <loc>https://aventas.cz/clanky</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://aventas.cz/clanky"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aventas.cz/en/articles"/>
   </url>
 </urlset>
